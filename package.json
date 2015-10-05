@@ -1,0 +1,40 @@
+{
+  "name": "riek",
+  "version": "1.0.0",
+  "description": "React In-Place Edit Kit",
+  "author": "Kai Vik <kvi@ieee.org>",
+  "license": "MIT",
+  "private": true,
+  "main": "lib/index.js",
+  "keywords": [
+    "react",
+    "in-place",
+    "edit",
+    "editor",
+    "inplace",
+    "inline"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build",
+    "build-lib": "rm -rf lib/*; babel src --stage 0 --out-dir lib",
+    "build-demo": "rm demo/demo.js; webpack",
+    "build": "npm run build-lib && npm run build-demo"
+  },
+  "peerDependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "5.6.12",
+    "babel-eslint": "3.1.23",
+    "eslint": "0.24.0"
+  },
+  "dependencies": {
+    "babel-loader": "^5.3.1",
+    "babel-runtime": "5.6.12",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.10.1"
+  }
+}

@@ -1,0 +1,94 @@
+html, body, input {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu, .content {
+    padding: 0 15px 0 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+html, body, input {
+    font-size: 16px;
+}
+
+input, span {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    border: none;
+}
+
+.invalid {
+    outline-color: orangered !important;
+}
+
+.editable {
+    background-color: yellow;
+}
+
+.loading {
+    color: grey;
+    font-style: italic;
+    cursor: wait;
+}
+
+.tags.loading > div {
+    background-color: grey;
+    color: white;
+}
+
+.editable-pill {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+}
+
+.fifty {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.menu {
+    border-bottom: 1px black solid;
+}
+
+.tags, .tags div {
+    display: inline-block;
+}
+
+.tags > div {
+    padding-left: 5px;
+    margin: 0 3px 0 0;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.tags > div > div {
+    padding: 0 3px 0 0;
+}
+
+.tags input {
+    background-color: transparent;
+}
+
+.remove {
+    padding-right: 2px;
+    margin-left: 8px;
+    cursor: pointer;
+}
