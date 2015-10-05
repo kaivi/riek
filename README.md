@@ -31,9 +31,7 @@ Check out the the demo for examples.
 
 `className`:`string`:*default ``* Default CSS class
 
-# TODO: Finish the rest
-
-###Component specific props
+##Components and component-specific props
 ####RIEInput
 ####RIETextarea
 ####RIEToggle
@@ -41,5 +39,3 @@ Check out the the demo for examples.
 ####RIETagsToggle
 ####RIENumber
 `format`:`function` custom formatting function, returns formatted string
-####RIEDate
-####RIEDateTime
