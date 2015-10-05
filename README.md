@@ -12,13 +12,21 @@ See the /demo/src for examples.
 #Common protocol
 ###Common props
 `value`:`text|number|bool|object`:**required** initial prop value
+
 `change`:`function`:**required** which will receive an object with changed prop
+
 `propName`:`text`:**required** prop name to be returned inside `change()` like `{propName: 'new value'}`
+
 `doValidations`:`function`:*default `undefined`* custom boolean data validation function
+
 `shouldBlockWhileLoading`:`bool`:*default `true`* if `true`, disables editing until a new value is confirmed by parent
+
 `classLoading`:`string`:*default ``* Apply CSS class while changes are not yet updated
+
 `classEditing`:`string`:*default ``* Apply CSS class while in editing mode
+
 `classInvalid`:`string`:*default ``* Apply CSS class on failed validation
+
 `className`:`string`:*default ``* Default CSS class
 
 ###Component specific props
