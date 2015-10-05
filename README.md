@@ -1,16 +1,18 @@
 #React Inline Edit Kit
-This kit aims to provide an assortment of components for most common HTML elements, editable in-line the React way.
+This project aims to provide an assortment of common HTML form elements, editable in-line the React way.
 
-Here be animations.
+#How it works
+See `./demo/src/demo.js` for introduction. Do `npm run build-demo` to save changes.
+
+#Here be animations.
 
 #Usage
 `npm install riek --save-dev`
 `import {RIEText, RIEToggle, RIETags} from 'riek'`
 
-See the /demo/src for examples.
+Check out the the demo for examples.
 
-#Common protocol
-###Common props
+##Common props
 `value`:`text|number|bool|object`:**required** initial prop value
 
 `change`:`function`:**required** which will receive an object with changed prop
@@ -29,9 +31,10 @@ See the /demo/src for examples.
 
 `className`:`string`:*default ``* Default CSS class
 
+# TODO: Finish the rest
+
 ###Component specific props
 ####RIEInput
-
 ####RIETextarea
 ####RIEToggle
 ####RIETags
@@ -40,18 +43,3 @@ See the /demo/src for examples.
 `format`:`function` custom formatting function, returns formatted string
 ####RIEDate
 ####RIEDateTime
-
-#Practical application
-One would usually want to use these components in order to instantly update parts of a server object. For that to work, you should merge the newly changed prop with your object's unique ID somewhere before sending data to server, and implement an API which validates and persists your changes.
-
-#Components specification
-##RIEInput
-##RIETextarea
-##RIEToggle
-`textTrue`:`string`:*default `yes`*
-`textFalse`:`string`:*default `no`*
-##RIETags
-##RIETagsToggle
-##RIENumber
-##RIEDate
-##RIEDateTime
