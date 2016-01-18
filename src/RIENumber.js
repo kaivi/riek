@@ -31,5 +31,5 @@ export default class RIENumber extends RIEStatefulBase {
                       onBlur={this.finishEditing}
                       ref="input"
                       onKeyDown={this.keyDown} />;
-    }
+    };
 }

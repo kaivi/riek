@@ -1,10 +1,13 @@
 {
   "name": "riek",
   "version": "1.0.0",
-  "description": "React In-Place Edit Kit",
+  "description": "React Inline Edit Kit",
   "author": "Kai Vik <kvi@ieee.org>",
   "license": "MIT",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaivi/riek.git"
+  },
   "main": "lib/index.js",
   "keywords": [
     "react",
@@ -15,26 +18,25 @@
     "inline"
   ],
   "scripts": {
-    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build",
-    "build-lib": "rm -rf lib/*; babel src --stage 0 --out-dir lib",
-    "build-demo": "rm demo/demo.js; webpack",
+    "build-lib": "rm -rf lib/*; babel src --out-dir lib",
+    "build-demo": "rm demo/demo.js; webpack demo/demo.jsx demo/demo.js",
     "build": "npm run build-lib && npm run build-demo"
   },
   "peerDependencies": {
-    "react": "^0.13.3"
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   },
   "devDependencies": {
-    "babel": "^5.6.14",
-    "babel-core": "5.6.12",
-    "babel-eslint": "3.1.23",
-    "eslint": "0.24.0"
-  },
-  "dependencies": {
-    "babel-loader": "^5.3.1",
-    "babel-runtime": "5.6.12",
-    "node-libs-browser": "^0.5.2",
-    "webpack": "^1.10.1"
+    "babel-cli": "^6.4.0",
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-1": "^6.3.13",
+    "highlight.js": "^9.1.0",
+    "react-highlight": "^0.6.1",
+    "webpack": "^1.12.11"
   }
 }

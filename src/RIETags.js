@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RIEStatefulBase from './RIEStatefulBase';
 
 class RIETag extends React.Component {
@@ -18,7 +19,7 @@ class RIETag extends React.Component {
 
     render = () => {
         return  <div key={this.props.text}>{this.props.text}<div onClick={this.remove} className={this.props.className || "remove"}> × </div></div>;
-    }
+    };
 }
 
 export default class RIETags extends RIEStatefulBase {
@@ -29,7 +30,7 @@ export default class RIETags extends RIEStatefulBase {
         this.state.blurTimer = null;
     }
 
-    static propTypes = {
+    static propTyes = {
         value: React.PropTypes.object.isRequired,
         maxTags: React.PropTypes.number,
         minTags: React.PropTypes.number,
@@ -89,7 +90,7 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     componentDidUpdate = (prevProps, prevState) => {
-        var inputElem = React.findDOMNode(this.refs.input);
+        var inputElem = ReactDOM.findDOMNode(this.refs.input);
         if (this.state.editing) {
             inputElem.focus();
         }

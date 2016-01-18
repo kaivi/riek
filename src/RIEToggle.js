@@ -22,5 +22,5 @@ export default class RIEToggle extends RIEBase {
             className={this.makeClassString()}>
             {valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
         </span>;
-    }
+    };
 }

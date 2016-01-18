@@ -73,7 +73,7 @@ export default class RIEBase extends React.Component {
 
     render = () => {
         return <span tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
-    }
+    };
 }
 
 
