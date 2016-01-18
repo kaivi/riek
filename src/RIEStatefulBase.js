@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RIEBase from './RIEBase';
 
 export default class RIEStatefulBase extends RIEBase {
@@ -11,7 +12,7 @@ export default class RIEStatefulBase extends RIEBase {
     };
 
     finishEditing = () => {
-        let newValue = React.findDOMNode(this.refs.input).value;
+        let newValue = ReactDOM.findDOMNode(this.refs.input).value;
         this.doValidations(newValue);
         if(!this.state.invalid && this.props.value !== newValue) {
             this.commit(newValue);
@@ -34,7 +35,7 @@ export default class RIEStatefulBase extends RIEBase {
     };
 
     componentDidUpdate = (prevProps, prevState) => {
-        var inputElem = React.findDOMNode(this.refs.input);
+        var inputElem = ReactDOM.findDOMNode(this.refs.input);
         if (this.state.editing && !prevState.editing) {
             inputElem.focus();
             this.selectInputText(inputElem);
@@ -77,5 +78,5 @@ export default class RIEStatefulBase extends RIEBase {
         } else {
             return this.renderNormalComponent();
         }
-    }
+    };
 }
