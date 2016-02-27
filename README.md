@@ -1,41 +1,33 @@
 #React Inline Edit Kit
-This project aims to provide an assortment of common HTML form elements, editable in-line the React way.
+An assortment of common HTML form elements, editable in-line the React way.
 
-#How it works
-See `./demo/src/demo.js` for introduction. Do `npm run build-demo` to save changes.
+Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
-#Here be animations.
+#Installation
+`npm install riek --save-dev`
 
 #Usage
-`npm install riek --save-dev`
-`import {RIEText, RIEToggle, RIETags} from 'riek'`
-
-Check out the the demo for examples.
+```javascript
+import {RIEToggle, RIEInput, RIENumber, RIETags} from 'riek'
+```
+See /demo/src/demo.js for examples.
 
 ##Common props
-`value`:`text|number|bool|object`:**required** initial prop value
 
-`change`:`function`:**required** which will receive an object with changed prop
+###Required
+* **value**: initial prop value
+* **propName**: name of the prop to return to the _change_ function
+* **change**: function which will receive a plain object with a single key, provided in _propName_
 
-`propName`:`text`:**required** prop name to be returned inside `change()` like `{propName: 'new value'}`
+###Optional
+* **doValidations**: validator function, returning a boolean
+* **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
+* **classLoading**: CSS class name to use when loading
+* **classEditing**: CSS class name to apply while in editing mode
+* **classInvalid**: CSS class name to apply when _doValidatoon_ returned false
+* **className**: CSS base class
 
-`doValidations`:`function`:*default `undefined`* custom boolean data validation function
+###Component-specific props
 
-`shouldBlockWhileLoading`:`bool`:*default `true`* if `true`, disables editing until a new value is confirmed by parent
-
-`classLoading`:`string`:*default ``* Apply CSS class while changes are not yet updated
-
-`classEditing`:`string`:*default ``* Apply CSS class while in editing mode
-
-`classInvalid`:`string`:*default ``* Apply CSS class on failed validation
-
-`className`:`string`:*default ``* Default CSS class
-
-##Components and component-specific props
-####RIEInput
-####RIETextarea
-####RIEToggle
-####RIETags
-####RIETagsToggle
 ####RIENumber
-`format`:`function` custom formatting function, returns formatted string
+* **format**: custom formatting function, returns formatted string
