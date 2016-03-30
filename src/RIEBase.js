@@ -32,10 +32,8 @@ export default class RIEBase extends React.Component {
 
     doValidations = (value) => {
         if(this.props.validate) {
-            console.log('doing validations from props');
             this.setState({invalid: !this.props.validate(value)});
         } else if (this.validate) {
-            console.log('doing default valudations');
             this.setState({invalid: !this.validate(value)});
         }
     };

@@ -58,7 +58,7 @@
 
 	var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
 
-	var _index = __webpack_require__(153);
+	var _index = __webpack_require__(157);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -499,123 +499,127 @@
 	hljs.registerLanguage('crmsh', __webpack_require__(33));
 	hljs.registerLanguage('crystal', __webpack_require__(34));
 	hljs.registerLanguage('cs', __webpack_require__(35));
-	hljs.registerLanguage('css', __webpack_require__(36));
-	hljs.registerLanguage('d', __webpack_require__(37));
-	hljs.registerLanguage('markdown', __webpack_require__(38));
-	hljs.registerLanguage('dart', __webpack_require__(39));
-	hljs.registerLanguage('delphi', __webpack_require__(40));
-	hljs.registerLanguage('diff', __webpack_require__(41));
-	hljs.registerLanguage('django', __webpack_require__(42));
-	hljs.registerLanguage('dns', __webpack_require__(43));
-	hljs.registerLanguage('dockerfile', __webpack_require__(44));
-	hljs.registerLanguage('dos', __webpack_require__(45));
-	hljs.registerLanguage('dts', __webpack_require__(46));
-	hljs.registerLanguage('dust', __webpack_require__(47));
-	hljs.registerLanguage('elixir', __webpack_require__(48));
-	hljs.registerLanguage('elm', __webpack_require__(49));
-	hljs.registerLanguage('ruby', __webpack_require__(50));
-	hljs.registerLanguage('erb', __webpack_require__(51));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(52));
-	hljs.registerLanguage('erlang', __webpack_require__(53));
-	hljs.registerLanguage('fix', __webpack_require__(54));
-	hljs.registerLanguage('fortran', __webpack_require__(55));
-	hljs.registerLanguage('fsharp', __webpack_require__(56));
-	hljs.registerLanguage('gams', __webpack_require__(57));
-	hljs.registerLanguage('gauss', __webpack_require__(58));
-	hljs.registerLanguage('gcode', __webpack_require__(59));
-	hljs.registerLanguage('gherkin', __webpack_require__(60));
-	hljs.registerLanguage('glsl', __webpack_require__(61));
-	hljs.registerLanguage('go', __webpack_require__(62));
-	hljs.registerLanguage('golo', __webpack_require__(63));
-	hljs.registerLanguage('gradle', __webpack_require__(64));
-	hljs.registerLanguage('groovy', __webpack_require__(65));
-	hljs.registerLanguage('haml', __webpack_require__(66));
-	hljs.registerLanguage('handlebars', __webpack_require__(67));
-	hljs.registerLanguage('haskell', __webpack_require__(68));
-	hljs.registerLanguage('haxe', __webpack_require__(69));
-	hljs.registerLanguage('hsp', __webpack_require__(70));
-	hljs.registerLanguage('http', __webpack_require__(71));
-	hljs.registerLanguage('inform7', __webpack_require__(72));
-	hljs.registerLanguage('ini', __webpack_require__(73));
-	hljs.registerLanguage('irpf90', __webpack_require__(74));
-	hljs.registerLanguage('java', __webpack_require__(75));
-	hljs.registerLanguage('javascript', __webpack_require__(76));
-	hljs.registerLanguage('json', __webpack_require__(77));
-	hljs.registerLanguage('julia', __webpack_require__(78));
-	hljs.registerLanguage('kotlin', __webpack_require__(79));
-	hljs.registerLanguage('lasso', __webpack_require__(80));
-	hljs.registerLanguage('less', __webpack_require__(81));
-	hljs.registerLanguage('lisp', __webpack_require__(82));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(83));
-	hljs.registerLanguage('livescript', __webpack_require__(84));
-	hljs.registerLanguage('lua', __webpack_require__(85));
-	hljs.registerLanguage('makefile', __webpack_require__(86));
-	hljs.registerLanguage('mathematica', __webpack_require__(87));
-	hljs.registerLanguage('matlab', __webpack_require__(88));
-	hljs.registerLanguage('mel', __webpack_require__(89));
-	hljs.registerLanguage('mercury', __webpack_require__(90));
-	hljs.registerLanguage('mipsasm', __webpack_require__(91));
-	hljs.registerLanguage('mizar', __webpack_require__(92));
-	hljs.registerLanguage('perl', __webpack_require__(93));
-	hljs.registerLanguage('mojolicious', __webpack_require__(94));
-	hljs.registerLanguage('monkey', __webpack_require__(95));
-	hljs.registerLanguage('nginx', __webpack_require__(96));
-	hljs.registerLanguage('nimrod', __webpack_require__(97));
-	hljs.registerLanguage('nix', __webpack_require__(98));
-	hljs.registerLanguage('nsis', __webpack_require__(99));
-	hljs.registerLanguage('objectivec', __webpack_require__(100));
-	hljs.registerLanguage('ocaml', __webpack_require__(101));
-	hljs.registerLanguage('openscad', __webpack_require__(102));
-	hljs.registerLanguage('oxygene', __webpack_require__(103));
-	hljs.registerLanguage('parser3', __webpack_require__(104));
-	hljs.registerLanguage('pf', __webpack_require__(105));
-	hljs.registerLanguage('php', __webpack_require__(106));
-	hljs.registerLanguage('powershell', __webpack_require__(107));
-	hljs.registerLanguage('processing', __webpack_require__(108));
-	hljs.registerLanguage('profile', __webpack_require__(109));
-	hljs.registerLanguage('prolog', __webpack_require__(110));
-	hljs.registerLanguage('protobuf', __webpack_require__(111));
-	hljs.registerLanguage('puppet', __webpack_require__(112));
-	hljs.registerLanguage('python', __webpack_require__(113));
-	hljs.registerLanguage('q', __webpack_require__(114));
-	hljs.registerLanguage('r', __webpack_require__(115));
-	hljs.registerLanguage('rib', __webpack_require__(116));
-	hljs.registerLanguage('roboconf', __webpack_require__(117));
-	hljs.registerLanguage('rsl', __webpack_require__(118));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(119));
-	hljs.registerLanguage('rust', __webpack_require__(120));
-	hljs.registerLanguage('scala', __webpack_require__(121));
-	hljs.registerLanguage('scheme', __webpack_require__(122));
-	hljs.registerLanguage('scilab', __webpack_require__(123));
-	hljs.registerLanguage('scss', __webpack_require__(124));
-	hljs.registerLanguage('smali', __webpack_require__(125));
-	hljs.registerLanguage('smalltalk', __webpack_require__(126));
-	hljs.registerLanguage('sml', __webpack_require__(127));
-	hljs.registerLanguage('sqf', __webpack_require__(128));
-	hljs.registerLanguage('sql', __webpack_require__(129));
-	hljs.registerLanguage('stan', __webpack_require__(130));
-	hljs.registerLanguage('stata', __webpack_require__(131));
-	hljs.registerLanguage('step21', __webpack_require__(132));
-	hljs.registerLanguage('stylus', __webpack_require__(133));
-	hljs.registerLanguage('swift', __webpack_require__(134));
-	hljs.registerLanguage('tcl', __webpack_require__(135));
-	hljs.registerLanguage('tex', __webpack_require__(136));
-	hljs.registerLanguage('thrift', __webpack_require__(137));
-	hljs.registerLanguage('tp', __webpack_require__(138));
-	hljs.registerLanguage('twig', __webpack_require__(139));
-	hljs.registerLanguage('typescript', __webpack_require__(140));
-	hljs.registerLanguage('vala', __webpack_require__(141));
-	hljs.registerLanguage('vbnet', __webpack_require__(142));
-	hljs.registerLanguage('vbscript', __webpack_require__(143));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(144));
-	hljs.registerLanguage('verilog', __webpack_require__(145));
-	hljs.registerLanguage('vhdl', __webpack_require__(146));
-	hljs.registerLanguage('vim', __webpack_require__(147));
-	hljs.registerLanguage('x86asm', __webpack_require__(148));
-	hljs.registerLanguage('xl', __webpack_require__(149));
-	hljs.registerLanguage('xquery', __webpack_require__(150));
-	hljs.registerLanguage('yaml', __webpack_require__(151));
-	hljs.registerLanguage('zephir', __webpack_require__(152));
+	hljs.registerLanguage('csp', __webpack_require__(36));
+	hljs.registerLanguage('css', __webpack_require__(37));
+	hljs.registerLanguage('d', __webpack_require__(38));
+	hljs.registerLanguage('markdown', __webpack_require__(39));
+	hljs.registerLanguage('dart', __webpack_require__(40));
+	hljs.registerLanguage('delphi', __webpack_require__(41));
+	hljs.registerLanguage('diff', __webpack_require__(42));
+	hljs.registerLanguage('django', __webpack_require__(43));
+	hljs.registerLanguage('dns', __webpack_require__(44));
+	hljs.registerLanguage('dockerfile', __webpack_require__(45));
+	hljs.registerLanguage('dos', __webpack_require__(46));
+	hljs.registerLanguage('dts', __webpack_require__(47));
+	hljs.registerLanguage('dust', __webpack_require__(48));
+	hljs.registerLanguage('elixir', __webpack_require__(49));
+	hljs.registerLanguage('elm', __webpack_require__(50));
+	hljs.registerLanguage('ruby', __webpack_require__(51));
+	hljs.registerLanguage('erb', __webpack_require__(52));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(53));
+	hljs.registerLanguage('erlang', __webpack_require__(54));
+	hljs.registerLanguage('fix', __webpack_require__(55));
+	hljs.registerLanguage('fortran', __webpack_require__(56));
+	hljs.registerLanguage('fsharp', __webpack_require__(57));
+	hljs.registerLanguage('gams', __webpack_require__(58));
+	hljs.registerLanguage('gauss', __webpack_require__(59));
+	hljs.registerLanguage('gcode', __webpack_require__(60));
+	hljs.registerLanguage('gherkin', __webpack_require__(61));
+	hljs.registerLanguage('glsl', __webpack_require__(62));
+	hljs.registerLanguage('go', __webpack_require__(63));
+	hljs.registerLanguage('golo', __webpack_require__(64));
+	hljs.registerLanguage('gradle', __webpack_require__(65));
+	hljs.registerLanguage('groovy', __webpack_require__(66));
+	hljs.registerLanguage('haml', __webpack_require__(67));
+	hljs.registerLanguage('handlebars', __webpack_require__(68));
+	hljs.registerLanguage('haskell', __webpack_require__(69));
+	hljs.registerLanguage('haxe', __webpack_require__(70));
+	hljs.registerLanguage('hsp', __webpack_require__(71));
+	hljs.registerLanguage('htmlbars', __webpack_require__(72));
+	hljs.registerLanguage('http', __webpack_require__(73));
+	hljs.registerLanguage('inform7', __webpack_require__(74));
+	hljs.registerLanguage('ini', __webpack_require__(75));
+	hljs.registerLanguage('irpf90', __webpack_require__(76));
+	hljs.registerLanguage('java', __webpack_require__(77));
+	hljs.registerLanguage('javascript', __webpack_require__(78));
+	hljs.registerLanguage('json', __webpack_require__(79));
+	hljs.registerLanguage('julia', __webpack_require__(80));
+	hljs.registerLanguage('kotlin', __webpack_require__(81));
+	hljs.registerLanguage('lasso', __webpack_require__(82));
+	hljs.registerLanguage('less', __webpack_require__(83));
+	hljs.registerLanguage('lisp', __webpack_require__(84));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(85));
+	hljs.registerLanguage('livescript', __webpack_require__(86));
+	hljs.registerLanguage('lua', __webpack_require__(87));
+	hljs.registerLanguage('makefile', __webpack_require__(88));
+	hljs.registerLanguage('mathematica', __webpack_require__(89));
+	hljs.registerLanguage('matlab', __webpack_require__(90));
+	hljs.registerLanguage('maxima', __webpack_require__(91));
+	hljs.registerLanguage('mel', __webpack_require__(92));
+	hljs.registerLanguage('mercury', __webpack_require__(93));
+	hljs.registerLanguage('mipsasm', __webpack_require__(94));
+	hljs.registerLanguage('mizar', __webpack_require__(95));
+	hljs.registerLanguage('perl', __webpack_require__(96));
+	hljs.registerLanguage('mojolicious', __webpack_require__(97));
+	hljs.registerLanguage('monkey', __webpack_require__(98));
+	hljs.registerLanguage('nginx', __webpack_require__(99));
+	hljs.registerLanguage('nimrod', __webpack_require__(100));
+	hljs.registerLanguage('nix', __webpack_require__(101));
+	hljs.registerLanguage('nsis', __webpack_require__(102));
+	hljs.registerLanguage('objectivec', __webpack_require__(103));
+	hljs.registerLanguage('ocaml', __webpack_require__(104));
+	hljs.registerLanguage('openscad', __webpack_require__(105));
+	hljs.registerLanguage('oxygene', __webpack_require__(106));
+	hljs.registerLanguage('parser3', __webpack_require__(107));
+	hljs.registerLanguage('pf', __webpack_require__(108));
+	hljs.registerLanguage('php', __webpack_require__(109));
+	hljs.registerLanguage('powershell', __webpack_require__(110));
+	hljs.registerLanguage('processing', __webpack_require__(111));
+	hljs.registerLanguage('profile', __webpack_require__(112));
+	hljs.registerLanguage('prolog', __webpack_require__(113));
+	hljs.registerLanguage('protobuf', __webpack_require__(114));
+	hljs.registerLanguage('puppet', __webpack_require__(115));
+	hljs.registerLanguage('python', __webpack_require__(116));
+	hljs.registerLanguage('q', __webpack_require__(117));
+	hljs.registerLanguage('qml', __webpack_require__(118));
+	hljs.registerLanguage('r', __webpack_require__(119));
+	hljs.registerLanguage('rib', __webpack_require__(120));
+	hljs.registerLanguage('roboconf', __webpack_require__(121));
+	hljs.registerLanguage('rsl', __webpack_require__(122));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(123));
+	hljs.registerLanguage('rust', __webpack_require__(124));
+	hljs.registerLanguage('scala', __webpack_require__(125));
+	hljs.registerLanguage('scheme', __webpack_require__(126));
+	hljs.registerLanguage('scilab', __webpack_require__(127));
+	hljs.registerLanguage('scss', __webpack_require__(128));
+	hljs.registerLanguage('smali', __webpack_require__(129));
+	hljs.registerLanguage('smalltalk', __webpack_require__(130));
+	hljs.registerLanguage('sml', __webpack_require__(131));
+	hljs.registerLanguage('sqf', __webpack_require__(132));
+	hljs.registerLanguage('sql', __webpack_require__(133));
+	hljs.registerLanguage('stan', __webpack_require__(134));
+	hljs.registerLanguage('stata', __webpack_require__(135));
+	hljs.registerLanguage('step21', __webpack_require__(136));
+	hljs.registerLanguage('stylus', __webpack_require__(137));
+	hljs.registerLanguage('swift', __webpack_require__(138));
+	hljs.registerLanguage('tcl', __webpack_require__(139));
+	hljs.registerLanguage('tex', __webpack_require__(140));
+	hljs.registerLanguage('thrift', __webpack_require__(141));
+	hljs.registerLanguage('tp', __webpack_require__(142));
+	hljs.registerLanguage('twig', __webpack_require__(143));
+	hljs.registerLanguage('typescript', __webpack_require__(144));
+	hljs.registerLanguage('vala', __webpack_require__(145));
+	hljs.registerLanguage('vbnet', __webpack_require__(146));
+	hljs.registerLanguage('vbscript', __webpack_require__(147));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(148));
+	hljs.registerLanguage('verilog', __webpack_require__(149));
+	hljs.registerLanguage('vhdl', __webpack_require__(150));
+	hljs.registerLanguage('vim', __webpack_require__(151));
+	hljs.registerLanguage('x86asm', __webpack_require__(152));
+	hljs.registerLanguage('xl', __webpack_require__(153));
+	hljs.registerLanguage('xquery', __webpack_require__(154));
+	hljs.registerLanguage('yaml', __webpack_require__(155));
+	hljs.registerLanguage('zephir', __webpack_require__(156));
 
 	module.exports = hljs;
 
@@ -630,19 +634,23 @@
 
 	(function(factory) {
 
+	  // Find the global object for export to both the browser and web workers.
+	  var globalObject = typeof window == 'object' && window ||
+	                     typeof self == 'object' && self;
+
 	  // Setup highlight.js for different environments. First is Node.js or
 	  // CommonJS.
 	  if(true) {
 	    factory(exports);
-	  } else {
+	  } else if(globalObject) {
 	    // Export hljs globally even when using AMD for cases when this script
 	    // is loaded with others that may still expect a global hljs.
-	    self.hljs = factory({});
+	    globalObject.hljs = factory({});
 
 	    // Finally register the global hljs with AMD.
 	    if(typeof define === 'function' && define.amd) {
-	      define('hljs', [], function() {
-	        return self.hljs;
+	      define([], function() {
+	        return globalObject.hljs;
 	      });
 	    }
 	  }
@@ -674,7 +682,7 @@
 
 	    classes += block.parentNode ? block.parentNode.className : '';
 
-	    // language-* takes precedence over non-prefixed class names
+	    // language-* takes precedence over non-prefixed class names.
 	    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
 	    if (match) {
 	      return getLanguage(match[1]) ? match[1] : 'no-highlight';
@@ -994,35 +1002,37 @@
 	    }
 
 	    function processBuffer() {
-	      return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
+	      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
+	      mode_buffer = '';
 	    }
 
 	    function startNewMode(mode, lexeme) {
-	      var markup = mode.className? buildSpan(mode.className, '', true): '';
-	      if (mode.returnBegin) {
-	        result += markup;
-	        mode_buffer = '';
-	      } else if (mode.excludeBegin) {
-	        result += escape(lexeme) + markup;
-	        mode_buffer = '';
-	      } else {
-	        result += markup;
-	        mode_buffer = lexeme;
-	      }
+	      result += mode.className? buildSpan(mode.className, '', true): '';
 	      top = Object.create(mode, {parent: {value: top}});
 	    }
 
 	    function processLexeme(buffer, lexeme) {
 
 	      mode_buffer += buffer;
+
 	      if (lexeme === undefined) {
-	        result += processBuffer();
+	        processBuffer();
 	        return 0;
 	      }
 
 	      var new_mode = subMode(lexeme, top);
 	      if (new_mode) {
-	        result += processBuffer();
+	        if (new_mode.skip) {
+	          mode_buffer += lexeme;
+	        } else {
+	          if (new_mode.excludeBegin) {
+	            mode_buffer += lexeme;
+	          }
+	          processBuffer();
+	          if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+	            mode_buffer = lexeme;
+	          }
+	        }
 	        startNewMode(new_mode, lexeme);
 	        return new_mode.returnBegin ? 0 : lexeme.length;
 	      }
@@ -1030,21 +1040,26 @@
 	      var end_mode = endOfMode(top, lexeme);
 	      if (end_mode) {
 	        var origin = top;
-	        if (!(origin.returnEnd || origin.excludeEnd)) {
+	        if (origin.skip) {
 	          mode_buffer += lexeme;
+	        } else {
+	          if (!(origin.returnEnd || origin.excludeEnd)) {
+	            mode_buffer += lexeme;
+	          }
+	          processBuffer();
+	          if (origin.excludeEnd) {
+	            mode_buffer = lexeme;
+	          }
 	        }
-	        result += processBuffer();
 	        do {
 	          if (top.className) {
 	            result += '</span>';
 	          }
-	          relevance += top.relevance;
+	          if (!top.skip) {
+	            relevance += top.relevance;
+	          }
 	          top = top.parent;
 	        } while (top != end_mode.parent);
-	        if (origin.excludeEnd) {
-	          result += escape(lexeme);
-	        }
-	        mode_buffer = '';
 	        if (end_mode.starts) {
 	          startNewMode(end_mode.starts, '');
 	        }
@@ -1234,7 +1249,7 @@
 	  };
 
 	  /*
-	  Updates highlight.js global options with values passed in the form of an object
+	  Updates highlight.js global options with values passed in the form of an object.
 	  */
 	  function configure(user_options) {
 	    options = inherit(options, user_options);
@@ -1389,6 +1404,11 @@
 	  hljs.UNDERSCORE_TITLE_MODE = {
 	    className: 'title',
 	    begin: hljs.UNDERSCORE_IDENT_RE,
+	    relevance: 0
+	  };
+	  hljs.METHOD_GUARD = {
+	    // excludes method names from keyword processing
+	    begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
 	    relevance: 0
 	  };
 
@@ -1592,7 +1612,8 @@
 	            begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
 	          }
 	        ]
-	      }
+	      },
+	      hljs.METHOD_GUARD
 	    ],
 	    illegal: /#/
 	  };
@@ -1790,7 +1811,6 @@
 
 	  	return {
 		    keywords: {
-		      function: 'setup loop while catch for if do goto try switch case else default break continue return',
 		      keyword: 'boolean byte word string String array ' +
 		      // CPP keywords
 		      'int float private char export virtual operator sizeof uint8_t uint16_t ' +
@@ -1804,84 +1824,87 @@
 		      'atomic_bool atomic_char atomic_schar ' +
 		      'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
 		      'atomic_ullong',
-		      built_in: 'KeyboardController MouseController SoftwareSerial ' + 
-		            'EthernetServer EthernetClient LiquidCrystal ' + 
-		            'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' + 
-		            'HttpClient RobotMotor WiFiClient GSMScanner ' + 
-		            'FileSystem Scheduler GSMServer YunClient YunServer ' + 
-		            'IPAddress GSMClient GSMModem Keyboard Ethernet ' + 
-		            'Console GSMBand Esplora Stepper Process ' + 
-		            'WiFiUDP GSM_SMS Mailbox USBHost Firmata PImage ' + 
-		            'Client Server GSMPIN FileIO Bridge Serial ' + 
-		            'EEPROM Stream Mouse Audio Servo File Task ' + 
-		            'GPRS WiFi Wire TFT GSM SPI SD ' + 
-		            'runShellCommandAsynchronously analogWriteResolution ' + 
-		            'retrieveCallingNumber printFirmwareVersion ' + 
-		            'analogReadResolution sendDigitalPortPair ' + 
-		            'noListenOnLocalhost readJoystickButton setFirmwareVersion ' + 
-		            'readJoystickSwitch scrollDisplayRight getVoiceCallStatus ' + 
-		            'scrollDisplayLeft writeMicroseconds delayMicroseconds ' + 
-		            'beginTransmission getSignalStrength runAsynchronously ' + 
-		            'getAsynchronously listenOnLocalhost getCurrentCarrier ' + 
-		            'readAccelerometer messageAvailable sendDigitalPorts ' + 
-		            'lineFollowConfig countryNameWrite runShellCommand ' + 
-		            'readStringUntil rewindDirectory readTemperature ' + 
-		            'setClockDivider readLightSensor endTransmission ' + 
-		            'analogReference detachInterrupt countryNameRead ' + 
-		            'attachInterrupt encryptionType readBytesUntil ' + 
-		            'robotNameWrite readMicrophone robotNameRead cityNameWrite ' + 
-		            'userNameWrite readJoystickY readJoystickX mouseReleased ' + 
-		            'openNextFile scanNetworks noInterrupts digitalWrite ' + 
-		            'beginSpeaker mousePressed isActionDone mouseDragged ' + 
-		            'displayLogos noAutoscroll addParameter remoteNumber ' + 
-		            'getModifiers keyboardRead userNameRead waitContinue ' + 
-		            'processInput parseCommand printVersion readNetworks ' + 
-		            'writeMessage blinkVersion cityNameRead readMessage ' + 
-		            'setDataMode parsePacket isListening setBitOrder ' + 
-		            'beginPacket isDirectory motorsWrite drawCompass ' + 
-		            'digitalRead clearScreen serialEvent rightToLeft ' + 
-		            'setTextSize leftToRight requestFrom keyReleased ' + 
-		            'compassRead analogWrite interrupts WiFiServer ' + 
-		            'disconnect playMelody parseFloat autoscroll ' + 
-		            'getPINUsed setPINUsed setTimeout sendAnalog ' + 
-		            'readSlider analogRead beginWrite createChar ' + 
-		            'motorsStop keyPressed tempoWrite readButton ' + 
-		            'subnetMask debugPrint macAddress writeGreen ' + 
-		            'randomSeed attachGPRS readString sendString ' + 
-		            'remotePort releaseAll mouseMoved background ' + 
-		            'getXChange getYChange answerCall getResult ' +  
-		            'voiceCall endPacket constrain getSocket writeJSON ' + 
-		            'getButton available connected findUntil readBytes ' + 
-		            'exitValue readGreen writeBlue startLoop IPAddress ' + 
-		            'isPressed sendSysex pauseMode gatewayIP setCursor ' + 
-		            'getOemKey tuneWrite noDisplay loadImage switchPIN ' + 
-		            'onRequest onReceive changePIN playFile noBuffer ' + 
-		            'parseInt overflow checkPIN knobRead beginTFT ' + 
-		            'bitClear updateIR bitWrite position writeRGB ' + 
-		            'highByte writeRed setSpeed readBlue noStroke ' + 
-		            'remoteIP transfer shutdown hangCall beginSMS ' + 
-		            'endWrite attached maintain noCursor checkReg ' + 
-		            'checkPUK shiftOut isValid shiftIn pulseIn ' + 
-		            'connect println localIP pinMode getIMEI ' + 
-		            'display noBlink process getBand running beginSD ' + 
-		            'drawBMP lowByte setBand release bitRead prepare ' + 
-		            'pointTo readRed setMode noFill remove listen ' + 
-		            'stroke detach attach noTone exists buffer ' + 
-		            'height bitSet circle config cursor random ' + 
-		            'IRread setDNS endSMS getKey micros ' + 
-		            'millis begin print write ready flush width ' + 
-		            'isPIN blink clear press mkdir rmdir close ' + 
-		            'point yield image BSSID click delay ' + 
-		            'read text move peek beep rect line open ' + 
-		            'seek fill size turn stop home find ' + 
-		            'step tone sqrt RSSI SSID ' + 
-		            'end bit tan cos sin pow map abs max ' + 
+		      built_in:
+	              'setup loop while catch for if do goto try switch case else ' +
+	              'default break continue return ' +
+	              'KeyboardController MouseController SoftwareSerial ' +
+		            'EthernetServer EthernetClient LiquidCrystal ' +
+		            'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' +
+		            'HttpClient RobotMotor WiFiClient GSMScanner ' +
+		            'FileSystem Scheduler GSMServer YunClient YunServer ' +
+		            'IPAddress GSMClient GSMModem Keyboard Ethernet ' +
+		            'Console GSMBand Esplora Stepper Process ' +
+		            'WiFiUDP GSM_SMS Mailbox USBHost Firmata PImage ' +
+		            'Client Server GSMPIN FileIO Bridge Serial ' +
+		            'EEPROM Stream Mouse Audio Servo File Task ' +
+		            'GPRS WiFi Wire TFT GSM SPI SD ' +
+		            'runShellCommandAsynchronously analogWriteResolution ' +
+		            'retrieveCallingNumber printFirmwareVersion ' +
+		            'analogReadResolution sendDigitalPortPair ' +
+		            'noListenOnLocalhost readJoystickButton setFirmwareVersion ' +
+		            'readJoystickSwitch scrollDisplayRight getVoiceCallStatus ' +
+		            'scrollDisplayLeft writeMicroseconds delayMicroseconds ' +
+		            'beginTransmission getSignalStrength runAsynchronously ' +
+		            'getAsynchronously listenOnLocalhost getCurrentCarrier ' +
+		            'readAccelerometer messageAvailable sendDigitalPorts ' +
+		            'lineFollowConfig countryNameWrite runShellCommand ' +
+		            'readStringUntil rewindDirectory readTemperature ' +
+		            'setClockDivider readLightSensor endTransmission ' +
+		            'analogReference detachInterrupt countryNameRead ' +
+		            'attachInterrupt encryptionType readBytesUntil ' +
+		            'robotNameWrite readMicrophone robotNameRead cityNameWrite ' +
+		            'userNameWrite readJoystickY readJoystickX mouseReleased ' +
+		            'openNextFile scanNetworks noInterrupts digitalWrite ' +
+		            'beginSpeaker mousePressed isActionDone mouseDragged ' +
+		            'displayLogos noAutoscroll addParameter remoteNumber ' +
+		            'getModifiers keyboardRead userNameRead waitContinue ' +
+		            'processInput parseCommand printVersion readNetworks ' +
+		            'writeMessage blinkVersion cityNameRead readMessage ' +
+		            'setDataMode parsePacket isListening setBitOrder ' +
+		            'beginPacket isDirectory motorsWrite drawCompass ' +
+		            'digitalRead clearScreen serialEvent rightToLeft ' +
+		            'setTextSize leftToRight requestFrom keyReleased ' +
+		            'compassRead analogWrite interrupts WiFiServer ' +
+		            'disconnect playMelody parseFloat autoscroll ' +
+		            'getPINUsed setPINUsed setTimeout sendAnalog ' +
+		            'readSlider analogRead beginWrite createChar ' +
+		            'motorsStop keyPressed tempoWrite readButton ' +
+		            'subnetMask debugPrint macAddress writeGreen ' +
+		            'randomSeed attachGPRS readString sendString ' +
+		            'remotePort releaseAll mouseMoved background ' +
+		            'getXChange getYChange answerCall getResult ' +
+		            'voiceCall endPacket constrain getSocket writeJSON ' +
+		            'getButton available connected findUntil readBytes ' +
+		            'exitValue readGreen writeBlue startLoop IPAddress ' +
+		            'isPressed sendSysex pauseMode gatewayIP setCursor ' +
+		            'getOemKey tuneWrite noDisplay loadImage switchPIN ' +
+		            'onRequest onReceive changePIN playFile noBuffer ' +
+		            'parseInt overflow checkPIN knobRead beginTFT ' +
+		            'bitClear updateIR bitWrite position writeRGB ' +
+		            'highByte writeRed setSpeed readBlue noStroke ' +
+		            'remoteIP transfer shutdown hangCall beginSMS ' +
+		            'endWrite attached maintain noCursor checkReg ' +
+		            'checkPUK shiftOut isValid shiftIn pulseIn ' +
+		            'connect println localIP pinMode getIMEI ' +
+		            'display noBlink process getBand running beginSD ' +
+		            'drawBMP lowByte setBand release bitRead prepare ' +
+		            'pointTo readRed setMode noFill remove listen ' +
+		            'stroke detach attach noTone exists buffer ' +
+		            'height bitSet circle config cursor random ' +
+		            'IRread setDNS endSMS getKey micros ' +
+		            'millis begin print write ready flush width ' +
+		            'isPIN blink clear press mkdir rmdir close ' +
+		            'point yield image BSSID click delay ' +
+		            'read text move peek beep rect line open ' +
+		            'seek fill size turn stop home find ' +
+		            'step tone sqrt RSSI SSID ' +
+		            'end bit tan cos sin pow map abs max ' +
 		            'min get run put',
-		        symbol: 'DIGITAL_MESSAGE FIRMATA_STRING ANALOG_MESSAGE ' + 
-		            'REPORT_DIGITAL REPORT_ANALOG INPUT_PULLUP ' + 
-		            'SET_PIN_MODE INTERNAL2V56 SYSTEM_RESET LED_BUILTIN ' + 
-		            'INTERNAL1V1 SYSEX_START INTERNAL EXTERNAL ' + 
-		            'DEFAULT OUTPUT INPUT HIGH LOW' 
+		        literal: 'DIGITAL_MESSAGE FIRMATA_STRING ANALOG_MESSAGE ' +
+		            'REPORT_DIGITAL REPORT_ANALOG INPUT_PULLUP ' +
+		            'SET_PIN_MODE INTERNAL2V56 SYSTEM_RESET LED_BUILTIN ' +
+		            'INTERNAL1V1 SYSEX_START INTERNAL EXTERNAL ' +
+		            'DEFAULT OUTPUT INPUT HIGH LOW'
 		    },
 		    contains: [
 		      PREPROCESSOR,
@@ -1996,16 +2019,11 @@
 
 	module.exports = function(hljs) {
 	  var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-	  var PHP = {
-	    begin: /<\?(php)?(?!\w)/, end: /\?>/,
-	    subLanguage: 'php'
-	  };
 	  var TAG_INTERNALS = {
 	    endsWithParent: true,
 	    illegal: /</,
 	    relevance: 0,
 	    contains: [
-	      PHP,
 	      {
 	        className: 'attr',
 	        begin: XML_IDENT_RE,
@@ -2017,7 +2035,6 @@
 	        contains: [
 	          {
 	            className: 'string',
-	            contains: [PHP],
 	            variants: [
 	              {begin: /"/, end: /"/},
 	              {begin: /'/, end: /'/},
@@ -2050,6 +2067,11 @@
 	        relevance: 10
 	      },
 	      {
+	        begin: /<\?(php)?/, end: /\?>/,
+	        subLanguage: 'php',
+	        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+	      },
+	      {
 	        className: 'tag',
 	        /*
 	        The lookahead pattern (?=...) ensures that 'begin' only matches
@@ -2076,11 +2098,12 @@
 	          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
 	        }
 	      },
-	      PHP,
 	      {
 	        className: 'meta',
-	        begin: /<\?\w+/, end: /\?>/,
-	        relevance: 10
+	        variants: [
+	          {begin: /<\?xml/, end: /\?>/, relevance: 10},
+	          {begin: /<\?\w+/, end: /\?>/}
+	        ]
 	      },
 	      {
 	        className: 'tag',
@@ -5716,6 +5739,32 @@
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
+	  return {
+	    case_insensitive: false,
+	    lexemes: '[a-zA-Z][a-zA-Z0-9_-]*',
+	    keywords: {
+	      keyword: 'base-uri child-src connect-src default-src font-src form-action' +
+	        ' frame-ancestors frame-src img-src media-src object-src plugin-types' +
+	        ' report-uri sandbox script-src style-src', 
+	    },
+	    contains: [
+	    {
+	      className: 'string',
+	      begin: "'", end: "'"
+	    },
+	    {
+	      className: 'attribute',
+	      begin: '^Content', end: ':', excludeEnd: true,
+	    },
+	    ]
+	  };
+	};
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
 	  var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
 	  var RULE = {
 	    begin: /[A-Z\_\.\-]+\s*:/, returnBegin: true, end: ';', endsWithParent: true,
@@ -5727,11 +5776,18 @@
 	          endsWithParent: true, excludeEnd: true,
 	          contains: [
 	            {
-	              begin: /[\w-]+\s*\(/, returnBegin: true,
+	              begin: /[\w-]+\(/, returnBegin: true,
 	              contains: [
 	                {
 	                  className: 'built_in',
 	                  begin: /[\w-]+/
+	                },
+	                {
+	                  begin: /\(/, end: /\)/,
+	                  contains: [
+	                    hljs.APOS_STRING_MODE,
+	                    hljs.QUOTE_STRING_MODE
+	                  ]
 	                }
 	              ]
 	            },
@@ -5813,7 +5869,7 @@
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -6075,7 +6131,7 @@
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6180,7 +6236,7 @@
 	};
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -6232,8 +6288,8 @@
 	  ];
 
 	  var KEYWORDS = {
-	    keyword: 'assert break case catch class const continue default do else enum extends false final finally for if ' +
-	      'in is new null rethrow return super switch this throw true try var void while with ' +
+	    keyword: 'assert async await break case catch class const continue default do else enum extends false final ' +
+	      'finally for if in is new null rethrow return super switch sync this throw true try var void while with yield ' +
 	      'abstract as dynamic export external factory get implements import library operator part set static typedef',
 	    built_in:
 	      // dart:core
@@ -6285,7 +6341,7 @@
 	};
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6343,6 +6399,7 @@
 	    ].concat(COMMENT_MODES)
 	  };
 	  return {
+	    aliases: ['dpr', 'dfm', 'pas', 'pascal', 'freepascal', 'lazarus', 'lpr', 'lfm'],
 	    case_insensitive: true,
 	    keywords: KEYWORDS,
 	    illegal: /"|\$[G-Zg-z]|\/\*|<\/|\|/,
@@ -6356,7 +6413,7 @@
 	};
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6400,7 +6457,7 @@
 	};
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6468,7 +6525,7 @@
 	};
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6501,7 +6558,7 @@
 	};
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6534,7 +6591,7 @@
 	};
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6590,7 +6647,7 @@
 	};
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6718,7 +6775,7 @@
 	};
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6754,7 +6811,7 @@
 	};
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6855,7 +6912,7 @@
 	};
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6942,7 +6999,7 @@
 	};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7106,7 +7163,7 @@
 	};
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7125,7 +7182,7 @@
 	};
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7175,7 +7232,7 @@
 	};
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7325,7 +7382,7 @@
 	};
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7358,7 +7415,7 @@
 	};
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7433,7 +7490,7 @@
 	};
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7496,7 +7553,7 @@
 	};
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -7536,7 +7593,7 @@
 	};
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7762,7 +7819,7 @@
 	};
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7833,7 +7890,7 @@
 	};
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -7873,7 +7930,7 @@
 	};
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7994,7 +8051,7 @@
 	};
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8036,7 +8093,7 @@
 	};
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8063,7 +8120,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8102,7 +8159,7 @@
 	};
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8200,7 +8257,7 @@
 	};
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -8311,7 +8368,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8349,7 +8406,7 @@
 	};
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8475,7 +8532,7 @@
 	};
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8537,7 +8594,7 @@
 	};
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8586,7 +8643,83 @@
 	};
 
 /***/ },
-/* 71 */
+/* 72 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
+	  var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
+
+	  var ATTR_ASSIGNMENT = {
+	    illegal: /\}\}/,
+	    begin: /[a-zA-Z0-9_]+=/,
+	    returnBegin: true,
+	    relevance: 0,
+	    contains: [
+	      {
+	        className: 'attr', begin: /[a-zA-Z0-9_]+/
+	      }
+	    ]
+	  };
+
+	  var SUB_EXPR = {
+	    illegal: /\}\}/,
+	    begin: /\)/, end: /\)/,
+	    contains: [
+	      {
+	        begin: /[a-zA-Z\.\-]+/,
+	        keywords: {built_in: BUILT_INS},
+	        starts: {
+	          endsWithParent: true, relevance: 0,
+	          contains: [
+	            hljs.QUOTE_STRING_MODE,
+	          ]
+	        }
+	      }
+	    ]
+	  };
+
+	  var TAG_INNARDS = {
+	    endsWithParent: true, relevance: 0,
+	    keywords: {keyword: 'as', built_in: BUILT_INS},
+	    contains: [
+	      hljs.QUOTE_STRING_MODE,
+	      ATTR_ASSIGNMENT,
+	      hljs.NUMBER_MODE
+	    ]
+	  };
+
+	  return {
+	    aliases: ['hbs', 'html.hbs', 'html.handlebars'],
+	    case_insensitive: true,
+	    subLanguage: 'xml',
+	    contains: [
+	      hljs.COMMENT('{{!(--)?', '(--)?}}'),
+	      {
+	        className: 'template-tag',
+	        begin: /\{\{[#\/]/, end: /\}\}/,
+	        contains: [
+	          {
+	            className: 'name',
+	            begin: /[a-zA-Z\.\-]+/,
+	            keywords: {'builtin-name': BUILT_INS},
+	            starts: TAG_INNARDS
+	          }
+	        ]
+	      },
+	      {
+	        className: 'template-variable',
+	        begin: /\{\{[a-zA-Z][a-zA-Z\-]+/, end: /\}\}/,
+	        keywords: {keyword: 'as', built_in: BUILT_INS},
+	        contains: [
+	          hljs.QUOTE_STRING_MODE
+	        ]
+	      }
+	    ]
+	  };
+	};
+
+/***/ },
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8631,7 +8764,7 @@
 	};
 
 /***/ },
-/* 72 */
+/* 74 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8692,7 +8825,7 @@
 	};
 
 /***/ },
-/* 73 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8762,7 +8895,7 @@
 	};
 
 /***/ },
-/* 74 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8842,7 +8975,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8952,17 +9085,17 @@
 	};
 
 /***/ },
-/* 76 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
 	  return {
-	    aliases: ['js'],
+	    aliases: ['js', 'jsx'],
 	    keywords: {
 	      keyword:
 	        'in of if for while finally var new function do return void else break catch ' +
 	        'instanceof with throw case default try this switch continue typeof delete ' +
-	        'let yield const export super debugger as async await ' +
+	        'let yield const export super debugger as async await static ' +
 	        // ECMAScript 6 modules import
 	        'import from as'
 	      ,
@@ -9020,9 +9153,12 @@
 	          hljs.C_BLOCK_COMMENT_MODE,
 	          hljs.REGEXP_MODE,
 	          { // E4X / JSX
-	            begin: /</, end: />\s*[);\]]/,
-	            relevance: 0,
-	            subLanguage: 'xml'
+	            begin: /</, end: /(\/\w+|\w+\/)>/,
+	            subLanguage: 'xml',
+	            contains: [
+	              {begin: /<\w+\/>/, skip: true},
+	              {begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true, contains: ['self']}
+	            ]
 	          }
 	        ],
 	        relevance: 0
@@ -9048,9 +9184,7 @@
 	      {
 	        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
 	      },
-	      {
-	        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
-	      },
+	      hljs.METHOD_GUARD,
 	      { // ES6 class
 	        className: 'class',
 	        beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
@@ -9069,7 +9203,7 @@
 	};
 
 /***/ },
-/* 77 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9088,11 +9222,11 @@
 	    contains: [
 	      {
 	        className: 'attr',
-	        begin: '\\s*"', end: '"\\s*:\\s*', excludeBegin: true, excludeEnd: true,
+	        begin: /"/, end: /"/,
 	        contains: [hljs.BACKSLASH_ESCAPE],
 	        illegal: '\\n',
-	        starts: VALUE_CONTAINER
-	      }
+	      },
+	      hljs.inherit(VALUE_CONTAINER, {begin: /:/})
 	    ],
 	    illegal: '\\S'
 	  };
@@ -9110,7 +9244,7 @@
 	};
 
 /***/ },
-/* 78 */
+/* 80 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9292,7 +9426,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -9397,7 +9531,7 @@
 	};
 
 /***/ },
-/* 80 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9569,7 +9703,7 @@
 	};
 
 /***/ },
-/* 81 */
+/* 83 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9704,7 +9838,7 @@
 	};
 
 /***/ },
-/* 82 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9811,7 +9945,7 @@
 	};
 
 /***/ },
-/* 83 */
+/* 85 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9971,7 +10105,7 @@
 	};
 
 /***/ },
-/* 84 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10124,7 +10258,7 @@
 	};
 
 /***/ },
-/* 85 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10184,7 +10318,7 @@
 	};
 
 /***/ },
-/* 86 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10233,7 +10367,7 @@
 	};
 
 /***/ },
-/* 87 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10295,7 +10429,7 @@
 	};
 
 /***/ },
-/* 88 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10387,7 +10521,416 @@
 	};
 
 /***/ },
-/* 89 */
+/* 91 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
+	  var KEYWORDS = 'if then else elseif for thru do while unless step in and or not';
+	  var LITERALS = 'true false unknown inf minf ind und %e %i %pi %phi %gamma';
+	  var BUILTIN_FUNCTIONS =
+	        ' abasep abs absint absolute_real_time acos acosh acot acoth acsc acsch activate'
+	      + ' addcol add_edge add_edges addmatrices addrow add_vertex add_vertices adjacency_matrix'
+	      + ' adjoin adjoint af agd airy airy_ai airy_bi airy_dai airy_dbi algsys alg_type'
+	      + ' alias allroots alphacharp alphanumericp amortization %and annuity_fv'
+	      + ' annuity_pv antid antidiff AntiDifference append appendfile apply apply1 apply2'
+	      + ' applyb1 apropos args arit_amortization arithmetic arithsum array arrayapply'
+	      + ' arrayinfo arraymake arraysetapply ascii asec asech asin asinh askinteger'
+	      + ' asksign assoc assoc_legendre_p assoc_legendre_q assume assume_external_byte_order'
+	      + ' asympa at atan atan2 atanh atensimp atom atvalue augcoefmatrix augmented_lagrangian_method'
+	      + ' av average_degree backtrace bars barsplot barsplot_description base64 base64_decode'
+	      + ' bashindices batch batchload bc2 bdvac belln benefit_cost bern bernpoly bernstein_approx'
+	      + ' bernstein_expand bernstein_poly bessel bessel_i bessel_j bessel_k bessel_simplify'
+	      + ' bessel_y beta beta_incomplete beta_incomplete_generalized beta_incomplete_regularized'
+	      + ' bezout bfallroots bffac bf_find_root bf_fmin_cobyla bfhzeta bfloat bfloatp'
+	      + ' bfpsi bfpsi0 bfzeta biconnected_components bimetric binomial bipartition'
+	      + ' block blockmatrixp bode_gain bode_phase bothcoef box boxplot boxplot_description'
+	      + ' break bug_report build_info|10 buildq build_sample burn cabs canform canten'
+	      + ' cardinality carg cartan cartesian_product catch cauchy_matrix cbffac cdf_bernoulli'
+	      + ' cdf_beta cdf_binomial cdf_cauchy cdf_chi2 cdf_continuous_uniform cdf_discrete_uniform'
+	      + ' cdf_exp cdf_f cdf_gamma cdf_general_finite_discrete cdf_geometric cdf_gumbel'
+	      + ' cdf_hypergeometric cdf_laplace cdf_logistic cdf_lognormal cdf_negative_binomial'
+	      + ' cdf_noncentral_chi2 cdf_noncentral_student_t cdf_normal cdf_pareto cdf_poisson'
+	      + ' cdf_rank_sum cdf_rayleigh cdf_signed_rank cdf_student_t cdf_weibull cdisplay'
+	      + ' ceiling central_moment cequal cequalignore cf cfdisrep cfexpand cgeodesic'
+	      + ' cgreaterp cgreaterpignore changename changevar chaosgame charat charfun charfun2'
+	      + ' charlist charp charpoly chdir chebyshev_t chebyshev_u checkdiv check_overlaps'
+	      + ' chinese cholesky christof chromatic_index chromatic_number cint circulant_graph'
+	      + ' clear_edge_weight clear_rules clear_vertex_label clebsch_gordan clebsch_graph'
+	      + ' clessp clesspignore close closefile cmetric coeff coefmatrix cograd col collapse'
+	      + ' collectterms columnop columnspace columnswap columnvector combination combine'
+	      + ' comp2pui compare compfile compile compile_file complement_graph complete_bipartite_graph'
+	      + ' complete_graph complex_number_p components compose_functions concan concat'
+	      + ' conjugate conmetderiv connected_components connect_vertices cons constant'
+	      + ' constantp constituent constvalue cont2part content continuous_freq contortion'
+	      + ' contour_plot contract contract_edge contragrad contrib_ode convert coord'
+	      + ' copy copy_file copy_graph copylist copymatrix cor cos cosh cot coth cov cov1'
+	      + ' covdiff covect covers crc24sum create_graph create_list csc csch csetup cspline'
+	      + ' ctaylor ct_coordsys ctransform ctranspose cube_graph cuboctahedron_graph'
+	      + ' cunlisp cv cycle_digraph cycle_graph cylindrical days360 dblint deactivate'
+	      + ' declare declare_constvalue declare_dimensions declare_fundamental_dimensions'
+	      + ' declare_fundamental_units declare_qty declare_translated declare_unit_conversion'
+	      + ' declare_units declare_weights decsym defcon define define_alt_display define_variable'
+	      + ' defint defmatch defrule defstruct deftaylor degree_sequence del delete deleten'
+	      + ' delta demo demoivre denom depends derivdegree derivlist describe desolve'
+	      + ' determinant dfloat dgauss_a dgauss_b dgeev dgemm dgeqrf dgesv dgesvd diag'
+	      + ' diagmatrix diag_matrix diagmatrixp diameter diff digitcharp dimacs_export'
+	      + ' dimacs_import dimension dimensionless dimensions dimensions_as_list direct'
+	      + ' directory discrete_freq disjoin disjointp disolate disp dispcon dispform'
+	      + ' dispfun dispJordan display disprule dispterms distrib divide divisors divsum'
+	      + ' dkummer_m dkummer_u dlange dodecahedron_graph dotproduct dotsimp dpart'
+	      + ' draw draw2d draw3d drawdf draw_file draw_graph dscalar echelon edge_coloring'
+	      + ' edge_connectivity edges eigens_by_jacobi eigenvalues eigenvectors eighth'
+	      + ' einstein eivals eivects elapsed_real_time elapsed_run_time ele2comp ele2polynome'
+	      + ' ele2pui elem elementp elevation_grid elim elim_allbut eliminate eliminate_using'
+	      + ' ellipse elliptic_e elliptic_ec elliptic_eu elliptic_f elliptic_kc elliptic_pi'
+	      + ' ematrix empty_graph emptyp endcons entermatrix entertensor entier equal equalp'
+	      + ' equiv_classes erf erfc erf_generalized erfi errcatch error errormsg errors'
+	      + ' euler ev eval_string evenp every evolution evolution2d evundiff example exp'
+	      + ' expand expandwrt expandwrt_factored expint expintegral_chi expintegral_ci'
+	      + ' expintegral_e expintegral_e1 expintegral_ei expintegral_e_simplify expintegral_li'
+	      + ' expintegral_shi expintegral_si explicit explose exponentialize express expt'
+	      + ' exsec extdiff extract_linear_equations extremal_subset ezgcd %f f90 facsum'
+	      + ' factcomb factor factorfacsum factorial factorout factorsum facts fast_central_elements'
+	      + ' fast_linsolve fasttimes featurep fernfale fft fib fibtophi fifth filename_merge'
+	      + ' file_search file_type fillarray findde find_root find_root_abs find_root_error'
+	      + ' find_root_rel first fix flatten flength float floatnump floor flower_snark'
+	      + ' flush flush1deriv flushd flushnd flush_output fmin_cobyla forget fortran'
+	      + ' fourcos fourexpand fourier fourier_elim fourint fourintcos fourintsin foursimp'
+	      + ' foursin fourth fposition frame_bracket freeof freshline fresnel_c fresnel_s'
+	      + ' from_adjacency_matrix frucht_graph full_listify fullmap fullmapl fullratsimp'
+	      + ' fullratsubst fullsetify funcsolve fundamental_dimensions fundamental_units'
+	      + ' fundef funmake funp fv g0 g1 gamma gamma_greek gamma_incomplete gamma_incomplete_generalized'
+	      + ' gamma_incomplete_regularized gauss gauss_a gauss_b gaussprob gcd gcdex gcdivide'
+	      + ' gcfac gcfactor gd generalized_lambert_w genfact gen_laguerre genmatrix gensym'
+	      + ' geo_amortization geo_annuity_fv geo_annuity_pv geomap geometric geometric_mean'
+	      + ' geosum get getcurrentdirectory get_edge_weight getenv get_lu_factors get_output_stream_string'
+	      + ' get_pixel get_plot_option get_tex_environment get_tex_environment_default'
+	      + ' get_vertex_label gfactor gfactorsum ggf girth global_variances gn gnuplot_close'
+	      + ' gnuplot_replot gnuplot_reset gnuplot_restart gnuplot_start go Gosper GosperSum'
+	      + ' gr2d gr3d gradef gramschmidt graph6_decode graph6_encode graph6_export graph6_import'
+	      + ' graph_center graph_charpoly graph_eigenvalues graph_flow graph_order graph_periphery'
+	      + ' graph_product graph_size graph_union great_rhombicosidodecahedron_graph great_rhombicuboctahedron_graph'
+	      + ' grid_graph grind grobner_basis grotzch_graph hamilton_cycle hamilton_path'
+	      + ' hankel hankel_1 hankel_2 harmonic harmonic_mean hav heawood_graph hermite'
+	      + ' hessian hgfred hilbertmap hilbert_matrix hipow histogram histogram_description'
+	      + ' hodge horner hypergeometric i0 i1 %ibes ic1 ic2 ic_convert ichr1 ichr2 icosahedron_graph'
+	      + ' icosidodecahedron_graph icurvature ident identfor identity idiff idim idummy'
+	      + ' ieqn %if ifactors iframes ifs igcdex igeodesic_coords ilt image imagpart'
+	      + ' imetric implicit implicit_derivative implicit_plot indexed_tensor indices'
+	      + ' induced_subgraph inferencep inference_result infix info_display init_atensor'
+	      + ' init_ctensor in_neighbors innerproduct inpart inprod inrt integerp integer_partitions'
+	      + ' integrate intersect intersection intervalp intopois intosum invariant1 invariant2'
+	      + ' inverse_fft inverse_jacobi_cd inverse_jacobi_cn inverse_jacobi_cs inverse_jacobi_dc'
+	      + ' inverse_jacobi_dn inverse_jacobi_ds inverse_jacobi_nc inverse_jacobi_nd inverse_jacobi_ns'
+	      + ' inverse_jacobi_sc inverse_jacobi_sd inverse_jacobi_sn invert invert_by_adjoint'
+	      + ' invert_by_lu inv_mod irr is is_biconnected is_bipartite is_connected is_digraph'
+	      + ' is_edge_in_graph is_graph is_graph_or_digraph ishow is_isomorphic isolate'
+	      + ' isomorphism is_planar isqrt isreal_p is_sconnected is_tree is_vertex_in_graph'
+	      + ' items_inference %j j0 j1 jacobi jacobian jacobi_cd jacobi_cn jacobi_cs jacobi_dc'
+	      + ' jacobi_dn jacobi_ds jacobi_nc jacobi_nd jacobi_ns jacobi_p jacobi_sc jacobi_sd'
+	      + ' jacobi_sn JF jn join jordan julia julia_set julia_sin %k kdels kdelta kill'
+	      + ' killcontext kostka kron_delta kronecker_product kummer_m kummer_u kurtosis'
+	      + ' kurtosis_bernoulli kurtosis_beta kurtosis_binomial kurtosis_chi2 kurtosis_continuous_uniform'
+	      + ' kurtosis_discrete_uniform kurtosis_exp kurtosis_f kurtosis_gamma kurtosis_general_finite_discrete'
+	      + ' kurtosis_geometric kurtosis_gumbel kurtosis_hypergeometric kurtosis_laplace'
+	      + ' kurtosis_logistic kurtosis_lognormal kurtosis_negative_binomial kurtosis_noncentral_chi2'
+	      + ' kurtosis_noncentral_student_t kurtosis_normal kurtosis_pareto kurtosis_poisson'
+	      + ' kurtosis_rayleigh kurtosis_student_t kurtosis_weibull label labels lagrange'
+	      + ' laguerre lambda lambert_w laplace laplacian_matrix last lbfgs lc2kdt lcharp'
+	      + ' lc_l lcm lc_u ldefint ldisp ldisplay legendre_p legendre_q leinstein length'
+	      + ' let letrules letsimp levi_civita lfreeof lgtreillis lhs li liediff limit'
+	      + ' Lindstedt linear linearinterpol linear_program linear_regression line_graph'
+	      + ' linsolve listarray list_correlations listify list_matrix_entries list_nc_monomials'
+	      + ' listoftens listofvars listp lmax lmin load loadfile local locate_matrix_entry'
+	      + ' log logcontract log_gamma lopow lorentz_gauge lowercasep lpart lratsubst'
+	      + ' lreduce lriemann lsquares_estimates lsquares_estimates_approximate lsquares_estimates_exact'
+	      + ' lsquares_mse lsquares_residual_mse lsquares_residuals lsum ltreillis lu_backsub'
+	      + ' lucas lu_factor %m macroexpand macroexpand1 make_array makebox makefact makegamma'
+	      + ' make_graph make_level_picture makelist makeOrders make_poly_continent make_poly_country'
+	      + ' make_polygon make_random_state make_rgb_picture makeset make_string_input_stream'
+	      + ' make_string_output_stream make_transform mandelbrot mandelbrot_set map mapatom'
+	      + ' maplist matchdeclare matchfix mat_cond mat_fullunblocker mat_function mathml_display'
+	      + ' mat_norm matrix matrixmap matrixp matrix_size mattrace mat_trace mat_unblocker'
+	      + ' max max_clique max_degree max_flow maximize_lp max_independent_set max_matching'
+	      + ' maybe md5sum mean mean_bernoulli mean_beta mean_binomial mean_chi2 mean_continuous_uniform'
+	      + ' mean_deviation mean_discrete_uniform mean_exp mean_f mean_gamma mean_general_finite_discrete'
+	      + ' mean_geometric mean_gumbel mean_hypergeometric mean_laplace mean_logistic'
+	      + ' mean_lognormal mean_negative_binomial mean_noncentral_chi2 mean_noncentral_student_t'
+	      + ' mean_normal mean_pareto mean_poisson mean_rayleigh mean_student_t mean_weibull'
+	      + ' median median_deviation member mesh metricexpandall mgf1_sha1 min min_degree'
+	      + ' min_edge_cut minfactorial minimalPoly minimize_lp minimum_spanning_tree minor'
+	      + ' minpack_lsquares minpack_solve min_vertex_cover min_vertex_cut mkdir mnewton'
+	      + ' mod mode_declare mode_identity ModeMatrix moebius mon2schur mono monomial_dimensions'
+	      + ' multibernstein_poly multi_display_for_texinfo multi_elem multinomial multinomial_coeff'
+	      + ' multi_orbit multiplot_mode multi_pui multsym multthru mycielski_graph nary'
+	      + ' natural_unit nc_degree ncexpt ncharpoly negative_picture neighbors new newcontext'
+	      + ' newdet new_graph newline newton new_variable next_prime nicedummies niceindices'
+	      + ' ninth nofix nonarray noncentral_moment nonmetricity nonnegintegerp nonscalarp'
+	      + ' nonzeroandfreeof notequal nounify nptetrad npv nroots nterms ntermst'
+	      + ' nthroot nullity nullspace num numbered_boundaries numberp number_to_octets'
+	      + ' num_distinct_partitions numerval numfactor num_partitions nusum nzeta nzetai'
+	      + ' nzetar octets_to_number octets_to_oid odd_girth oddp ode2 ode_check odelin'
+	      + ' oid_to_octets op opena opena_binary openr openr_binary openw openw_binary'
+	      + ' operatorp opsubst optimize %or orbit orbits ordergreat ordergreatp orderless'
+	      + ' orderlessp orthogonal_complement orthopoly_recur orthopoly_weight outermap'
+	      + ' out_neighbors outofpois pade parabolic_cylinder_d parametric parametric_surface'
+	      + ' parg parGosper parse_string parse_timedate part part2cont partfrac partition'
+	      + ' partition_set partpol path_digraph path_graph pathname_directory pathname_name'
+	      + ' pathname_type pdf_bernoulli pdf_beta pdf_binomial pdf_cauchy pdf_chi2 pdf_continuous_uniform'
+	      + ' pdf_discrete_uniform pdf_exp pdf_f pdf_gamma pdf_general_finite_discrete'
+	      + ' pdf_geometric pdf_gumbel pdf_hypergeometric pdf_laplace pdf_logistic pdf_lognormal'
+	      + ' pdf_negative_binomial pdf_noncentral_chi2 pdf_noncentral_student_t pdf_normal'
+	      + ' pdf_pareto pdf_poisson pdf_rank_sum pdf_rayleigh pdf_signed_rank pdf_student_t'
+	      + ' pdf_weibull pearson_skewness permanent permut permutation permutations petersen_graph'
+	      + ' petrov pickapart picture_equalp picturep piechart piechart_description planar_embedding'
+	      + ' playback plog plot2d plot3d plotdf ploteq plsquares pochhammer points poisdiff'
+	      + ' poisexpt poisint poismap poisplus poissimp poissubst poistimes poistrim polar'
+	      + ' polarform polartorect polar_to_xy poly_add poly_buchberger poly_buchberger_criterion'
+	      + ' poly_colon_ideal poly_content polydecomp poly_depends_p poly_elimination_ideal'
+	      + ' poly_exact_divide poly_expand poly_expt poly_gcd polygon poly_grobner poly_grobner_equal'
+	      + ' poly_grobner_member poly_grobner_subsetp poly_ideal_intersection poly_ideal_polysaturation'
+	      + ' poly_ideal_polysaturation1 poly_ideal_saturation poly_ideal_saturation1 poly_lcm'
+	      + ' poly_minimization polymod poly_multiply polynome2ele polynomialp poly_normal_form'
+	      + ' poly_normalize poly_normalize_list poly_polysaturation_extension poly_primitive_part'
+	      + ' poly_pseudo_divide poly_reduced_grobner poly_reduction poly_saturation_extension'
+	      + ' poly_s_polynomial poly_subtract polytocompanion pop postfix potential power_mod'
+	      + ' powerseries powerset prefix prev_prime primep primes principal_components'
+	      + ' print printf printfile print_graph printpois printprops prodrac product properties'
+	      + ' propvars psi psubst ptriangularize pui pui2comp pui2ele pui2polynome pui_direct'
+	      + ' puireduc push put pv qput qrange qty quad_control quad_qag quad_qagi quad_qagp'
+	      + ' quad_qags quad_qawc quad_qawf quad_qawo quad_qaws quadrilateral quantile'
+	      + ' quantile_bernoulli quantile_beta quantile_binomial quantile_cauchy quantile_chi2'
+	      + ' quantile_continuous_uniform quantile_discrete_uniform quantile_exp quantile_f'
+	      + ' quantile_gamma quantile_general_finite_discrete quantile_geometric quantile_gumbel'
+	      + ' quantile_hypergeometric quantile_laplace quantile_logistic quantile_lognormal'
+	      + ' quantile_negative_binomial quantile_noncentral_chi2 quantile_noncentral_student_t'
+	      + ' quantile_normal quantile_pareto quantile_poisson quantile_rayleigh quantile_student_t'
+	      + ' quantile_weibull quartile_skewness quit qunit quotient racah_v racah_w radcan'
+	      + ' radius random random_bernoulli random_beta random_binomial random_bipartite_graph'
+	      + ' random_cauchy random_chi2 random_continuous_uniform random_digraph random_discrete_uniform'
+	      + ' random_exp random_f random_gamma random_general_finite_discrete random_geometric'
+	      + ' random_graph random_graph1 random_gumbel random_hypergeometric random_laplace'
+	      + ' random_logistic random_lognormal random_negative_binomial random_network'
+	      + ' random_noncentral_chi2 random_noncentral_student_t random_normal random_pareto'
+	      + ' random_permutation random_poisson random_rayleigh random_regular_graph random_student_t'
+	      + ' random_tournament random_tree random_weibull range rank rat ratcoef ratdenom'
+	      + ' ratdiff ratdisrep ratexpand ratinterpol rational rationalize ratnumer ratnump'
+	      + ' ratp ratsimp ratsubst ratvars ratweight read read_array read_binary_array'
+	      + ' read_binary_list read_binary_matrix readbyte readchar read_hashed_array readline'
+	      + ' read_list read_matrix read_nested_list readonly read_xpm real_imagpart_to_conjugate'
+	      + ' realpart realroots rearray rectangle rectform rectform_log_if_constant recttopolar'
+	      + ' rediff reduce_consts reduce_order region region_boundaries region_boundaries_plus'
+	      + ' rem remainder remarray rembox remcomps remcon remcoord remfun remfunction'
+	      + ' remlet remove remove_constvalue remove_dimensions remove_edge remove_fundamental_dimensions'
+	      + ' remove_fundamental_units remove_plot_option remove_vertex rempart remrule'
+	      + ' remsym remvalue rename rename_file reset reset_displays residue resolvante'
+	      + ' resolvante_alternee1 resolvante_bipartite resolvante_diedrale resolvante_klein'
+	      + ' resolvante_klein3 resolvante_produit_sym resolvante_unitaire resolvante_vierer'
+	      + ' rest resultant return reveal reverse revert revert2 rgb2level rhs ricci riemann'
+	      + ' rinvariant risch rk rmdir rncombine romberg room rootscontract round row'
+	      + ' rowop rowswap rreduce run_testsuite %s save saving scalarp scaled_bessel_i'
+	      + ' scaled_bessel_i0 scaled_bessel_i1 scalefactors scanmap scatterplot scatterplot_description'
+	      + ' scene schur2comp sconcat scopy scsimp scurvature sdowncase sec sech second'
+	      + ' sequal sequalignore set_alt_display setdifference set_draw_defaults set_edge_weight'
+	      + ' setelmx setequalp setify setp set_partitions set_plot_option set_prompt set_random_state'
+	      + ' set_tex_environment set_tex_environment_default setunits setup_autoload set_up_dot_simplifications'
+	      + ' set_vertex_label seventh sexplode sf sha1sum sha256sum shortest_path shortest_weighted_path'
+	      + ' show showcomps showratvars sierpinskiale sierpinskimap sign signum similaritytransform'
+	      + ' simp_inequality simplify_sum simplode simpmetderiv simtran sin sinh sinsert'
+	      + ' sinvertcase sixth skewness skewness_bernoulli skewness_beta skewness_binomial'
+	      + ' skewness_chi2 skewness_continuous_uniform skewness_discrete_uniform skewness_exp'
+	      + ' skewness_f skewness_gamma skewness_general_finite_discrete skewness_geometric'
+	      + ' skewness_gumbel skewness_hypergeometric skewness_laplace skewness_logistic'
+	      + ' skewness_lognormal skewness_negative_binomial skewness_noncentral_chi2 skewness_noncentral_student_t'
+	      + ' skewness_normal skewness_pareto skewness_poisson skewness_rayleigh skewness_student_t'
+	      + ' skewness_weibull slength smake small_rhombicosidodecahedron_graph small_rhombicuboctahedron_graph'
+	      + ' smax smin smismatch snowmap snub_cube_graph snub_dodecahedron_graph solve'
+	      + ' solve_rec solve_rec_rat some somrac sort sparse6_decode sparse6_encode sparse6_export'
+	      + ' sparse6_import specint spherical spherical_bessel_j spherical_bessel_y spherical_hankel1'
+	      + ' spherical_hankel2 spherical_harmonic spherical_to_xyz splice split sposition'
+	      + ' sprint sqfr sqrt sqrtdenest sremove sremovefirst sreverse ssearch ssort sstatus'
+	      + ' ssubst ssubstfirst staircase standardize standardize_inverse_trig starplot'
+	      + ' starplot_description status std std1 std_bernoulli std_beta std_binomial'
+	      + ' std_chi2 std_continuous_uniform std_discrete_uniform std_exp std_f std_gamma'
+	      + ' std_general_finite_discrete std_geometric std_gumbel std_hypergeometric std_laplace'
+	      + ' std_logistic std_lognormal std_negative_binomial std_noncentral_chi2 std_noncentral_student_t'
+	      + ' std_normal std_pareto std_poisson std_rayleigh std_student_t std_weibull'
+	      + ' stemplot stirling stirling1 stirling2 strim striml strimr string stringout'
+	      + ' stringp strong_components struve_h struve_l sublis sublist sublist_indices'
+	      + ' submatrix subsample subset subsetp subst substinpart subst_parallel substpart'
+	      + ' substring subvar subvarp sum sumcontract summand_to_rec supcase supcontext'
+	      + ' symbolp symmdifference symmetricp system take_channel take_inference tan'
+	      + ' tanh taylor taylorinfo taylorp taylor_simplifier taytorat tcl_output tcontract'
+	      + ' tellrat tellsimp tellsimpafter tentex tenth test_mean test_means_difference'
+	      + ' test_normality test_proportion test_proportions_difference test_rank_sum'
+	      + ' test_sign test_signed_rank test_variance test_variance_ratio tex tex1 tex_display'
+	      + ' texput %th third throw time timedate timer timer_info tldefint tlimit todd_coxeter'
+	      + ' toeplitz tokens to_lisp topological_sort to_poly to_poly_solve totaldisrep'
+	      + ' totalfourier totient tpartpol trace tracematrix trace_options transform_sample'
+	      + ' translate translate_file transpose treefale tree_reduce treillis treinat'
+	      + ' triangle triangularize trigexpand trigrat trigreduce trigsimp trunc truncate'
+	      + ' truncated_cube_graph truncated_dodecahedron_graph truncated_icosahedron_graph'
+	      + ' truncated_tetrahedron_graph tr_warnings_get tube tutte_graph ueivects uforget'
+	      + ' ultraspherical underlying_graph undiff union unique uniteigenvectors unitp'
+	      + ' units unit_step unitvector unorder unsum untellrat untimer'
+	      + ' untrace uppercasep uricci uriemann uvect vandermonde_matrix var var1 var_bernoulli'
+	      + ' var_beta var_binomial var_chi2 var_continuous_uniform var_discrete_uniform'
+	      + ' var_exp var_f var_gamma var_general_finite_discrete var_geometric var_gumbel'
+	      + ' var_hypergeometric var_laplace var_logistic var_lognormal var_negative_binomial'
+	      + ' var_noncentral_chi2 var_noncentral_student_t var_normal var_pareto var_poisson'
+	      + ' var_rayleigh var_student_t var_weibull vector vectorpotential vectorsimp'
+	      + ' verbify vers vertex_coloring vertex_connectivity vertex_degree vertex_distance'
+	      + ' vertex_eccentricity vertex_in_degree vertex_out_degree vertices vertices_to_cycle'
+	      + ' vertices_to_path %w weyl wheel_graph wiener_index wigner_3j wigner_6j'
+	      + ' wigner_9j with_stdout write_binary_data writebyte write_data writefile wronskian'
+	      + ' xreduce xthru %y Zeilberger zeroequiv zerofor zeromatrix zeromatrixp zeta'
+	      + ' zgeev zheev zlange zn_add_table zn_carmichael_lambda zn_characteristic_factors'
+	      + ' zn_determinant zn_factor_generators zn_invert_by_lu zn_log zn_mult_table'
+	      + ' absboxchar activecontexts adapt_depth additive adim aform algebraic'
+	      + ' algepsilon algexact aliases allbut all_dotsimp_denoms allocation allsym alphabetic'
+	      + ' animation antisymmetric arrays askexp assume_pos assume_pos_pred assumescalar'
+	      + ' asymbol atomgrad atrig1 axes axis_3d axis_bottom axis_left axis_right axis_top'
+	      + ' azimuth background background_color backsubst berlefact bernstein_explicit'
+	      + ' besselexpand beta_args_sum_to_integer beta_expand bftorat bftrunc bindtest'
+	      + ' border boundaries_array box boxchar breakup %c capping cauchysum cbrange'
+	      + ' cbtics center cflength cframe_flag cnonmet_flag color color_bar color_bar_tics'
+	      + ' colorbox columns commutative complex cone context contexts contour contour_levels'
+	      + ' cosnpiflag ctaypov ctaypt ctayswitch ctayvar ct_coords ctorsion_flag ctrgsimp'
+	      + ' cube current_let_rule_package cylinder data_file_name debugmode decreasing'
+	      + ' default_let_rule_package delay dependencies derivabbrev derivsubst detout'
+	      + ' diagmetric diff dim dimensions dispflag display2d|10 display_format_internal'
+	      + ' distribute_over doallmxops domain domxexpt domxmxops domxnctimes dontfactor'
+	      + ' doscmxops doscmxplus dot0nscsimp dot0simp dot1simp dotassoc dotconstrules'
+	      + ' dotdistrib dotexptsimp dotident dotscrules draw_graph_program draw_realpart'
+	      + ' edge_color edge_coloring edge_partition edge_type edge_width %edispflag'
+	      + ' elevation %emode endphi endtheta engineering_format_floats enhanced3d %enumer'
+	      + ' epsilon_lp erfflag erf_representation errormsg error_size error_syms error_type'
+	      + ' %e_to_numlog eval even evenfun evflag evfun ev_point expandwrt_denom expintexpand'
+	      + ' expintrep expon expop exptdispflag exptisolate exptsubst facexpand facsum_combine'
+	      + ' factlim factorflag factorial_expand factors_only fb feature features'
+	      + ' file_name file_output_append file_search_demo file_search_lisp file_search_maxima|10'
+	      + ' file_search_tests file_search_usage file_type_lisp file_type_maxima|10 fill_color'
+	      + ' fill_density filled_func fixed_vertices flipflag float2bf font font_size'
+	      + ' fortindent fortspaces fpprec fpprintprec functions gamma_expand gammalim'
+	      + ' gdet genindex gensumnum GGFCFMAX GGFINFINITY globalsolve gnuplot_command'
+	      + ' gnuplot_curve_styles gnuplot_curve_titles gnuplot_default_term_command gnuplot_dumb_term_command'
+	      + ' gnuplot_file_args gnuplot_file_name gnuplot_out_file gnuplot_pdf_term_command'
+	      + ' gnuplot_pm3d gnuplot_png_term_command gnuplot_postamble gnuplot_preamble'
+	      + ' gnuplot_ps_term_command gnuplot_svg_term_command gnuplot_term gnuplot_view_args'
+	      + ' Gosper_in_Zeilberger gradefs grid grid2d grind halfangles head_angle head_both'
+	      + ' head_length head_type height hypergeometric_representation %iargs ibase'
+	      + ' icc1 icc2 icounter idummyx ieqnprint ifb ifc1 ifc2 ifg ifgi ifr iframe_bracket_form'
+	      + ' ifri igeowedge_flag ikt1 ikt2 imaginary inchar increasing infeval'
+	      + ' infinity inflag infolists inm inmc1 inmc2 intanalysis integer integervalued'
+	      + ' integrate_use_rootsof integration_constant integration_constant_counter interpolate_color'
+	      + ' intfaclim ip_grid ip_grid_in irrational isolate_wrt_times iterations itr'
+	      + ' julia_parameter %k1 %k2 keepfloat key key_pos kinvariant kt label label_alignment'
+	      + ' label_orientation labels lassociative lbfgs_ncorrections lbfgs_nfeval_max'
+	      + ' leftjust legend letrat let_rule_packages lfg lg lhospitallim limsubst linear'
+	      + ' linear_solver linechar linel|10 linenum line_type linewidth line_width linsolve_params'
+	      + ' linsolvewarn lispdisp listarith listconstvars listdummyvars lmxchar load_pathname'
+	      + ' loadprint logabs logarc logcb logconcoeffp logexpand lognegint logsimp logx'
+	      + ' logx_secondary logy logy_secondary logz lriem m1pbranch macroexpansion macros'
+	      + ' mainvar manual_demo maperror mapprint matrix_element_add matrix_element_mult'
+	      + ' matrix_element_transpose maxapplydepth maxapplyheight maxima_tempdir|10 maxima_userdir|10'
+	      + ' maxnegex MAX_ORD maxposex maxpsifracdenom maxpsifracnum maxpsinegint maxpsiposint'
+	      + ' maxtayorder mesh_lines_color method mod_big_prime mode_check_errorp'
+	      + ' mode_checkp mode_check_warnp mod_test mod_threshold modular_linear_solver'
+	      + ' modulus multiplicative multiplicities myoptions nary negdistrib negsumdispflag'
+	      + ' newline newtonepsilon newtonmaxiter nextlayerfactor niceindicespref nm nmc'
+	      + ' noeval nolabels nonegative_lp noninteger nonscalar noun noundisp nouns np'
+	      + ' npi nticks ntrig numer numer_pbranch obase odd oddfun opacity opproperties'
+	      + ' opsubst optimprefix optionset orientation origin orthopoly_returns_intervals'
+	      + ' outative outchar packagefile palette partswitch pdf_file pfeformat phiresolution'
+	      + ' %piargs piece pivot_count_sx pivot_max_sx plot_format plot_options plot_realpart'
+	      + ' png_file pochhammer_max_index points pointsize point_size points_joined point_type'
+	      + ' poislim poisson poly_coefficient_ring poly_elimination_order polyfactor poly_grobner_algorithm'
+	      + ' poly_grobner_debug poly_monomial_order poly_primary_elimination_order poly_return_term_list'
+	      + ' poly_secondary_elimination_order poly_top_reduction_only posfun position'
+	      + ' powerdisp pred prederror primep_number_of_tests product_use_gamma program'
+	      + ' programmode promote_float_to_bigfloat prompt proportional_axes props psexpand'
+	      + ' ps_file radexpand radius radsubstflag rassociative ratalgdenom ratchristof'
+	      + ' ratdenomdivide rateinstein ratepsilon ratfac rational ratmx ratprint ratriemann'
+	      + ' ratsimpexpons ratvarswitch ratweights ratweyl ratwtlvl real realonly redraw'
+	      + ' refcheck resolution restart resultant ric riem rmxchar %rnum_list rombergabs'
+	      + ' rombergit rombergmin rombergtol rootsconmode rootsepsilon run_viewer same_xy'
+	      + ' same_xyz savedef savefactors scalar scalarmatrixp scale scale_lp setcheck'
+	      + ' setcheckbreak setval show_edge_color show_edges show_edge_type show_edge_width'
+	      + ' show_id show_label showtime show_vertex_color show_vertex_size show_vertex_type'
+	      + ' show_vertices show_weight simp simplified_output simplify_products simpproduct'
+	      + ' simpsum sinnpiflag solvedecomposes solveexplicit solvefactors solvenullwarn'
+	      + ' solveradcan solvetrigwarn space sparse sphere spring_embedding_depth sqrtdispflag'
+	      + ' stardisp startphi starttheta stats_numer stringdisp structures style sublis_apply_lambda'
+	      + ' subnumsimp sumexpand sumsplitfact surface surface_hide svg_file symmetric'
+	      + ' tab taylordepth taylor_logexpand taylor_order_coefficients taylor_truncate_polynomials'
+	      + ' tensorkill terminal testsuite_files thetaresolution timer_devalue title tlimswitch'
+	      + ' tr track transcompile transform transform_xy translate_fast_arrays transparent'
+	      + ' transrun tr_array_as_ref tr_bound_function_applyp tr_file_tty_messagesp tr_float_can_branch_complex'
+	      + ' tr_function_call_default trigexpandplus trigexpandtimes triginverses trigsign'
+	      + ' trivial_solutions tr_numer tr_optimize_max_loop tr_semicompile tr_state_vars'
+	      + ' tr_warn_bad_function_calls tr_warn_fexpr tr_warn_meval tr_warn_mode'
+	      + ' tr_warn_undeclared tr_warn_undefined_variable tstep ttyoff tube_extremes'
+	      + ' ufg ug %unitexpand unit_vectors uric uriem use_fast_arrays user_preamble'
+	      + ' usersetunits values vect_cross verbose vertex_color vertex_coloring vertex_partition'
+	      + ' vertex_size vertex_type view warnings weyl width windowname windowtitle wired_surface'
+	      + ' wireframe xaxis xaxis_color xaxis_secondary xaxis_type xaxis_width xlabel'
+	      + ' xlabel_secondary xlength xrange xrange_secondary xtics xtics_axis xtics_rotate'
+	      + ' xtics_rotate_secondary xtics_secondary xtics_secondary_axis xu_grid x_voxel'
+	      + ' xy_file xyplane xy_scale yaxis yaxis_color yaxis_secondary yaxis_type yaxis_width'
+	      + ' ylabel ylabel_secondary ylength yrange yrange_secondary ytics ytics_axis'
+	      + ' ytics_rotate ytics_rotate_secondary ytics_secondary ytics_secondary_axis'
+	      + ' yv_grid y_voxel yx_ratio zaxis zaxis_color zaxis_type zaxis_width zeroa zerob'
+	      + ' zerobern zeta%pi zlabel zlabel_rotate zlength zmin zn_primroot_limit zn_primroot_pretest';
+	  var SYMBOLS = '_ __ %|0 %%|0';
+
+	  return {
+	    lexemes: '[A-Za-z_%][0-9A-Za-z_%]*',
+	    keywords: {
+	      keyword: KEYWORDS,
+	      literal: LITERALS,
+	      built_in: BUILTIN_FUNCTIONS,
+	      symbol: SYMBOLS,
+	    },
+	    contains: [
+	      {
+	        className: 'comment',
+	        begin: '/\\*',
+	        end: '\\*/',
+	        contains: ['self']
+	      },
+	      hljs.QUOTE_STRING_MODE,
+	      {
+	        className: 'number',
+	        relevance: 0,
+	        variants: [
+	          {
+	            // float number w/ exponent
+	            // hmm, I wonder if we ought to include other exponent markers?
+	            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b',
+	          },
+	          {
+	            // bigfloat number
+	            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Bb][-+]?\\d+\\b',
+	            relevance: 10
+	          },
+	          {
+	            // float number w/out exponent
+	            // Doesn't seem to recognize floats which start with '.'
+	            begin: '\\b(\\.\\d+|\\d+\\.\\d+)\\b',
+	          },
+	          {
+	            // integer in base up to 36
+	            // Doesn't seem to recognize integers which end with '.'
+	            begin: '\\b(\\d+|0[0-9A-Za-z]+)\\.?\\b',
+	          }
+	        ]
+	      }
+	    ]
+	  }
+	};
+
+/***/ },
+/* 92 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10616,7 +11159,7 @@
 	};
 
 /***/ },
-/* 90 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10702,7 +11245,7 @@
 	};
 
 /***/ },
-/* 91 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10735,7 +11278,7 @@
 	            // 32-bit integer instructions
 	            'addi?u?|andi?|b(al)?|beql?|bgez(al)?l?|bgtzl?|blezl?|bltz(al)?l?|' +
 	            'bnel?|cl[oz]|divu?|ext|ins|j(al)?|jalr(\.hb)?|jr(\.hb)?|lbu?|lhu?|' +
-	            'll|lui|lw[lr]?|maddu?|mfhi|mflo|movn|movz|msubu?|mthi|mtlo|mul|' +
+	            'll|lui|lw[lr]?|maddu?|mfhi|mflo|movn|movz|move|msubu?|mthi|mtlo|mul|' +
 	            'multu?|nop|nor|ori?|rotrv?|sb|sc|se[bh]|sh|sllv?|slti?u?|srav?|' +
 	            'srlv?|subu?|sw[lr]?|xori?|wsbh|' +
 	            // floating-point instructions
@@ -10792,7 +11335,7 @@
 	};
 
 /***/ },
-/* 92 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10815,7 +11358,7 @@
 	};
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10975,7 +11518,7 @@
 	};
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11004,7 +11547,7 @@
 	};
 
 /***/ },
-/* 95 */
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11083,7 +11626,7 @@
 	};
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11180,7 +11723,7 @@
 	};
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11229,7 +11772,7 @@
 	};
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11282,7 +11825,7 @@
 	};
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11372,7 +11915,7 @@
 	};
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11454,7 +11997,7 @@
 	};
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11529,7 +12072,7 @@
 	};
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11590,7 +12133,7 @@
 	};
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11663,7 +12206,7 @@
 	};
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11715,7 +12258,7 @@
 	};
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11771,7 +12314,7 @@
 	};
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11809,8 +12352,8 @@
 	      'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
 	      'yield finally',
 	    contains: [
-	      hljs.C_LINE_COMMENT_MODE,
 	      hljs.HASH_COMMENT_MODE,
+	      hljs.COMMENT('//', '$', {contains: [PREPROCESSOR]}),
 	      hljs.COMMENT(
 	        '/\\*',
 	        '\\*/',
@@ -11819,8 +12362,7 @@
 	            {
 	              className: 'doctag',
 	              begin: '@[A-Za-z]+'
-	            },
-	            PREPROCESSOR
+	            }
 	          ]
 	        }
 	      ),
@@ -11900,7 +12442,7 @@
 	};
 
 /***/ },
-/* 107 */
+/* 110 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11956,7 +12498,7 @@
 	};
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12008,7 +12550,7 @@
 	};
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12042,7 +12584,7 @@
 	};
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12134,7 +12676,7 @@
 	};
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12174,7 +12716,7 @@
 	};
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12293,7 +12835,7 @@
 	};
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12389,7 +12931,7 @@
 	};
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12416,7 +12958,213 @@
 	};
 
 /***/ },
-/* 115 */
+/* 118 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
+	  var KEYWORDS = {
+	      keyword:
+	        'in of on if for while finally var new function do return void else break catch ' +
+	        'instanceof with throw case default try this switch continue typeof delete ' +
+	        'let yield const export super debugger as async await',
+	      literal:
+	        'true false null undefined NaN Infinity',
+	      built_in:
+	        'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
+	        'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
+	        'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
+	        'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
+	        'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
+	        'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
+	        'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
+	        'Behavior bool color coordinate date double enumeration font geocircle georectangle ' +
+	        'geoshape int list matrix4x4 parent point quaternion real rect ' +
+	        'size string url var variant vector2d vector3d vector4d' +
+	        'Promise'
+	    };
+
+	  var QML_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9\\._]*';
+	  
+	  var END_OF_LINE_MODE = {
+	    className: 'string',
+	    begin: '(\\b|"|\')',
+	    end: '(//|/\\*|$)',
+	    illegal: '\\n',
+	    contains: [hljs.BACKSLASH_ESCAPE]
+	  };
+
+	  // Isolate import statements. Ends at a comment or end of line.
+	  // Use keyword class.
+	  var IMPORT = {
+	      beginKeywords: 'import', end: '$',
+	      starts: {
+	        className: 'string',
+	        end: '(//|/\\*|$)', 
+	        returnEnd: true
+	      },
+	      contains: [
+	        END_OF_LINE_MODE
+	      ]
+	  };
+	  
+	  // Isolate property statements. Ends at a :, =, ;, ,, a comment or end of line.
+	  // Use property class.
+	  var PROPERTY = {
+	      className: 'keyword',
+	      begin: '\\bproperty\\b', 
+	      starts: {
+	        className: 'string',
+	        end: '(:|=|;|,|//|/\\*|$)', 
+	        returnEnd: true
+	      },
+	      relevance: 0
+	  };
+	  
+	  // Isolate signal statements. Ends at a ) a comment or end of line.
+	  // Use property class.
+	  var SIGNAL = {
+	      className: 'keyword',
+	      begin: '\\bsignal\\b', 
+	      starts: {
+	        className: 'string',
+	        end: '(\\(|:|=|;|,|//|/\\*|$)', 
+	        returnEnd: true
+	      },
+	      relevance: 10
+	  };
+	  
+	  // id: is special in QML. When we see id: we want to mark the id: as attribute and
+	  // emphasize the token following.
+	  var ID_ID = {
+	      className: 'attribute',
+	      begin: '\\bid\\s*:',
+	      starts: {
+	        className: 'emphasis',
+	        end: QML_IDENT_RE, 
+	        returnEnd: false
+	      },
+	      relevance: 10
+	  };
+
+	  // Find QML object attribute. An attribute is a QML identifier followed by :. 
+	  // Unfortunately it's hard to know where it ends, as it may contain scalars,
+	  // objects, object definitions, or javascript. The true end is either when the parent
+	  // ends or the next attribute is detected.
+	  var QML_ATTRIBUTE = {
+	    begin: QML_IDENT_RE + '\\s*:',
+	    returnBegin: true,
+	    contains: [
+	      {
+	        className: 'attribute',
+	        begin: QML_IDENT_RE, 
+	        includeBegin: true,
+	        end: '\\s*:', 
+	        excludeEnd: true
+	      }
+	    ],
+	    relevance: 0
+	  };
+
+	  // Find QML object. A QML object is a QML identifier followed by { and ends at the matching }.
+	  // All we really care about is finding IDENT followed by { and just mark up the IDENT and ignore the {.
+	  var QML_OBJECT = {
+	    begin: QML_IDENT_RE + '\\s*{',
+	    returnBegin: true,
+	    contains: [
+	      {
+	        className: 'decorator',
+	        keywords: KEYWORDS,
+	        begin: QML_IDENT_RE, 
+	        includeBegin: true,
+	        end: '\\s*{', 
+	        excludeEnd: true
+	      }
+	    ],
+	    relevance: 0
+	  };
+
+	  return {
+	    aliases: ['qt'],
+	    case_insensitive: false,
+	    keywords: KEYWORDS,
+	    contains: [
+	      {
+	        className: 'pi',
+	        begin: /^\s*['"]use (strict|asm)['"]/
+	      },
+	      hljs.APOS_STRING_MODE,
+	      hljs.QUOTE_STRING_MODE,
+	      { // template string
+	        className: 'string',
+	        begin: '`', end: '`',
+	        contains: [
+	          hljs.BACKSLASH_ESCAPE,
+	          {
+	            className: 'subst',
+	            begin: '\\$\\{', end: '\\}'
+	          }
+	        ]
+	      },
+	      hljs.C_LINE_COMMENT_MODE,
+	      hljs.C_BLOCK_COMMENT_MODE,
+	      {
+	        className: 'number',
+	        variants: [
+	          { begin: '\\b(0[bB][01]+)' },
+	          { begin: '\\b(0[oO][0-7]+)' },
+	          { begin: hljs.C_NUMBER_RE }
+	        ],
+	        relevance: 0
+	      },
+	      { // "value" container
+	        begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
+	        keywords: 'return throw case',
+	        contains: [
+	          hljs.C_LINE_COMMENT_MODE,
+	          hljs.C_BLOCK_COMMENT_MODE,
+	          hljs.REGEXP_MODE,
+	          { // E4X / JSX
+	            begin: /</, end: />\s*[);\]]/,
+	            relevance: 0,
+	            subLanguage: 'xml'
+	          }
+	        ],
+	        relevance: 0
+	      },
+	      IMPORT,
+	      SIGNAL,
+	      PROPERTY,
+	      {
+	        className: 'function',
+	        beginKeywords: 'function', end: /\{/, excludeEnd: true,
+	        contains: [
+	          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
+	          {
+	            className: 'params',
+	            begin: /\(/, end: /\)/,
+	            excludeBegin: true,
+	            excludeEnd: true,
+	            contains: [
+	              hljs.C_LINE_COMMENT_MODE,
+	              hljs.C_BLOCK_COMMENT_MODE
+	            ]
+	          }
+	        ],
+	        illegal: /\[|%/
+	      },
+	      {
+	        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
+	      },
+	      ID_ID,
+	      QML_ATTRIBUTE,
+	      QML_OBJECT
+	    ],
+	    illegal: /#/
+	  };
+	};
+
+/***/ },
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12490,7 +13238,7 @@
 	};
 
 /***/ },
-/* 116 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12521,7 +13269,7 @@
 	};
 
 /***/ },
-/* 117 */
+/* 121 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12592,7 +13340,7 @@
 	};
 
 /***/ },
-/* 118 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12632,7 +13380,7 @@
 	};
 
 /***/ },
-/* 119 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12697,7 +13445,7 @@
 	};
 
 /***/ },
-/* 120 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12715,7 +13463,7 @@
 	    'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
 	    'include_bin! include_str! line! local_data_key! module_path! ' +
 	    'option_env! print! println! select! stringify! try! unimplemented! ' +
-	    'unreachable! vec! write! writeln!';
+	    'unreachable! vec! write! writeln! macro_rules!';
 	  return {
 	    aliases: ['rs'],
 	    keywords: {
@@ -12779,8 +13527,10 @@
 	      },
 	      {
 	        className: 'class',
-	        beginKeywords: 'type', end: '(=|<)',
-	        contains: [hljs.UNDERSCORE_TITLE_MODE],
+	        beginKeywords: 'type', end: ';',
+	        contains: [
+	          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+	        ],
 	        illegal: '\\S'
 	      },
 	      {
@@ -12803,7 +13553,7 @@
 	};
 
 /***/ },
-/* 121 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12922,7 +13672,7 @@
 	};
 
 /***/ },
-/* 122 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13022,32 +13772,52 @@
 	    relevance: 0
 	  };
 
+	  var QUOTED_LIST = {
+	    begin: /'/,
+	    contains: [
+	      {
+	        begin: '\\(', end: '\\)',
+	        contains: ['self', LITERAL, STRING, NUMBER, IDENT, QUOTED_IDENT]
+	      }
+	    ]
+	  };
+
+	  var NAME = {
+	    className: 'name',
+	    begin: SCHEME_IDENT_RE,
+	    lexemes: SCHEME_IDENT_RE,
+	    keywords: BUILTINS
+	  };
+
+	  var LAMBDA = {
+	    begin: /lambda/, endsWithParent: true, returnBegin: true,
+	    contains: [
+	      NAME,
+	      {
+	        begin: /\(/, end: /\)/, endsParent: true,
+	        contains: [IDENT],
+	      }
+	    ]
+	  };
+
 	  var LIST = {
 	    variants: [
 	      { begin: '\\(', end: '\\)' },
 	      { begin: '\\[', end: '\\]' }
 	    ],
-	    contains: [
-	      {
-	        className: 'name',
-	        begin: SCHEME_IDENT_RE,
-	        lexemes: SCHEME_IDENT_RE,
-	        keywords: BUILTINS
-	      },
-	      BODY
-	    ]
+	    contains: [LAMBDA, NAME, BODY]
 	  };
 
-	  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, LIST].concat(COMMENT_MODES);
+	  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES);
 
 	  return {
 	    illegal: /\S/,
-	    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, LIST].concat(COMMENT_MODES)
+	    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
 	  };
 	};
 
 /***/ },
-/* 123 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13105,7 +13875,7 @@
 	};
 
 /***/ },
-/* 124 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13207,7 +13977,7 @@
 	};
 
 /***/ },
-/* 125 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13267,7 +14037,7 @@
 	};
 
 /***/ },
-/* 126 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13321,7 +14091,7 @@
 	};
 
 /***/ },
-/* 127 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13345,7 +14115,8 @@
 	    contains: [
 	      {
 	        className: 'literal',
-	        begin: '\\[(\\|\\|)?\\]|\\(\\)'
+	        begin: /\[(\|\|)?\]|\(\)/,
+	        relevance: 0
 	      },
 	      hljs.COMMENT(
 	        '\\(\\*',
@@ -13390,7 +14161,7 @@
 	};
 
 /***/ },
-/* 128 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13491,7 +14262,7 @@
 	};
 
 /***/ },
-/* 129 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13518,7 +14289,7 @@
 	            'authors auto autoallocate autodblink autoextend automatic availability avg backup badfile basicfile ' +
 	            'before begin beginning benchmark between bfile bfile_base big bigfile bin binary_double binary_float ' +
 	            'binlog bit_and bit_count bit_length bit_or bit_xor bitmap blob_base block blocksize body both bound ' +
-	            'buffer_cache buffer_pool build bulk by byte byteordermark bytes c cache caching call calling cancel ' +
+	            'buffer_cache buffer_pool build bulk by byte byteordermark bytes cache caching call calling cancel ' +
 	            'capacity cascade cascaded case cast catalog category ceil ceiling chain change changed char_base ' +
 	            'char_length character_length characters characterset charindex charset charsetform charsetid check ' +
 	            'checksum checksum_agg child choose chr chunk class cleanup clear client clob clob_base clone close ' +
@@ -13530,7 +14301,7 @@
 	            'contributors controlfile conv convert convert_tz corr corr_k corr_s corresponding corruption cos cost ' +
 	            'count count_big counted covar_pop covar_samp cpu_per_call cpu_per_session crc32 create creation ' +
 	            'critical cross cube cume_dist curdate current current_date current_time current_timestamp current_user ' +
-	            'cursor curtime customdatum cycle d data database databases datafile datafiles datalength date_add ' +
+	            'cursor curtime customdatum cycle data database databases datafile datafiles datalength date_add ' +
 	            'date_cache date_format date_sub dateadd datediff datefromparts datename datepart datetime2fromparts ' +
 	            'day day_to_second dayname dayofmonth dayofweek dayofyear days db_role_change dbtimezone ddl deallocate ' +
 	            'declare decode decompose decrement decrypt deduplicate def defa defau defaul default defaults ' +
@@ -13538,34 +14309,34 @@
 	            'depth dequeue des_decrypt des_encrypt des_key_file desc descr descri describ describe descriptor ' +
 	            'deterministic diagnostics difference dimension direct_load directory disable disable_all ' +
 	            'disallow disassociate discardfile disconnect diskgroup distinct distinctrow distribute distributed div ' +
-	            'do document domain dotnet double downgrade drop dumpfile duplicate duration e each edition editionable ' +
+	            'do document domain dotnet double downgrade drop dumpfile duplicate duration each edition editionable ' +
 	            'editions element ellipsis else elsif elt empty enable enable_all enclosed encode encoding encrypt ' +
 	            'end end-exec endian enforced engine engines enqueue enterprise entityescaping eomonth error errors ' +
 	            'escaped evalname evaluate event eventdata events except exception exceptions exchange exclude excluding ' +
 	            'execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
-	            'external_1 external_2 externally extract f failed failed_login_attempts failover failure far fast ' +
+	            'external_1 external_2 externally extract failed failed_login_attempts failover failure far fast ' +
 	            'feature_set feature_value fetch field fields file file_name_convert filesystem_like_logging final ' +
 	            'finish first first_value fixed flash_cache flashback floor flush following follows for forall force ' +
 	            'form forma format found found_rows freelist freelists freepools fresh from from_base64 from_days ' +
-	            'ftp full function g general generated get get_format get_lock getdate getutcdate global global_name ' +
+	            'ftp full function general generated get get_format get_lock getdate getutcdate global global_name ' +
 	            'globally go goto grant grants greatest group group_concat group_id grouping grouping_id groups ' +
 	            'gtid_subtract guarantee guard handler hash hashkeys having hea head headi headin heading heap help hex ' +
-	            'hierarchy high high_priority hosts hour http i id ident_current ident_incr ident_seed identified ' +
+	            'hierarchy high high_priority hosts hour http id ident_current ident_incr ident_seed identified ' +
 	            'identity idle_time if ifnull ignore iif ilike ilm immediate import in include including increment ' +
 	            'index indexes indexing indextype indicator indices inet6_aton inet6_ntoa inet_aton inet_ntoa infile ' +
 	            'initial initialized initially initrans inmemory inner innodb input insert install instance instantiable ' +
 	            'instr interface interleaved intersect into invalidate invisible is is_free_lock is_ipv4 is_ipv4_compat ' +
 	            'is_not is_not_null is_used_lock isdate isnull isolation iterate java join json json_exists ' +
-	            'k keep keep_duplicates key keys kill l language large last last_day last_insert_id last_value lax lcase ' +
+	            'keep keep_duplicates key keys kill language large last last_day last_insert_id last_value lax lcase ' +
 	            'lead leading least leaves left len lenght length less level levels library like like2 like4 likec limit ' +
 	            'lines link list listagg little ln load load_file lob lobs local localtime localtimestamp locate ' +
 	            'locator lock locked log log10 log2 logfile logfiles logging logical logical_reads_per_call ' +
-	            'logoff logon logs long loop low low_priority lower lpad lrtrim ltrim m main make_set makedate maketime ' +
+	            'logoff logon logs long loop low low_priority lower lpad lrtrim ltrim main make_set makedate maketime ' +
 	            'managed management manual map mapping mask master master_pos_wait match matched materialized max ' +
 	            'maxextents maximize maxinstances maxlen maxlogfiles maxloghistory maxlogmembers maxsize maxtrans ' +
 	            'md5 measures median medium member memcompress memory merge microsecond mid migration min minextents ' +
 	            'minimum mining minus minute minvalue missing mod mode model modification modify module monitoring month ' +
-	            'months mount move movement multiset mutex n name name_const names nan national native natural nav nchar ' +
+	            'months mount move movement multiset mutex name name_const names nan national native natural nav nchar ' +
 	            'nclob nested never new newline next nextval no no_write_to_binlog noarchivelog noaudit nobadfile ' +
 	            'nocheck nocompress nocopy nocycle nodelay nodiscardfile noentityescaping noguarantee nokeep nologfile ' +
 	            'nomapping nomaxvalue nominimize nominvalue nomonitoring none noneditionable nonschema noorder ' +
@@ -13575,7 +14346,7 @@
 	            'ociref ocirefcursor ocirowid ocistring ocitype oct octet_length of off offline offset oid oidindex old ' +
 	            'on online only opaque open operations operator optimal optimize option optionally or oracle oracle_date ' +
 	            'oradata ord ordaudio orddicom orddoc order ordimage ordinality ordvideo organization orlany orlvary ' +
-	            'out outer outfile outline output over overflow overriding p package pad parallel parallel_enable ' +
+	            'out outer outfile outline output over overflow overriding package pad parallel parallel_enable ' +
 	            'parameters parent parse partial partition partitions pascal passing password password_grace_time ' +
 	            'password_lock_time password_reuse_max password_reuse_time password_verify_function patch path patindex ' +
 	            'pctincrease pctthreshold pctused pctversion percent percent_rank percentile_cont percentile_disc ' +
@@ -13605,7 +14376,7 @@
 	            'stop storage store stored str str_to_date straight_join strcmp strict string struct stuff style subdate ' +
 	            'subpartition subpartitions substitutable substr substring subtime subtring_index subtype success sum ' +
 	            'suspend switch switchoffset switchover sync synchronous synonym sys sys_xmlagg sysasm sysaux sysdate ' +
-	            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime t table tables tablespace tan tdo ' +
+	            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime table tables tablespace tan tdo ' +
 	            'template temporary terminated tertiary_weights test than then thread through tier ties time time_format ' +
 	            'time_zone timediff timefromparts timeout timestamp timestampadd timestampdiff timezone_abbr ' +
 	            'timezone_minute timezone_region to to_base64 to_date to_days to_seconds todatetimeoffset trace tracking ' +
@@ -13654,7 +14425,7 @@
 	};
 
 /***/ },
-/* 130 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13741,7 +14512,7 @@
 	};
 
 /***/ },
-/* 131 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13783,7 +14554,7 @@
 	};
 
 /***/ },
-/* 132 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13834,7 +14605,7 @@
 	};
 
 /***/ },
-/* 133 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14163,13 +14934,12 @@
 
 	  // illegals
 	  var ILLEGAL = [
-	    '\\{',
-	    '\\}',
 	    '\\?',
 	    '(\\bReturn\\b)', // monkey
 	    '(\\bEnd\\b)', // monkey
 	    '(\\bend\\b)', // vbscript
-	    ';', // sql
+	    '(\\bdef\\b)', // gradle
+	    ';', // a whole lot of languages
 	    '#\\s', // markdown
 	    '\\*\\s', // markdown
 	    '===\\s', // markdown
@@ -14180,8 +14950,8 @@
 	  return {
 	    aliases: ['styl'],
 	    case_insensitive: false,
-	    illegal: '(' + ILLEGAL.join('|') + ')',
 	    keywords: 'if else for in',
+	    illegal: '(' + ILLEGAL.join('|') + ')',
 	    contains: [
 
 	      // strings
@@ -14271,14 +15041,29 @@
 	      //  - must have whitespace after it
 	      {
 	        className: 'attribute',
-	        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b'
+	        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b',
+	        starts: {
+	          // value container
+	          end: /;|$/,
+	          contains: [
+	            HEX_COLOR,
+	            VARIABLE,
+	            hljs.APOS_STRING_MODE,
+	            hljs.QUOTE_STRING_MODE,
+	            hljs.CSS_NUMBER_MODE,
+	            hljs.NUMBER_MODE,
+	            hljs.C_BLOCK_COMMENT_MODE
+	          ],
+	          illegal: /\./,
+	          relevance: 0
+	        }
 	      }
 	    ]
 	  };
 	};
 
 /***/ },
-/* 134 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14401,7 +15186,7 @@
 	};
 
 /***/ },
-/* 135 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14466,7 +15251,7 @@
 	};
 
 /***/ },
-/* 136 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14532,7 +15317,7 @@
 	};
 
 /***/ },
-/* 137 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14571,7 +15356,7 @@
 	};
 
 /***/ },
-/* 138 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14659,7 +15444,7 @@
 	};
 
 /***/ },
-/* 139 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14729,7 +15514,7 @@
 	};
 
 /***/ },
-/* 140 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14837,7 +15622,7 @@
 	};
 
 /***/ },
-/* 141 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14850,22 +15635,22 @@
 	        // Reference types
 	        'weak unowned owned ' +
 	        // Modifiers
-	        'async signal static abstract interface override ' +
+	        'async signal static abstract interface override virtual delegate ' +
 	        // Control Structures
-	        'while do for foreach else switch case break default return try catch ' +
+	        'if while do for foreach else switch case break default return try catch ' +
 	        // Visibility
 	        'public private protected internal ' +
 	        // Other
 	        'using new this get set const stdout stdin stderr var',
 	      built_in:
-	        'DBus GLib CCode Gee Object',
+	        'DBus GLib CCode Gee Object Gtk',
 	      literal:
 	        'false true null'
 	    },
 	    contains: [
 	      {
 	        className: 'class',
-	        beginKeywords: 'class interface delegate namespace', end: '{', excludeEnd: true,
+	        beginKeywords: 'class interface namespace', end: '{', excludeEnd: true,
 	        illegal: '[^,:\\n\\s\\.]',
 	        contains: [
 	          hljs.UNDERSCORE_TITLE_MODE
@@ -14891,7 +15676,7 @@
 	};
 
 /***/ },
-/* 142 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14951,7 +15736,7 @@
 	};
 
 /***/ },
-/* 143 */
+/* 147 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14994,7 +15779,7 @@
 	};
 
 /***/ },
-/* 144 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15010,7 +15795,7 @@
 	};
 
 /***/ },
-/* 145 */
+/* 149 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15052,7 +15837,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 150 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15112,21 +15897,21 @@
 	};
 
 /***/ },
-/* 147 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
 	  return {
 	    lexemes: /[!#@\w]+/,
 	    keywords: {
-	      keyword: //ex command
+	      keyword:
 	        // express version except: ! & * < = > !! # @ @@
 	        'N|0 P|0 X|0 a|0 ab abc abo al am an|0 ar arga argd arge argdo argg argl argu as au aug aun b|0 bN ba bad bd be bel bf bl bm bn bo bp br brea breaka breakd breakl bro bufdo buffers bun bw c|0 cN cNf ca cabc caddb cad caddf cal cat cb cc ccl cd ce cex cf cfir cgetb cgete cg changes chd che checkt cl cla clo cm cmapc cme cn cnew cnf cno cnorea cnoreme co col colo com comc comp con conf cope '+
-	        'cp cpf cq cr cs cst cu cuna cunme cw d|0 delm deb debugg delc delf dif diffg diffo diffp diffpu diffs diffthis dig di dl dell dj dli do doautoa dp dr ds dsp e|0 ea ec echoe echoh echom echon el elsei em en endfo endf endt endw ene ex exe exi exu f|0 files filet fin fina fini fir fix fo foldc foldd folddoc foldo for fu g|0 go gr grepa gu gv ha h|0 helpf helpg helpt hi hid his i|0 ia iabc if ij il im imapc '+
-	        'ime ino inorea inoreme int is isp iu iuna iunme j|0 ju k|0 keepa kee keepj lN lNf l|0 lad laddb laddf la lan lat lb lc lch lcl lcs le lefta let lex lf lfir lgetb lgete lg lgr lgrepa lh ll lla lli lmak lm lmapc lne lnew lnf ln loadk lo loc lockv lol lope lp lpf lr ls lt lu lua luad luaf lv lvimgrepa lw m|0 ma mak map mapc marks mat me menut mes mk mks mksp mkv mkvie mod mz mzf nbc nb nbs n|0 new nm nmapc nme nn nnoreme noa no noh norea noreme norm nu nun nunme ol o|0 om omapc ome on ono onoreme opt ou ounme ow p|0 '+
-	        'profd prof pro promptr pc ped pe perld po popu pp pre prev ps pt ptN ptf ptj ptl ptn ptp ptr pts pu pw py3 python3 py3d py3f py pyd pyf q|0 quita qa r|0 rec red redi redr redraws reg res ret retu rew ri rightb rub rubyd rubyf rund ru rv s|0 sN san sa sal sav sb sbN sba sbf sbl sbm sbn sbp sbr scrip scripte scs se setf setg setl sf sfir sh sim sig sil sl sla sm smap smapc sme sn sni sno snor snoreme sor '+
-	        'so spelld spe spelli spellr spellu spellw sp spr sre st sta startg startr star stopi stj sts sun sunm sunme sus sv sw sy synti sync t|0 tN tabN tabc tabdo tabe tabf tabfir tabl tabm tabnew '+
-	        'tabn tabo tabp tabr tabs tab ta tags tc tcld tclf te tf th tj tl tm tn to tp tr try ts tu u|0 undoj undol una unh unl unlo unm unme uns up v|0 ve verb vert vim vimgrepa vi viu vie vm vmapc vme vne vn vnoreme vs vu vunme windo w|0 wN wa wh wi winc winp wn wp wq wqa ws wu wv x|0 xa xmapc xm xme xn xnoreme xu xunme y|0 z|0 ~ '+
+	        'cp cpf cq cr cs cst cu cuna cunme cw delm deb debugg delc delf dif diffg diffo diffp diffpu diffs diffthis dig di dl dell dj dli do doautoa dp dr ds dsp e|0 ea ec echoe echoh echom echon el elsei em en endfo endf endt endw ene ex exe exi exu f|0 files filet fin fina fini fir fix fo foldc foldd folddoc foldo for fu go gr grepa gu gv ha helpf helpg helpt hi hid his ia iabc if ij il im imapc '+
+	        'ime ino inorea inoreme int is isp iu iuna iunme j|0 ju k|0 keepa kee keepj lN lNf l|0 lad laddb laddf la lan lat lb lc lch lcl lcs le lefta let lex lf lfir lgetb lgete lg lgr lgrepa lh ll lla lli lmak lm lmapc lne lnew lnf ln loadk lo loc lockv lol lope lp lpf lr ls lt lu lua luad luaf lv lvimgrepa lw m|0 ma mak map mapc marks mat me menut mes mk mks mksp mkv mkvie mod mz mzf nbc nb nbs new nm nmapc nme nn nnoreme noa no noh norea noreme norm nu nun nunme ol o|0 om omapc ome on ono onoreme opt ou ounme ow p|0 '+
+	        'profd prof pro promptr pc ped pe perld po popu pp pre prev ps pt ptN ptf ptj ptl ptn ptp ptr pts pu pw py3 python3 py3d py3f py pyd pyf quita qa rec red redi redr redraws reg res ret retu rew ri rightb rub rubyd rubyf rund ru rv sN san sa sal sav sb sbN sba sbf sbl sbm sbn sbp sbr scrip scripte scs se setf setg setl sf sfir sh sim sig sil sl sla sm smap smapc sme sn sni sno snor snoreme sor '+
+	        'so spelld spe spelli spellr spellu spellw sp spr sre st sta startg startr star stopi stj sts sun sunm sunme sus sv sw sy synti sync tN tabN tabc tabdo tabe tabf tabfir tabl tabm tabnew '+
+	        'tabn tabo tabp tabr tabs tab ta tags tc tcld tclf te tf th tj tl tm tn to tp tr try ts tu u|0 undoj undol una unh unl unlo unm unme uns up ve verb vert vim vimgrepa vi viu vie vm vmapc vme vne vn vnoreme vs vu vunme windo w|0 wN wa wh wi winc winp wn wp wq wqa ws wu wv x|0 xa xmapc xm xme xn xnoreme xu xunme y|0 z|0 ~ '+
 	        // full version
 	        'Next Print append abbreviate abclear aboveleft all amenu anoremenu args argadd argdelete argedit argglobal arglocal argument ascii autocmd augroup aunmenu buffer bNext ball badd bdelete behave belowright bfirst blast bmodified bnext botright bprevious brewind break breakadd breakdel breaklist browse bunload '+
 	        'bwipeout change cNext cNfile cabbrev cabclear caddbuffer caddexpr caddfile call catch cbuffer cclose center cexpr cfile cfirst cgetbuffer cgetexpr cgetfile chdir checkpath checktime clist clast close cmap cmapclear cmenu cnext cnewer cnfile cnoremap cnoreabbrev cnoremenu copy colder colorscheme command comclear compiler continue confirm copen cprevious cpfile cquit crewind cscope cstag cunmap '+
@@ -15140,24 +15925,63 @@
 	        'startinsert stopinsert stjump stselect sunhide sunmap sunmenu suspend sview swapname syntax syntime syncbind tNext tabNext tabclose tabedit tabfind tabfirst tablast tabmove tabnext tabonly tabprevious tabrewind tag tcl tcldo tclfile tearoff tfirst throw tjump tlast tmenu tnext topleft tprevious '+'trewind tselect tunmenu undo undojoin undolist unabbreviate unhide unlet unlockvar unmap unmenu unsilent update vglobal version verbose vertical vimgrep vimgrepadd visual viusage view vmap vmapclear vmenu vnew '+
 	        'vnoremap vnoremenu vsplit vunmap vunmenu write wNext wall while winsize wincmd winpos wnext wprevious wqall wsverb wundo wviminfo xit xall xmapclear xmap xmenu xnoremap xnoremenu xunmap xunmenu yank',
 	      built_in: //built in func
-	        'abs acos add and append argc argidx argv asin atan atan2 browse browsedir bufexists buflisted bufloaded bufname bufnr bufwinnr byte2line byteidx call ceil changenr char2nr cindent clearmatches col complete complete_add complete_check confirm copy cos cosh count cscope_connection cursor '+
-	        'deepcopy delete did_filetype diff_filler diff_hlID empty escape eval eventhandler executable exists exp expand extend feedkeys filereadable filewritable filter finddir findfile float2nr floor fmod fnameescape fnamemodify foldclosed foldclosedend foldlevel foldtext foldtextresult foreground function '+
-	        'garbagecollect get getbufline getbufvar getchar getcharmod getcmdline getcmdpos getcmdtype getcwd getfontname getfperm getfsize getftime getftype getline getloclist getmatches getpid getpos getqflist getreg getregtype gettabvar gettabwinvar getwinposx getwinposy getwinvar glob globpath has has_key '+
-	        'haslocaldir hasmapto histadd histdel histget histnr hlexists hlID hostname iconv indent index input inputdialog inputlist inputrestore inputsave inputsecret insert invert isdirectory islocked items join keys len libcall libcallnr line line2byte lispindent localtime log log10 luaeval map maparg mapcheck '+
-	        'match matchadd matcharg matchdelete matchend matchlist matchstr max min mkdir mode mzeval nextnonblank nr2char or pathshorten pow prevnonblank printf pumvisible py3eval pyeval range readfile reltime reltimestr remote_expr remote_foreground remote_peek remote_read remote_send remove rename repeat '+
-	        'resolve reverse round screenattr screenchar screencol screenrow search searchdecl searchpair searchpairpos searchpos server2client serverlist setbufvar setcmdpos setline setloclist setmatches setpos setqflist setreg settabvar settabwinvar setwinvar sha256 shellescape shiftwidth simplify sin '+
-	        'sinh sort soundfold spellbadword spellsuggest split sqrt str2float str2nr strchars strdisplaywidth strftime stridx string strlen strpart strridx strtrans strwidth submatch substitute synconcealed synID synIDattr '+
-	        'synIDtrans synstack system tabpagebuflist tabpagenr tabpagewinnr tagfiles taglist tan tanh tempname tolower toupper tr trunc type undofile undotree values virtcol visualmode wildmenumode winbufnr wincol winheight winline winnr winrestcmd winrestview winsaveview winwidth writefile xor'
+	        'synIDtrans atan2 range matcharg did_filetype asin feedkeys xor argv ' +
+	        'complete_check add getwinposx getqflist getwinposy screencol ' +
+	        'clearmatches empty extend getcmdpos mzeval garbagecollect setreg ' +
+	        'ceil sqrt diff_hlID inputsecret get getfperm getpid filewritable ' +
+	        'shiftwidth max sinh isdirectory synID system inputrestore winline ' +
+	        'atan visualmode inputlist tabpagewinnr round getregtype mapcheck ' +
+	        'hasmapto histdel argidx findfile sha256 exists toupper getcmdline ' +
+	        'taglist string getmatches bufnr strftime winwidth bufexists ' +
+	        'strtrans tabpagebuflist setcmdpos remote_read printf setloclist ' +
+	        'getpos getline bufwinnr float2nr len getcmdtype diff_filler luaeval ' +
+	        'resolve libcallnr foldclosedend reverse filter has_key bufname ' +
+	        'str2float strlen setline getcharmod setbufvar index searchpos ' +
+	        'shellescape undofile foldclosed setqflist buflisted strchars str2nr ' +
+	        'virtcol floor remove undotree remote_expr winheight gettabwinvar ' +
+	        'reltime cursor tabpagenr finddir localtime acos getloclist search ' +
+	        'tanh matchend rename gettabvar strdisplaywidth type abs py3eval ' +
+	        'setwinvar tolower wildmenumode log10 spellsuggest bufloaded ' +
+	        'synconcealed nextnonblank server2client complete settabwinvar ' +
+	        'executable input wincol setmatches getftype hlID inputsave ' +
+	        'searchpair or screenrow line settabvar histadd deepcopy strpart ' +
+	        'remote_peek and eval getftime submatch screenchar winsaveview ' +
+	        'matchadd mkdir screenattr getfontname libcall reltimestr getfsize ' +
+	        'winnr invert pow getbufline byte2line soundfold repeat fnameescape ' +
+	        'tagfiles sin strwidth spellbadword trunc maparg log lispindent ' +
+	        'hostname setpos globpath remote_foreground getchar synIDattr ' +
+	        'fnamemodify cscope_connection stridx winbufnr indent min ' +
+	        'complete_add nr2char searchpairpos inputdialog values matchlist ' +
+	        'items hlexists strridx browsedir expand fmod pathshorten line2byte ' +
+	        'argc count getwinvar glob foldtextresult getreg foreground cosh ' +
+	        'matchdelete has char2nr simplify histget searchdecl iconv ' +
+	        'winrestcmd pumvisible writefile foldlevel haslocaldir keys cos ' +
+	        'matchstr foldtext histnr tan tempname getcwd byteidx getbufvar ' +
+	        'islocked escape eventhandler remote_send serverlist winrestview ' +
+	        'synstack pyeval prevnonblank readfile cindent filereadable changenr ' +
+	        'exp'
 	    },
 	    illegal: /[{:]/,
 	    contains: [
 	      hljs.NUMBER_MODE,
 	      hljs.APOS_STRING_MODE,
+
+	      /*
+	      A double quote can start either a string or a line comment. Strings are
+	      ended before the end of a line by another double quote and can contain
+	      escaped double-quotes and post-escaped line breaks.
+
+	      Also, any double quote at the beginning of a line is a comment but we
+	      don't handle that properly at the moment: any double quote inside will
+	      turn them into a string. Handling it properly will require a smarter
+	      parser.
+	      */
 	      {
 	        className: 'string',
-	        // quote with escape, comment as quote
-	        begin: /"((\\")|[^"\n])*("|\n)/
+	        begin: /"(\\"|\n\\|[^"\n])*"/
 	      },
+	      hljs.COMMENT('"', '$'),
+
 	      {
 	        className: 'variable',
 	        begin: /[bwtglsav]:[\w\d_]*/
@@ -15173,13 +15997,17 @@
 	            begin: '\\(', end: '\\)'
 	          }
 	        ]
+	      },
+	      {
+	        className: 'symbol',
+	        begin: /<[\w-]+>/
 	      }
 	    ]
 	  };
 	};
 
 /***/ },
-/* 148 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15317,7 +16145,7 @@
 	};
 
 /***/ },
-/* 149 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15394,7 +16222,7 @@
 	};
 
 /***/ },
-/* 150 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15470,7 +16298,7 @@
 	};
 
 /***/ },
-/* 151 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15558,7 +16386,7 @@
 	};
 
 /***/ },
-/* 152 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15669,7 +16497,7 @@
 	};
 
 /***/ },
-/* 153 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15679,19 +16507,19 @@
 	});
 	exports.RIETags = exports.RIENumber = exports.RIEInput = exports.RIEToggle = undefined;
 
-	var _RIEToggle = __webpack_require__(154);
+	var _RIEToggle = __webpack_require__(158);
 
 	var _RIEToggle2 = _interopRequireDefault(_RIEToggle);
 
-	var _RIEStatefulBase2 = __webpack_require__(156);
+	var _RIEStatefulBase2 = __webpack_require__(160);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
-	var _RIENumber = __webpack_require__(157);
+	var _RIENumber = __webpack_require__(161);
 
 	var _RIENumber2 = _interopRequireDefault(_RIENumber);
 
-	var _RIETags = __webpack_require__(158);
+	var _RIETags = __webpack_require__(162);
 
 	var _RIETags2 = _interopRequireDefault(_RIETags);
 
@@ -15721,7 +16549,7 @@
 	exports.RIETags = _RIETags2.default;
 
 /***/ },
-/* 154 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15734,7 +16562,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RIEBase2 = __webpack_require__(155);
+	var _RIEBase2 = __webpack_require__(159);
 
 	var _RIEBase3 = _interopRequireDefault(_RIEBase2);
 
@@ -15787,7 +16615,7 @@
 	exports.default = RIEToggle;
 
 /***/ },
-/* 155 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -15818,10 +16646,8 @@
 
 	        _this.doValidations = function (value) {
 	            if (_this.props.validate) {
-	                console.log('doing validations from props');
 	                _this.setState({ invalid: !_this.props.validate(value) });
 	            } else if (_this.validate) {
-	                console.log('doing default valudations');
 	                _this.setState({ invalid: !_this.validate(value) });
 	            }
 	        };
@@ -15898,7 +16724,7 @@
 	exports.default = RIEBase;
 
 /***/ },
-/* 156 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15915,7 +16741,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _RIEBase2 = __webpack_require__(155);
+	var _RIEBase2 = __webpack_require__(159);
 
 	var _RIEBase3 = _interopRequireDefault(_RIEBase2);
 
@@ -15962,7 +16788,6 @@
 	        };
 
 	        _this.textChanged = function (event) {
-	            console.log(event.target.value);
 	            _this.doValidations(event.target.value.trim());
 	        };
 
@@ -16025,7 +16850,7 @@
 	exports.default = RIEStatefulBase;
 
 /***/ },
-/* 157 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16038,7 +16863,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RIEStatefulBase2 = __webpack_require__(156);
+	var _RIEStatefulBase2 = __webpack_require__(160);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
@@ -16096,7 +16921,7 @@
 	exports.default = RIENumber;
 
 /***/ },
-/* 158 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16113,7 +16938,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _RIEStatefulBase2 = __webpack_require__(156);
+	var _RIEStatefulBase2 = __webpack_require__(160);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 

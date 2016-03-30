@@ -30,7 +30,6 @@ export default class RIEStatefulBase extends RIEBase {
     };
 
     textChanged = (event) => {
-        console.log(event.target.value);
         this.doValidations(event.target.value.trim());
     };
 
