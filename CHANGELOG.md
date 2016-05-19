@@ -1,3 +1,9 @@
+1.0.2 / 2016-05-19
+==================
+
+* Merged PR [#5](https://github.com/kaivi/riek/pull/5)
+  - Removed `console.log` calls
+
 1.0.1 / 2016-05-19
 ==================
 
