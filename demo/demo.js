@@ -16646,10 +16646,8 @@
 
 	        _this.doValidations = function (value) {
 	            if (_this.props.validate) {
-	                console.log('doing validations from props');
 	                _this.setState({ invalid: !_this.props.validate(value) });
 	            } else if (_this.validate) {
-	                console.log('doing default valudations');
 	                _this.setState({ invalid: !_this.validate(value) });
 	            }
 	        };
@@ -16790,7 +16788,6 @@
 	        };
 
 	        _this.textChanged = function (event) {
-	            console.log(event.target.value);
 	            _this.doValidations(event.target.value.trim());
 	        };
 
