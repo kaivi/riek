@@ -4,7 +4,7 @@ An assortment of common HTML form elements, editable in-line the React way.
 Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 #Installation
-`npm install riek --save-dev`
+`npm install riek --save-dev` *(`--save-dev` because you don't usually want to build and pack JS/CSS when in production)*
 
 #Usage
 ```javascript
@@ -31,3 +31,14 @@ See /demo/src/demo.js for examples.
 
 ####RIENumber
 * **format**: custom formatting function, returns formatted string
+
+# Contributing
+
+The build process does not work with Node v6 at the moment: use [Node Version Manager](https://github.com/creationix/nvm), or just plain Node v5.6.0.
+
+1. Clone this repo locally, run `npm install`
+2. Make your changes
+3. Do `npm run build` to compile the lib and demo
+4. Open `index.html` and check if it works
+5. ???
+6. Submit a pull request
