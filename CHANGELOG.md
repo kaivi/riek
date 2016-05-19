@@ -1,4 +1,4 @@
-1.0.5 / 2016-05-19
+1.0.1 / 2016-05-19
 ==================
 
 * Merged PR [#7](https://github.com/kaivi/riek/pull/7)
