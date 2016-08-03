@@ -32,6 +32,10 @@ See /demo/src/demo.js for examples.
 ####RIENumber
 * **format**: custom formatting function, returns formatted string
 
+####RIETextArea
+* **rows**: rows property on textarea tag while editing
+* **cols**: rows property on textarea tag while editing
+
 # Contributing
 
 The build process does not work with Node v6 at the moment: use [Node Version Manager](https://github.com/creationix/nvm), or just plain Node v5.6.0.
