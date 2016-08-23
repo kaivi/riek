@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Highlight from 'react-highlight';
-import {RIEInput, RIEToggle, RIENumber, RIETags} from '../src/index.js';
+import {RIEInput, RIEToggle, RIETextArea, RIENumber, RIETags} from '../src/index.js';
 
 class Demo extends React.Component {
   constructor(props){
@@ -10,6 +10,8 @@ class Demo extends React.Component {
     boolean : true,
     number : 9000,
     text : "Example text value",
+    textareaText : `Multiline example
+text value`,
     date : Date.now(),
     tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
     simulateXHR: false,
@@ -67,6 +69,7 @@ class Demo extends React.Component {
         <ul>
           <li><i>boolean:</i> {this.state.boolean.toString()}</li>
           <li><i>text:</i> {this.state.text}</li>
+          <li><i>textareaText:</i> {this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")}</li>
           <li><i>number:</i> {this.state.number}</li>
         <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
         </ul>
@@ -137,6 +140,29 @@ class Demo extends React.Component {
   value={this.state.text}
   change={this.virtualServerCallback}
   propName="text"
+  className={this.state.highlight ? "editable" : ""}
+  validate={this.isStringAcceptable}
+  classLoading="loading"
+  classInvalid="invalid"/>`}
+        </Highlight> : null}
+      </div>
+      <hr />
+      <h3>Textarea</h3>
+      <div>
+        <p>Default: </p>
+        <RIETextArea
+          value={this.state.textareaText}
+          change={this.virtualServerCallback}
+          propName="textareaText"
+          className={this.state.highlight ? "editable" : ""}
+          validate={this.isStringAcceptable}
+          classLoading="loading"
+          classInvalid="invalid" />
+        {this.state.showSource ? <Highlight className="jsx">
+        {`<RIETextArea
+  value={this.state.textareaText}
+  change={this.virtualServerCallback}
+  propName="textareaText"
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"

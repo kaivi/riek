@@ -1,5 +1,6 @@
 import RIEToggle from './RIEToggle';
 import RIEStatefulBase from './RIEStatefulBase';
+import RIETextArea from './RIETextArea'
 import RIENumber from './RIENumber';
 import RIETags from './RIETags'
 
@@ -7,4 +8,4 @@ class RIEInput extends RIEStatefulBase {
 
 }
 
-export {RIEToggle, RIEInput, RIENumber, RIETags};
+export {RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags};
