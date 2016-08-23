@@ -25,6 +25,7 @@ export default class RIENumber extends RIEStatefulBase {
 
     renderEditingComponent = () => {
         return <input disabled={(this.props.shouldBlockWhileLoading && this.state.loading)}
+                      type="number"
                       className={this.makeClassString()}
                       defaultValue={this.props.value}
                       onInput={this.textChanged}
