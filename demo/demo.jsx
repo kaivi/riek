@@ -7,8 +7,15 @@ class Demo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-    select : "1",
-    selectOptions : {"1": "broccoli", "2": "arugula", "3": "leek", "4": "radish", "5": "watercress", "6": "dandelion"},
+    select : {id: "1", text: "broccoli"},
+    selectOptions : [
+      {id: "1", text: "broccoli"},
+      {id: "2", text: "arugula"},
+      {id: "3", text: "leek"},
+      {id: "4", text: "radish"},
+      {id: "5", text: "watercress"},
+      {id: "6", text: "dandelion"}
+    ],
     boolean : true,
     number : 9000,
     text : "Example text value",
@@ -74,7 +81,7 @@ text value`,
           <li><i>textareaText:</i> {this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")}</li>
           <li><i>number:</i> {this.state.number}</li>
           <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
-          <li><i>select:</i> {this.state.selectOptions[this.state.select]}</li>
+          <li><i>select:</i> {JSON.stringify(this.state.select)}</li>
         </ul>
       </div>
       <div className="fifty">

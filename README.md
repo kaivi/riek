@@ -37,9 +37,13 @@ See /demo/src/demo.js for examples.
 * **cols**: rows property on textarea tag while editing
 
 ####RIESelect
-* **options**: an object containing values and text for [select options](http://www.w3schools.com/tags/tag_option.asp)
+* **options**: an array of objects containing values and text for [select options](http://www.w3schools.com/tags/tag_option.asp)
 ```javascript
-<RIESelect ... options={{"1": "one", "2": "two", "3": "three"}} />
+<RIESelect ... options={[
+  {id: "1", text: "one"},
+  {id: "2", text: "two"},
+  {id: "3", text: "three"}
+]} />
 ```
 
 # Contributing

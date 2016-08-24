@@ -205,7 +205,7 @@
 	                  'select:'
 	                ),
 	                ' ',
-	                _this.state.selectOptions[_this.state.select]
+	                JSON.stringify(_this.state.select)
 	              )
 	            )
 	          ),
@@ -452,8 +452,8 @@
 	    };
 
 	    _this.state = {
-	      select: "1",
-	      selectOptions: { "1": "broccoli", "2": "arugula", "3": "leek", "4": "radish", "5": "watercress", "6": "dandelion" },
+	      select: { id: "1", text: "broccoli" },
+	      selectOptions: [{ id: "1", text: "broccoli" }, { id: "2", text: "arugula" }, { id: "3", text: "leek" }, { id: "4", text: "radish" }, { id: "5", text: "watercress" }, { id: "6", text: "dandelion" }],
 	      boolean: true,
 	      number: 9000,
 	      text: "Example text value",
@@ -17530,19 +17530,29 @@
 	            args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(RIESelect)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.renderEditingComponent = function () {
-	            var optionNodes = [];
-	            for (var value in _this.props.options) {
-	                optionNodes.push(_react2.default.createElement(
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(RIESelect)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.finishEditing = function () {
+	            // get the object from options that matches user selected value
+	            var newValue = _this.props.options.find(function (option) {
+	                return option.id === ReactDOM.findDOMNode(this.refs.input).value;
+	            });
+	            _this.doValidations(newValue);
+	            if (!_this.state.invalid && _this.props.value !== newValue) {
+	                _this.commit(newValue);
+	            }
+	            _this.cancelEditing();
+	        }, _this.renderEditingComponent = function () {
+	            var optionNodes = _this.props.options.map(function (option) {
+	                return _react2.default.createElement(
 	                    'option',
-	                    { value: value, key: value },
-	                    _this.props.options[value]
-	                ));
-	            };
+	                    { value: option.id, key: option.id },
+	                    option.text
+	                );
+	            });
+
 	            return _react2.default.createElement(
 	                'select',
 	                { disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
-	                    value: _this.props.value,
+	                    value: _this.props.value.id,
 	                    className: _this.makeClassString(),
 	                    onChange: _this.finishEditing,
 	                    onBlur: _this.cancelEditing,
@@ -17558,7 +17568,7 @@
 	                    className: _this.makeClassString(),
 	                    onFocus: _this.startEditing,
 	                    onClick: _this.startEditing },
-	                _this.props.options[_this.state.newValue] || _this.props.options[_this.props.value]
+	                !!_this.state.newValue ? _this.state.newValue.text : _this.props.value.text
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
@@ -17567,7 +17577,7 @@
 	}(_RIEStatefulBase3.default);
 
 	RIESelect.propTypes = {
-	    options: _react2.default.PropTypes.object.isRequired
+	    options: _react2.default.PropTypes.array.isRequired
 	};
 	exports.default = RIESelect;
 
