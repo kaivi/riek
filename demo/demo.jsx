@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Highlight from 'react-highlight';
-import {RIEInput, RIEToggle, RIETextArea, RIENumber, RIETags} from '../src/index.js';
+import {RIEInput, RIEToggle, RIETextArea, RIENumber, RIETags, RIESelect} from '../src/index.js';
 
 class Demo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+    select : "1",
+    selectOptions : {"1": "broccoli", "2": "arugula", "3": "leek", "4": "radish", "5": "watercress", "6": "dandelion"},
     boolean : true,
     number : 9000,
     text : "Example text value",
@@ -71,7 +73,8 @@ text value`,
           <li><i>text:</i> {this.state.text}</li>
           <li><i>textareaText:</i> {this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")}</li>
           <li><i>number:</i> {this.state.number}</li>
-        <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
+          <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
+          <li><i>select:</i> {this.state.selectOptions[this.state.select]}</li>
         </ul>
       </div>
       <div className="fifty">
@@ -235,6 +238,27 @@ text value`,
   placeholder="New"
   className={this.state.highlight ? "tags editable" : "tags"}
   classLoading="loading" />`}
+        </Highlight> : null}
+      </div>
+      <hr />
+      <h3>Select</h3>
+      <div>
+        <span>Default: </span>
+        <RIESelect
+          value={this.state.select}
+          className={this.state.highlight ? "editable" : ""}
+          options={this.state.selectOptions}
+          change={this.virtualServerCallback}
+          classLoading="loading"
+          propName="select" />
+        {this.state.showSource ? <Highlight className="jsx">
+        {`<RIESelect
+  value={this.state.select}
+  className={this.state.highlight ? "editable" : ""}
+  options={this.state.selectOptions}
+  change={this.virtualServerCallback}
+  classLoading="loading"
+  propName="select" />`}
         </Highlight> : null}
       </div>
     </div>

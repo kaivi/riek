@@ -36,6 +36,12 @@ See /demo/src/demo.js for examples.
 * **rows**: rows property on textarea tag while editing
 * **cols**: rows property on textarea tag while editing
 
+####RIESelect
+* **options**: an object containing values and text for [select options](http://www.w3schools.com/tags/tag_option.asp)
+```javascript
+<RIESelect ... options={{"1": "one", "2": "two", "3": "three"}} />
+```
+
 # Contributing
 
 The build process does not work with Node v6 at the moment: use [Node Version Manager](https://github.com/creationix/nvm), or just plain Node v5.6.0.
