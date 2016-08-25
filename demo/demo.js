@@ -17504,6 +17504,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _RIEStatefulBase2 = __webpack_require__(176);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
@@ -17533,7 +17537,7 @@
 	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(RIESelect)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.finishEditing = function () {
 	            // get the object from options that matches user selected value
 	            var newValue = _this.props.options.find(function (option) {
-	                return option.id === ReactDOM.findDOMNode(this.refs.input).value;
+	                return option.id === _reactDom2.default.findDOMNode(this.refs.input).value;
 	            });
 	            _this.doValidations(newValue);
 	            if (!_this.state.invalid && _this.props.value !== newValue) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RIEStatefulBase from './RIEStatefulBase';
 
 export default class RIESelect extends RIEStatefulBase {
