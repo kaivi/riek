@@ -10,7 +10,7 @@ class Demo extends React.Component {
     boolean : true,
     number : 9000,
     text : "Example text value",
-    textareaText : `Multiline example
+    textarea : `Multiline example
 text value`,
     date : Date.now(),
     tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
@@ -69,7 +69,7 @@ text value`,
         <ul>
           <li><i>boolean:</i> {this.state.boolean.toString()}</li>
           <li><i>text:</i> {this.state.text}</li>
-          <li><i>textareaText:</i> {this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")}</li>
+          <li><i>textarea:</i> {this.state.textarea.replace(new RegExp("\n", "g"), "\\n")}</li>
           <li><i>number:</i> {this.state.number}</li>
         <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
         </ul>
@@ -151,18 +151,18 @@ text value`,
       <div>
         <p>Default: </p>
         <RIETextArea
-          value={this.state.textareaText}
+          value={this.state.textarea}
           change={this.virtualServerCallback}
-          propName="textareaText"
+          propName="textarea"
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringAcceptable}
           classLoading="loading"
           classInvalid="invalid" />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETextArea
-  value={this.state.textareaText}
+  value={this.state.textarea}
   change={this.virtualServerCallback}
-  propName="textareaText"
+  propName="textarea"
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"
