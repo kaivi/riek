@@ -1,3 +1,11 @@
+1.0.4 / 2016-09-11
+==================
+
+* Merged PR [#11](https://github.com/kaivi/riek/pull/9)
+  - Fixed text selection code in the case of `number` type
+* Merged PR [#12](https://github.com/kaivi/riek/pull/12)
+  - remove duplicate export
+
 1.0.3 / 2016-08-23
 ==================
 
