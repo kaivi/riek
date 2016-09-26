@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Highlight from 'react-highlight';
-import {RIEInput, RIEToggle, RIETextArea, RIENumber, RIETags} from '../src/index.js';
+import {RIEInput, RIEToggle, RIETextArea, RIENumber, RIETags, RIESelect} from '../src/index.js';
 
 class Demo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+    select : {id: "1", text: "broccoli"},
+    selectOptions : [
+      {id: "1", text: "broccoli"},
+      {id: "2", text: "arugula"},
+      {id: "3", text: "leek"},
+      {id: "4", text: "radish"},
+      {id: "5", text: "watercress"},
+      {id: "6", text: "dandelion"}
+    ],
     boolean : true,
     number : 9000,
     text : "Example text value",
-    textareaText : `Multiline example
+    textarea : `Multiline example
 text value`,
     date : Date.now(),
     tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
@@ -69,9 +78,10 @@ text value`,
         <ul>
           <li><i>boolean:</i> {this.state.boolean.toString()}</li>
           <li><i>text:</i> {this.state.text}</li>
-          <li><i>textareaText:</i> {this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")}</li>
+          <li><i>textarea:</i> {this.state.textarea.replace(new RegExp("\n", "g"), "\\n")}</li>
           <li><i>number:</i> {this.state.number}</li>
-        <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
+          <li><i>tags:</i> {[...this.state.tags].join(', ')}</li>
+          <li><i>select:</i> {JSON.stringify(this.state.select)}</li>
         </ul>
       </div>
       <div className="fifty">
@@ -151,18 +161,18 @@ text value`,
       <div>
         <p>Default: </p>
         <RIETextArea
-          value={this.state.textareaText}
+          value={this.state.textarea}
           change={this.virtualServerCallback}
-          propName="textareaText"
+          propName="textarea"
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringAcceptable}
           classLoading="loading"
           classInvalid="invalid" />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETextArea
-  value={this.state.textareaText}
+  value={this.state.textarea}
   change={this.virtualServerCallback}
-  propName="textareaText"
+  propName="textarea"
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"
@@ -235,6 +245,27 @@ text value`,
   placeholder="New"
   className={this.state.highlight ? "tags editable" : "tags"}
   classLoading="loading" />`}
+        </Highlight> : null}
+      </div>
+      <hr />
+      <h3>Select</h3>
+      <div>
+        <span>Default: </span>
+        <RIESelect
+          value={this.state.select}
+          className={this.state.highlight ? "editable" : ""}
+          options={this.state.selectOptions}
+          change={this.virtualServerCallback}
+          classLoading="loading"
+          propName="select" />
+        {this.state.showSource ? <Highlight className="jsx">
+        {`<RIESelect
+  value={this.state.select}
+  className={this.state.highlight ? "editable" : ""}
+  options={this.state.selectOptions}
+  change={this.virtualServerCallback}
+  classLoading="loading"
+  propName="select" />`}
         </Highlight> : null}
       </div>
     </div>

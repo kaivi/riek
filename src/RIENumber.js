@@ -15,6 +15,11 @@ export default class RIENumber extends RIEStatefulBase {
         return !isNaN(value) && isFinite(value) && value.length > 0;
     };
 
+    selectInputText = (element) => {
+        // element.setSelectionRange won't work for an input of type "number"
+        setTimeout(function() { element.select(); }, 10);
+    }
+
     renderNormalComponent = () => {
         return <span
             tabIndex="0"

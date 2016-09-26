@@ -39,7 +39,7 @@ export default class RIEBase extends React.Component {
     };
 
     selectInputText = (element) => {
-        element.setSelectionRange(0, element.value.length);
+        if (element.setSelectionRange) element.setSelectionRange(0, element.value.length);
     };
 
     elementClick = (event) => {
@@ -73,6 +73,3 @@ export default class RIEBase extends React.Component {
         return <span tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
     };
 }
-
-
-export default RIEBase;

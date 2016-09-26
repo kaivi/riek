@@ -169,10 +169,10 @@
 	                _react2.default.createElement(
 	                  'i',
 	                  null,
-	                  'textareaText:'
+	                  'textarea:'
 	                ),
 	                ' ',
-	                _this.state.textareaText.replace(new RegExp("\n", "g"), "\\n")
+	                _this.state.textarea.replace(new RegExp("\n", "g"), "\\n")
 	              ),
 	              _react2.default.createElement(
 	                'li',
@@ -195,6 +195,17 @@
 	                ),
 	                ' ',
 	                [].concat(_toConsumableArray(_this.state.tags)).join(', ')
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'i',
+	                  null,
+	                  'select:'
+	                ),
+	                ' ',
+	                JSON.stringify(_this.state.select)
 	              )
 	            )
 	          ),
@@ -320,9 +331,9 @@
 	              'Default: '
 	            ),
 	            _react2.default.createElement(_index.RIETextArea, {
-	              value: _this.state.textareaText,
+	              value: _this.state.textarea,
 	              change: _this.virtualServerCallback,
-	              propName: 'textareaText',
+	              propName: 'textarea',
 	              className: _this.state.highlight ? "editable" : "",
 	              validate: _this.isStringAcceptable,
 	              classLoading: 'loading',
@@ -330,7 +341,7 @@
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIETextArea\n  value={this.state.textareaText}\n  change={this.virtualServerCallback}\n  propName="textareaText"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"/>'
+	              '<RIETextArea\n  value={this.state.textarea}\n  change={this.virtualServerCallback}\n  propName="textarea"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"/>'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -408,16 +419,45 @@
 	              { className: 'jsx' },
 	              '<RIETags\n  value={this.state.tags}\n  change={this.virtualServerCallback}\n  maxTags={10}\n  minTags={2}\n  propName="tags"\n  placeholder="New"\n  className={this.state.highlight ? "tags editable" : "tags"}\n  classLoading="loading" />'
 	            ) : null
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Select'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Default: '
+	            ),
+	            _react2.default.createElement(_index.RIESelect, {
+	              value: _this.state.select,
+	              className: _this.state.highlight ? "editable" : "",
+	              options: _this.state.selectOptions,
+	              change: _this.virtualServerCallback,
+	              classLoading: 'loading',
+	              propName: 'select' }),
+	            _this.state.showSource ? _react2.default.createElement(
+	              _reactHighlight2.default,
+	              { className: 'jsx' },
+	              '<RIESelect\n  value={this.state.select}\n  className={this.state.highlight ? "editable" : ""}\n  options={this.state.selectOptions}\n  change={this.virtualServerCallback}\n  classLoading="loading"\n  propName="select" />'
+	            ) : null
 	          )
 	        )
 	      );
 	    };
 
 	    _this.state = {
+	      select: { id: "1", text: "broccoli" },
+	      selectOptions: [{ id: "1", text: "broccoli" }, { id: "2", text: "arugula" }, { id: "3", text: "leek" }, { id: "4", text: "radish" }, { id: "5", text: "watercress" }, { id: "6", text: "dandelion" }],
 	      boolean: true,
 	      number: 9000,
 	      text: "Example text value",
-	      textareaText: 'Multiline example\ntext value',
+	      textarea: 'Multiline example\ntext value',
 	      date: Date.now(),
 	      tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
 	      simulateXHR: false,
@@ -16545,7 +16585,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.RIETags = exports.RIENumber = exports.RIETextArea = exports.RIEInput = exports.RIEToggle = undefined;
+	exports.RIESelect = exports.RIETags = exports.RIENumber = exports.RIETextArea = exports.RIEInput = exports.RIEToggle = undefined;
 
 	var _RIEToggle = __webpack_require__(158);
 
@@ -16566,6 +16606,10 @@
 	var _RIETags = __webpack_require__(163);
 
 	var _RIETags2 = _interopRequireDefault(_RIETags);
+
+	var _RIESelect = __webpack_require__(164);
+
+	var _RIESelect2 = _interopRequireDefault(_RIESelect);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16592,6 +16636,7 @@
 	exports.RIETextArea = _RIETextArea2.default;
 	exports.RIENumber = _RIENumber2.default;
 	exports.RIETags = _RIETags2.default;
+	exports.RIESelect = _RIESelect2.default;
 
 /***/ },
 /* 158 */
@@ -16698,7 +16743,7 @@
 	        };
 
 	        _this.selectInputText = function (element) {
-	            element.setSelectionRange(0, element.value.length);
+	            if (element.setSelectionRange) element.setSelectionRange(0, element.value.length);
 	        };
 
 	        _this.elementClick = function (event) {
@@ -16765,7 +16810,6 @@
 	    classInvalid: _react2.default.PropTypes.string,
 	    className: _react2.default.PropTypes.string
 	};
-	exports.default = RIEBase;
 	exports.default = RIEBase;
 
 /***/ },
@@ -17023,6 +17067,13 @@
 	            return !isNaN(value) && isFinite(value) && value.length > 0;
 	        };
 
+	        _this.selectInputText = function (element) {
+	            // element.setSelectionRange won't work for an input of type "number"
+	            setTimeout(function () {
+	                element.select();
+	            }, 10);
+	        };
+
 	        _this.renderNormalComponent = function () {
 	            return _react2.default.createElement(
 	                'span',
@@ -17240,6 +17291,101 @@
 	    placeholder: _react2.default.PropTypes.string
 	};
 	exports.default = RIETags;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _RIEStatefulBase2 = __webpack_require__(160);
+
+	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var RIESelect = function (_RIEStatefulBase) {
+	    _inherits(RIESelect, _RIEStatefulBase);
+
+	    function RIESelect() {
+	        var _Object$getPrototypeO;
+
+	        var _temp, _this, _ret;
+
+	        _classCallCheck(this, RIESelect);
+
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(RIESelect)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.finishEditing = function () {
+	            // get the object from options that matches user selected value
+	            var newValue = _this.props.options.find(function (option) {
+	                return option.id === _reactDom2.default.findDOMNode(this.refs.input).value;
+	            }, _this);
+	            _this.doValidations(newValue);
+	            if (!_this.state.invalid && _this.props.value !== newValue) {
+	                _this.commit(newValue);
+	            }
+	            _this.cancelEditing();
+	        }, _this.renderEditingComponent = function () {
+	            var optionNodes = _this.props.options.map(function (option) {
+	                return _react2.default.createElement(
+	                    'option',
+	                    { value: option.id, key: option.id },
+	                    option.text
+	                );
+	            });
+
+	            return _react2.default.createElement(
+	                'select',
+	                { disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
+	                    value: _this.props.value.id,
+	                    className: _this.makeClassString(),
+	                    onChange: _this.finishEditing,
+	                    onBlur: _this.cancelEditing,
+	                    ref: 'input',
+	                    onKeyDown: _this.keyDown },
+	                optionNodes
+	            );
+	        }, _this.renderNormalComponent = function () {
+	            return _react2.default.createElement(
+	                'span',
+	                {
+	                    tabIndex: '0',
+	                    className: _this.makeClassString(),
+	                    onFocus: _this.startEditing,
+	                    onClick: _this.startEditing },
+	                !!_this.state.newValue ? _this.state.newValue.text : _this.props.value.text
+	            );
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+
+	    return RIESelect;
+	}(_RIEStatefulBase3.default);
+
+	RIESelect.propTypes = {
+	    options: _react2.default.PropTypes.array.isRequired
+	};
+	exports.default = RIESelect;
 
 /***/ }
 /******/ ]);
