@@ -1,3 +1,9 @@
+1.0.5 / 2016-09-26
+==================
+
+* Medged PR [10](https://github.com/kaivi/riek/pull/10)
+  - Add RIESelect component
+
 1.0.4 / 2016-09-11
 ==================
 
