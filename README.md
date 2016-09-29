@@ -8,7 +8,7 @@ Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 #Usage
 ```javascript
-import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags } from 'riek'
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
 ```
 See /demo/src/demo.js for examples.
 
