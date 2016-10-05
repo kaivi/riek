@@ -17,7 +17,8 @@ export default class RIETextArea extends RIEStatefulBase {
             onInput={this.textChanged}
             onBlur={this.finishEditing}
             ref="input"
-            onKeyDown={this.keyDown} />;
+            onKeyDown={this.keyDown}
+            {...this.props.editProps} />;
     };
 
     renderNormalComponent = () => {
