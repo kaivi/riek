@@ -30,7 +30,8 @@ export default class RIESelect extends RIEStatefulBase {
                        onChange={this.finishEditing}
                        onBlur={this.cancelEditing}
                        ref="input"
-                       onKeyDown={this.keyDown}>{optionNodes}</select>
+                       onKeyDown={this.keyDown}
+                       {...this.props.editProps}>{optionNodes}</select>
     };
 
     renderNormalComponent = () => {

@@ -20,6 +20,7 @@ export default class RIEBase extends React.Component {
         value: React.PropTypes.any.isRequired,
         change: React.PropTypes.func.isRequired,
         propName: React.PropTypes.string.isRequired,
+        editProps: React.PropTypes.object,
         isDisabled: React.PropTypes.bool,
         validate: React.PropTypes.func,
         shouldBlockWhileLoading: React.PropTypes.bool,
