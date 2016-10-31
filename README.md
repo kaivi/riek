@@ -8,7 +8,7 @@ Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 #Usage
 ```javascript
-import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags } from 'riek'
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
 ```
 See /demo/src/demo.js for examples.
 
@@ -20,12 +20,13 @@ See /demo/src/demo.js for examples.
 * **change**: function which will receive a plain object with a single key, provided in _propName_
 
 ###Optional
-* **doValidations**: validator function, returning a boolean
+* **validate**: validator function, returning a boolean
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
 * **classLoading**: CSS class name to use when loading
 * **classEditing**: CSS class name to apply while in editing mode
 * **classInvalid**: CSS class name to apply when _doValidatoon_ returned false
 * **className**: CSS base class
+* **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea.
 
 ###Component-specific props
 

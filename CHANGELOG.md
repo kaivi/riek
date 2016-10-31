@@ -1,3 +1,9 @@
+1.0.6 / 2016-11-01
+==================
+
+* Merged PR [16](https://github.com/kaivi/riek/pull/16)
+  - Added editProps property to define additional props in edit mode
+
 1.0.5 / 2016-09-26
 ==================
 
