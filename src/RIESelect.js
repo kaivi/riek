@@ -39,6 +39,7 @@ export default class RIESelect extends RIEStatefulBase {
             tabIndex="0"
             className={this.makeClassString()}
             onFocus={this.startEditing}
-            onClick={this.startEditing}>{(!!this.state.newValue) ? this.state.newValue.text : this.props.value.text}</span>;
+            onClick={this.startEditing}
+            {...this.props.defaultProps}>{(!!this.state.newValue) ? this.state.newValue.text : this.props.value.text}</span>;
     };
 }

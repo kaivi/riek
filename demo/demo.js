@@ -16648,6 +16648,8 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -16685,11 +16687,12 @@
 	            var valueToRender = _this.state.loading ? _this.state.value : _this.props.value;
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    onKeyPress: _this.elementClick,
 	                    onClick: _this.elementClick,
-	                    className: _this.makeClassString() },
+	                    className: _this.makeClassString()
+	                }, _this.props.defaultProps),
 	                valueToRender ? _this.props.textTrue || 'yes' : _this.props.textFalse || 'no'
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -16713,6 +16716,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -16776,7 +16781,7 @@
 	        _this.render = function () {
 	            return _react2.default.createElement(
 	                "span",
-	                { tabindex: "0", className: _this.makeClassString(), onClick: _this.elementClick },
+	                _extends({}, _this.props.defaultProps, { tabindex: "0", className: _this.makeClassString(), onClick: _this.elementClick }),
 	                _this.props.value
 	            );
 	        };
@@ -16801,6 +16806,8 @@
 	    value: _react2.default.PropTypes.any.isRequired,
 	    change: _react2.default.PropTypes.func.isRequired,
 	    propName: _react2.default.PropTypes.string.isRequired,
+	    editProps: _react2.default.PropTypes.object,
+	    defaultProps: _react2.default.PropTypes.object,
 	    isDisabled: _react2.default.PropTypes.bool,
 	    validate: _react2.default.PropTypes.func,
 	    shouldBlockWhileLoading: _react2.default.PropTypes.bool,
@@ -16821,6 +16828,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -16891,24 +16900,26 @@
 	        };
 
 	        _this.renderEditingComponent = function () {
-	            return _react2.default.createElement('input', {
+	            return _react2.default.createElement('input', _extends({
 	                disabled: _this.state.loading,
 	                className: _this.makeClassString(),
 	                defaultValue: _this.props.value,
 	                onInput: _this.textChanged,
 	                onBlur: _this.finishEditing,
 	                ref: 'input',
-	                onKeyDown: _this.keyDown });
+	                onKeyDown: _this.keyDown
+	            }, _this.props.editProps));
 	        };
 
 	        _this.renderNormalComponent = function () {
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    className: _this.makeClassString(),
 	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing },
+	                    onClick: _this.startEditing
+	                }, _this.props.defaultProps),
 	                _this.state.newValue || _this.props.value
 	            );
 	        };
@@ -16947,6 +16958,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -16987,7 +17000,7 @@
 	                _this.cancelEditing();
 	            } // Escape
 	        }, _this.renderEditingComponent = function () {
-	            return _react2.default.createElement('textarea', {
+	            return _react2.default.createElement('textarea', _extends({
 	                rows: _this.props.rows,
 	                cols: _this.props.cols,
 	                disabled: _this.state.loading,
@@ -16996,7 +17009,8 @@
 	                onInput: _this.textChanged,
 	                onBlur: _this.finishEditing,
 	                ref: 'input',
-	                onKeyDown: _this.keyDown });
+	                onKeyDown: _this.keyDown
+	            }, _this.props.editProps));
 	        }, _this.renderNormalComponent = function () {
 	            var value = _this.state.newValue || _this.props.value;
 	            var spans_and_brs = [];
@@ -17014,11 +17028,12 @@
 
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    className: _this.makeClassString(),
 	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing },
+	                    onClick: _this.startEditing
+	                }, _this.props.defaultProps),
 	                spans_and_brs
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -17038,6 +17053,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -17077,24 +17094,26 @@
 	        _this.renderNormalComponent = function () {
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    className: _this.makeClassString(),
 	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing },
+	                    onClick: _this.startEditing
+	                }, _this.props.defaultProps),
 	                _this.props.format ? _this.props.format(_this.state.newValue || _this.props.value) : _this.state.newValue || _this.props.value
 	            );
 	        };
 
 	        _this.renderEditingComponent = function () {
-	            return _react2.default.createElement('input', { disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
+	            return _react2.default.createElement('input', _extends({ disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
 	                type: 'number',
 	                className: _this.makeClassString(),
 	                defaultValue: _this.props.value,
 	                onInput: _this.textChanged,
 	                onBlur: _this.finishEditing,
 	                ref: 'input',
-	                onKeyDown: _this.keyDown });
+	                onKeyDown: _this.keyDown
+	            }, _this.props.editProps));
 	        };
 
 	        return _this;
@@ -17117,6 +17136,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -17247,10 +17268,11 @@
 	            var tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ", ");
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    className: _this2.makeClassString(),
-	                    onFocus: _this2.startEditing },
+	                    onFocus: _this2.startEditing
+	                }, _this2.props.defaultProps),
 	                tags
 	            );
 	        };
@@ -17263,7 +17285,7 @@
 	            var elements = [].concat(_toConsumableArray(_this2.props.value)).map(_this2.makeTagElement);
 	            return _react2.default.createElement(
 	                'div',
-	                { tabIndex: '1', onClick: _this2.startEditing, className: _this2.makeClassString() },
+	                _extends({ tabIndex: '1', onClick: _this2.startEditing, className: _this2.makeClassString() }, _this2.props.editProps),
 	                elements,
 	                _react2.default.createElement('input', {
 	                    onBlur: _this2.cancelEditingDelayed,
@@ -17301,6 +17323,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -17357,23 +17381,25 @@
 
 	            return _react2.default.createElement(
 	                'select',
-	                { disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
+	                _extends({ disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
 	                    value: _this.props.value.id,
 	                    className: _this.makeClassString(),
 	                    onChange: _this.finishEditing,
 	                    onBlur: _this.cancelEditing,
 	                    ref: 'input',
-	                    onKeyDown: _this.keyDown },
+	                    onKeyDown: _this.keyDown
+	                }, _this.props.editProps),
 	                optionNodes
 	            );
 	        }, _this.renderNormalComponent = function () {
 	            return _react2.default.createElement(
 	                'span',
-	                {
+	                _extends({
 	                    tabIndex: '0',
 	                    className: _this.makeClassString(),
 	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing },
+	                    onClick: _this.startEditing
+	                }, _this.props.defaultProps),
 	                !!_this.state.newValue ? _this.state.newValue.text : _this.props.value.text
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);

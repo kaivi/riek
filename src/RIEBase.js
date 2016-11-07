@@ -21,6 +21,7 @@ export default class RIEBase extends React.Component {
         change: React.PropTypes.func.isRequired,
         propName: React.PropTypes.string.isRequired,
         editProps: React.PropTypes.object,
+        defaultProps: React.PropTypes.object,
         isDisabled: React.PropTypes.bool,
         validate: React.PropTypes.func,
         shouldBlockWhileLoading: React.PropTypes.bool,
@@ -71,6 +72,6 @@ export default class RIEBase extends React.Component {
     };
 
     render = () => {
-        return <span tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
+        return <span {...this.props.defaultProps} tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
     };
 }

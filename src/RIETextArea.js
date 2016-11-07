@@ -36,6 +36,7 @@ export default class RIETextArea extends RIEStatefulBase {
             tabIndex="0"
             className={this.makeClassString()}
             onFocus={this.startEditing}
-            onClick={this.startEditing}>{spans_and_brs}</span>;
+            onClick={this.startEditing}
+            {...this.props.defaultProps}>{spans_and_brs}</span>;
     };
 }

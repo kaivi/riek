@@ -60,7 +60,8 @@ export default class RIEStatefulBase extends RIEBase {
             tabIndex="0"
             className={this.makeClassString()}
             onFocus={this.startEditing}
-            onClick={this.startEditing}>{this.state.newValue || this.props.value}</span>;
+            onClick={this.startEditing}
+            {...this.props.defaultProps}>{this.state.newValue || this.props.value}</span>;
     };
 
     elementBlur = (event) => {
