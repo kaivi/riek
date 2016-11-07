@@ -26,7 +26,8 @@ See /demo/src/demo.js for examples.
 * **classEditing**: CSS class name to apply while in editing mode
 * **classInvalid**: CSS class name to apply when _doValidatoon_ returned false
 * **className**: CSS base class
-* **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea.
+* **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea, or add `style`.
+* **defaultProps**: Additional props for idle component.
 
 ###Component-specific props
 
