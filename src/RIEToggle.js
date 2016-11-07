@@ -19,7 +19,8 @@ export default class RIEToggle extends RIEBase {
             tabIndex="0"
             onKeyPress={this.elementClick}
             onClick={this.elementClick}
-            className={this.makeClassString()}>
+            className={this.makeClassString()}
+            {...this.props.defaultProps}>
             {valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
         </span>;
     };

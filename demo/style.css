@@ -1,5 +1,6 @@
-html, body, input {
+html, body, input, span, textarea {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
     margin: 0;
     padding: 0;
 }
@@ -17,17 +18,9 @@ li {
     margin-bottom: 5px;
 }
 
-html, body, input {
-    font-size: 16px;
-}
-
-input, span {
-    padding: 0;
-    margin: 0;
-}
-
-input {
+input, textarea {
     border: none;
+    border-color: transparent;
 }
 
 .invalid {

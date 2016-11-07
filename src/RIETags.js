@@ -101,7 +101,8 @@ export default class RIETags extends RIEStatefulBase {
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}>{tags}</span>;
+            onFocus={this.startEditing}
+            {...this.props.defaultProps}>{tags}</span>;
     };
 
     makeTagElement = (text) => {
@@ -110,7 +111,7 @@ export default class RIETags extends RIEStatefulBase {
 
     renderEditingComponent = () => {
         let elements = [...this.props.value].map(this.makeTagElement);
-        return <div tabIndex="1" onClick={this.startEditing} className={this.makeClassString()}>
+        return <div tabIndex="1" onClick={this.startEditing} className={this.makeClassString()} {...this.props.editProps}>
             {elements}
             <input
                 onBlur={this.cancelEditingDelayed}

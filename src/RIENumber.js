@@ -25,7 +25,8 @@ export default class RIENumber extends RIEStatefulBase {
             tabIndex="0"
             className={this.makeClassString()}
             onFocus={this.startEditing}
-            onClick={this.startEditing}>{this.props.format ? this.props.format(this.state.newValue || this.props.value) : (this.state.newValue || this.props.value)}</span>;
+            onClick={this.startEditing}
+            {...this.props.defaultProps}>{this.props.format ? this.props.format(this.state.newValue || this.props.value) : (this.state.newValue || this.props.value)}</span>;
     };
 
     renderEditingComponent = () => {
