@@ -29,7 +29,9 @@ export default class RIEBase extends React.Component {
         classEditing: React.PropTypes.string,
         classDisabled: React.PropTypes.string,
         classInvalid: React.PropTypes.string,
-        className: React.PropTypes.string
+        className: React.PropTypes.string,
+        onFinish: React.PropTypes.func,
+        onStart: React.PropTypes.func
     };
 
     doValidations = (value) => {
