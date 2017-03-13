@@ -51,7 +51,8 @@ export default class RIEBase extends React.Component {
     };
 
     componentWillReceiveProps = (nextProps) => {
-        if ('value' in nextProps) this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        const editing = (nextProps.editing == null) ? false : nextProps.editing
+        if ('value' in nextProps) this.setState({loading: false, editing, invalid: false, newValue: null});
     };
 
     commit = (value) => {
