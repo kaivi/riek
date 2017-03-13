@@ -8,8 +8,10 @@ export default class RIEBase extends React.Component {
         if (!this.props.change) throw "RTFM: missing 'change' prop";
         if (this.props.value == undefined) throw "RTFM: missing 'value' prop";
 
+        const editing = (this.props.editing == null) ? false : this.props.editing
+
         this.state = {
-            editing: false,
+            editing,
             loading: false,
             disabled: false,
             invalid: false
