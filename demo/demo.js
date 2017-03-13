@@ -17375,10 +17375,10 @@
 	var RIEInput = function (_RIEStatefulBase) {
 	  _inherits(RIEInput, _RIEStatefulBase);
 
-	  function RIEInput(props) {
+	  function RIEInput() {
 	    _classCallCheck(this, RIEInput);
 
-	    return _possibleConstructorReturn(this, (RIEInput.__proto__ || Object.getPrototypeOf(RIEInput)).call(this, props));
+	    return _possibleConstructorReturn(this, (RIEInput.__proto__ || Object.getPrototypeOf(RIEInput)).apply(this, arguments));
 	  }
 
 	  return RIEInput;
