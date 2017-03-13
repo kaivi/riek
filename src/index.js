@@ -6,6 +6,9 @@ import RIETags from './RIETags'
 import RIESelect from './RIESelect'
 
 class RIEInput extends RIEStatefulBase {
+  constructor(props) {
+    super(props)
+  }
 
 }
 

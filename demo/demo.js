@@ -313,7 +313,7 @@
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIEInput\n  value={this.state.text}\n  change={this.virtualServerCallback}\n  propName="text"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"/>'
+	              '<RIEInput\n  value={this.state.text}\n  change={this.virtualServerCallback}\n  propName="text"\n  editing={true}\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"/>'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -17375,10 +17375,10 @@
 	var RIEInput = function (_RIEStatefulBase) {
 	  _inherits(RIEInput, _RIEStatefulBase);
 
-	  function RIEInput() {
+	  function RIEInput(props) {
 	    _classCallCheck(this, RIEInput);
 
-	    return _possibleConstructorReturn(this, (RIEInput.__proto__ || Object.getPrototypeOf(RIEInput)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (RIEInput.__proto__ || Object.getPrototypeOf(RIEInput)).call(this, props));
 	  }
 
 	  return RIEInput;
