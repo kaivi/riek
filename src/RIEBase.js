@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class RIEBase extends React.Component {
     constructor(props){
@@ -17,19 +18,19 @@ export default class RIEBase extends React.Component {
     }
 
     static propTypes = {
-        value: React.PropTypes.any.isRequired,
-        change: React.PropTypes.func.isRequired,
-        propName: React.PropTypes.string.isRequired,
-        editProps: React.PropTypes.object,
-        defaultProps: React.PropTypes.object,
-        isDisabled: React.PropTypes.bool,
-        validate: React.PropTypes.func,
-        shouldBlockWhileLoading: React.PropTypes.bool,
-        classLoading: React.PropTypes.string,
-        classEditing: React.PropTypes.string,
-        classDisabled: React.PropTypes.string,
-        classInvalid: React.PropTypes.string,
-        className: React.PropTypes.string
+        value: PropTypes.any.isRequired,
+        change: PropTypes.func.isRequired,
+        propName: PropTypes.string.isRequired,
+        editProps: PropTypes.object,
+        defaultProps: PropTypes.object,
+        isDisabled: PropTypes.bool,
+        validate: PropTypes.func,
+        shouldBlockWhileLoading: PropTypes.bool,
+        classLoading: PropTypes.string,
+        classEditing: PropTypes.string,
+        classDisabled: PropTypes.string,
+        classInvalid: PropTypes.string,
+        className: PropTypes.string
     };
 
     doValidations = (value) => {
