@@ -65,8 +65,8 @@ declare module 'riek' {
         cols?: number;
     }
 
-    export interface RIEBase extends React.Component<RIEBaseProps, RIEBaseState> {
-        constructor: (props: RIEBaseProps|any) => any;
+    export interface RIEBase<P,S> extends React.Component<RIEBaseProps, RIEBaseState> {
+        constructor: (props: P|any) => any;
         doValidations: (value: number|string) => void;
         selectInputText: (element: any) => void;
         elementClick: (event) => any;
@@ -74,7 +74,7 @@ declare module 'riek' {
         makeClassString: () => void
     }
 
-    export interface RIEStatefulBase extends RIEBase<RIEBaseProps, RIEBaseState> {
+    export interface RIEStatefulBase<P,S> extends RIEBase<RIEBaseProps, RIEBaseState> {
         constructor: (props: RIEBaseProps|any) => any;
         startEditing: () => void;
         finishEditing: () => void;
@@ -87,7 +87,7 @@ declare module 'riek' {
         elementClick: (event: any) => void;
     }
 
-    export interface RIEInput extends RIEStatefulBase {}
+    export interface RIEInput extends RIEStatefulBase<RIEBaseProps, RIEBaseState> {}
     export interface RIESelect extends RIEStatefulBase<RIESelectProps, RIEBaseState> {
         constructor: (props: RIESelectProps) => any;
     }
@@ -110,12 +110,12 @@ declare module 'riek' {
         options?: RIESelectOption[]
     }
 
-    export interface RIETag extends React.Component<RIETagProps, any>{
-        constructor: (props: RIETagProps) => any;
+    export interface RIETag<P, S> extends React.Component<RIETagProps, any>{
+        constructor: (props: P) => any;
         remove: () => void;
     }
 
-    export interface RIEToggle extends RIEBase<RIEToggleProps, RIEToggleState> {}
+    export interface RIEToggle<P, S> extends RIEBase<RIEToggleProps, RIEToggleState> {}
 
     export interface RIETags extends RIEStatefulBase<RIETagsProps, RIETagsState> {
         constructor: (props: RIETagsProps) => any;
@@ -123,6 +123,6 @@ declare module 'riek' {
         removeTag: (tag: any) => void;
         cancelEditingDelayed: () => void;
         cancelEditing: () => void;
-        makeTagElement: (text: string) => React.ReactElement<RIETag>
+        makeTagElement: (text: string) => any
     }
 }
