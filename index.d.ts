@@ -2,23 +2,23 @@ declare module 'riek' {
     import {ReactElement} from "react";
     import * as React from "react";
 
-    export interface RIETagProps {
+    export interface IRIETagProps {
         text: string;
         removeHandler?: Function;
         className?: string;
     }
 
-    export interface RIEBaseState {
+    export interface IRIEBaseState {
         editing: boolean;
         loading: boolean;
         disabled: boolean;
         invalid: boolean;
     }
 
-    export interface RIEBaseProps {
+    export interface IRIEBaseProps {
         propName: string;
         change: Function;
-        value: string|number;
+        value: any;
         editProps?: any;
         defaultProps?: any;
         isDisabled?: boolean;
@@ -29,23 +29,24 @@ declare module 'riek' {
         classDisabled?: string;
         classInvalid?: string;
         className?: string;
+        options?: IRIESelectOption[];
     }
 
-    export interface RIENumberProps extends RIEBaseProps {
+    export interface IRIENumberProps extends IRIEBaseProps {
         format?: Function;
     }
 
-    export interface RIEToggleProps {
+    export interface IRIEToggleProps {
         textTrue: boolean;
         textFalse: boolean;
     }
 
-    export interface RIEToggleState {
+    export interface IRIEToggleState {
         value: string;
         loading: boolean;
     }
 
-    export interface RIETagsProps {
+    export interface IRIETagsProps {
         value: any;
         maxTags?: number;
         minTags?: number;
@@ -55,74 +56,63 @@ declare module 'riek' {
         placeholder: string;
     }
 
-    export interface RIETagsState {
+    export interface IRIETagsState {
         currentText: string;
         blurTimer: any;
     }
 
-    export interface RIETextAreaProps extends RIEBaseProps {
+    export interface IRIETextAreaProps extends IRIEBaseProps {
         rows?: number;
         cols?: number;
     }
 
-    export interface RIEBase<P,S> extends React.Component<RIEBaseProps, RIEBaseState> {
-        constructor: (props: P|any) => any;
-        doValidations: (value: number|string) => void;
-        selectInputText: (element: any) => void;
-        elementClick: (event) => any;
-        commit: (value: string|number) => void;
-        makeClassString: () => void
+    export class RIEBase<P,S> extends React.Component<IRIEBaseProps, IRIEBaseState> {
+        doValidations(value: number|string): any;
+        selectInputText(element: any): void;
+        elementClick(event): any;
+        commit(value: string|number): void;
+        makeClassString(): void
     }
 
-    export interface RIEStatefulBase<P,S> extends RIEBase<RIEBaseProps, RIEBaseState> {
-        constructor: (props: RIEBaseProps|any) => any;
-        startEditing: () => void;
-        finishEditing: () => void;
-        cancelEditing: () => void;
-        keyDown: (event: any) => void;
-        textChanged: (event: any) => void;
-        renderEditingComponent: () => ReactElement<any>;
-        renderNormalComponent: () => ReactElement<any>;
-        elementBlur: (event: any) => void;
-        elementClick: (event: any) => void;
+    export class RIEStatefulBase<P,S> extends RIEBase<IRIEBaseProps, IRIEBaseState> {
+        startEditing(): void;
+        finishEditing(): void;
+        cancelEditing(): void;
+        keyDown(event: any): void;
+        textChanged(event: any): void;
+        renderEditingComponent(): ReactElement<any>;
+        renderNormalComponent(): ReactElement<any>;
+        elementBlur(event: any): void;
+        elementClick(event: any): void;
     }
 
-    export interface RIEInput extends RIEStatefulBase<RIEBaseProps, RIEBaseState> {}
-    export interface RIESelect extends RIEStatefulBase<RIESelectProps, RIEBaseState> {
-        constructor: (props: RIESelectProps) => any;
+    export class RIEInput extends RIEStatefulBase<IRIEBaseProps, IRIEBaseState> {}
+
+    export class RIESelect extends RIEStatefulBase<IRIEBaseProps, IRIEBaseState> {}
+
+    export class RIENumber extends RIEStatefulBase<IRIENumberProps, IRIEBaseState> {
+        validate(value: string|number): boolean;
     }
 
-    export interface RIENumber extends RIEStatefulBase<RIENumberProps, RIEBaseState> {
-        constructor: (props: RIENumberProps) => any;
-        validate?: (value: string|number) => boolean;
-    }
+    export class RIETextArea extends RIEStatefulBase<IRIETextAreaProps, IRIEBaseState> {}
 
-    export interface RIETextArea extends RIEStatefulBase<RIETextAreaProps, RIEBaseState> {
-        constructor: (props: RIETextAreaProps) => any;
-    }
-
-    export interface RIESelectOption {
+    export interface IRIESelectOption {
         id: number|string;
         text: number|string
     }
 
-    export interface RIESelectProps extends RIEBaseProps {
-        options?: RIESelectOption[]
+    export class RIEToggle extends RIEBase<IRIEToggleProps, IRIEToggleState> {}
+
+    export class RIETag<P, S> extends React.Component<IRIETagProps, any>{
+        remove(): void;
     }
 
-    export interface RIETag<P, S> extends React.Component<RIETagProps, any>{
-        constructor: (props: P) => any;
-        remove: () => void;
+    export class RIETags extends RIEStatefulBase<IRIETagsProps, IRIETagsState> {
+        addTag(tag: any): void;
+        removeTag(tag: any): void;
+        cancelEditingDelayed(): void;
+        cancelEditing(): void;
+        makeTagElement(text: string): any
     }
 
-    export interface RIEToggle<P, S> extends RIEBase<RIEToggleProps, RIEToggleState> {}
-
-    export interface RIETags extends RIEStatefulBase<RIETagsProps, RIETagsState> {
-        constructor: (props: RIETagsProps) => any;
-        addTag: (tag: any) => void;
-        removeTag: (tag: any) => void;
-        cancelEditingDelayed: () => void;
-        cancelEditing: () => void;
-        makeTagElement: (text: string) => any
-    }
 }
