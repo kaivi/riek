@@ -49,7 +49,6 @@ text value`,
   };
 
   isStringEvenNumber = (string) => {
-    console.log('is even: ' + string);
     var number = parseInt(string);
     if (isNaN(number) || !isFinite(number)) return false;
     return number % 2 == 0;
