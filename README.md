@@ -4,13 +4,69 @@ An assortment of common HTML form elements, editable in-line the React way.
 Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 # Installation
-`npm install riek --save-dev` *(`--save-dev` because you don't usually want to build and pack JS/CSS when in production)*
+`npm install riek --save-dev`
+
+*or*
+
+`yarn add riek --dev`
+
+*Use `--save-dev` because you don't want to build and pack JS/CSS in production*
 
 # Usage
+Import the library:
+
 ```javascript
 import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
+import _ from 'lodash'
 ```
-See /demo/src/demo.js for examples.
+
+Suppose we want to be able to edit title of a `Task` and send changes to server. Here is a `Task` stored flat inside of our parent React component:
+
+```javascript
+this.state = {
+  id: 1,
+  title: 'Cover with tests',
+  completed: false
+}
+```
+
+Now we need a function which will send the single altered `{ key: value }` and upsert local state. You can implement it inside of your flux/redux/mobx store:
+
+```javascript
+const httpTaskCallback = (task) => {
+  request.post(`/api/task/${this.state.id}`)
+    .send(task)
+    .end((err, res) => {
+      if (!err) return this.setState({ ...task })
+      // Handle HTTP error
+    })
+}
+```
+
+Meanwhile, there is a simple Express handler on our API server:
+
+```javascript
+app.use('/api/task/:id', async (req, res) => {
+  // req.body will equal to { title: 'A new title' }
+  const { id } = req.params
+  await Task.update({ ...req.body }).where({ id })
+  res.send('OK')
+})
+```
+
+Finally, in our `render` method, we add a minimal `RIEInput`:
+
+```javascript
+<RIEInput
+  value={this.state.text}
+  change={this.httpTaskCallback}
+  propName='title'
+  validate={_.isString} />
+```
+
+...repeat the last step, adding a Riek component for any object property we wish to edit.
+
+Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/riek/blob/master/demo/demo.jsx) for examples.
 
 ## Common props
 
@@ -48,9 +104,9 @@ See /demo/src/demo.js for examples.
 * **options**: an array of objects containing values and text for [select options](http://www.w3schools.com/tags/tag_option.asp)
 ```javascript
 <RIESelect ... options={[
-  {id: "1", text: "one"},
-  {id: "2", text: "two"},
-  {id: "3", text: "three"}
+  {id: '1', text: 'one'},
+  {id: '2', text: 'two'},
+  {id: '3', text: 'three'}
 ]} />
 ```
 
