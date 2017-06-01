@@ -25,7 +25,9 @@ export default class RIEBase extends React.Component {
         defaultProps: PropTypes.object,
         isDisabled: PropTypes.bool,
         validate: PropTypes.func,
+        handleValidationFail: PropTypes.func,
         shouldBlockWhileLoading: PropTypes.bool,
+        shouldRemainWhileInvalid: PropTypes.bool,
         classLoading: PropTypes.string,
         classEditing: PropTypes.string,
         classDisabled: PropTypes.string,
@@ -34,11 +36,15 @@ export default class RIEBase extends React.Component {
     };
 
     doValidations = (value) => {
+        let result;
         if(this.props.validate) {
-            this.setState({invalid: !this.props.validate(value)});
+            result = this.props.validate(value);
         } else if (this.validate) {
-            this.setState({invalid: !this.validate(value)});
+            result = this.validate(value);
         }
+        this.setState({invalid: !result});
+
+        return result;
     };
 
     selectInputText = (element) => {
@@ -50,7 +56,9 @@ export default class RIEBase extends React.Component {
     };
 
     componentWillReceiveProps = (nextProps) => {
-        if ('value' in nextProps) this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
+            this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        }
     };
 
     commit = (value) => {
