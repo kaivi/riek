@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const debug = require('debug')('RIEBase');
+
 export default class RIEBase extends React.Component {
     constructor(props){
         super(props);
@@ -40,6 +42,7 @@ export default class RIEBase extends React.Component {
     };
 
     doValidations = (value) => {
+        debug(`doValidations(${value})`)
         let result;
         if(this.props.validate) {
             result = this.props.validate(value);
@@ -52,20 +55,23 @@ export default class RIEBase extends React.Component {
     };
 
     selectInputText = (element) => {
+        debug(`selectInputText(${element.value})`)
         if (element.setSelectionRange) element.setSelectionRange(0, element.value.length);
     };
 
     elementClick = (event) => {
-        throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle, RIEDate et.c";
+        throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle et.c";
     };
 
     componentWillReceiveProps = (nextProps) => {
+        debug(`componentWillReceiveProps(${nextProps})`)
         if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
             this.setState({loading: false, editing: false, invalid: false, newValue: null});
         }
     };
 
     commit = (value) => {
+        debug(`commit(${value})`)
         if(!this.state.invalid) {
             let newProp = {};
             newProp[this.props.propName] = value;
@@ -75,6 +81,7 @@ export default class RIEBase extends React.Component {
     };
 
     makeClassString = () => {
+        debug(`makeClassString()`)
         var classNames = [];
         if (this.props.className) classNames.push(this.props.className);
         if (this.state.editing && this.props.classEditing) classNames.push(this.props.classEditing);
@@ -85,6 +92,7 @@ export default class RIEBase extends React.Component {
     };
 
     render = () => {
+        debuf(`render()`)
         return <span {...this.props.defaultProps} tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
     };
 }

@@ -118,5 +118,6 @@ The build process does not work with Node v6 at the moment: use [Node Version Ma
 2. Make your changes
 3. Do `npm run build` to compile the lib and demo
 4. Open `index.html` and check if it works
-5. ???
-6. Submit a pull request
+5. Open JS console in browser, set `localStorage.debug = '*'` to see debug messages, add more if necessary
+6. ???
+7. Submit a pull request

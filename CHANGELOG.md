@@ -1,3 +1,8 @@
+1.0.9 / 2017-06-01
+=================
+
+- Fixed issue [#28](https://github.com/kaivi/riek/issues/28) with RIENumber not working on Firefox
+
 1.0.8 / 2017-06-01
 ==================
 
