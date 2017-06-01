@@ -1,6 +1,6 @@
 {
   "name": "riek",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React Inline Edit Kit",
   "author": "Kai Vik <kvi@ieee.org>",
   "license": "MIT",
@@ -25,8 +25,11 @@
     "build": "npm run build-lib && npm run build-demo"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
+    "react": "^0.14.0 || ^15.5.4",
+    "react-dom": "^0.14.0 || ^15.5.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "babel-cli": "^6.4.0",

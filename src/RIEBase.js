@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class RIEBase extends React.Component {
     constructor(props){
@@ -6,7 +7,7 @@ export default class RIEBase extends React.Component {
 
         if (!this.props.propName) throw "RTFM: missing 'propName' prop";
         if (!this.props.change) throw "RTFM: missing 'change' prop";
-        if (this.props.value == undefined) throw "RTFM: missing 'value' prop";
+        if (typeof this.props.value == 'undefined') throw "RTFM: missing 'value' prop";
 
         this.state = {
             editing: false,
@@ -17,27 +18,37 @@ export default class RIEBase extends React.Component {
     }
 
     static propTypes = {
-        value: React.PropTypes.any.isRequired,
-        change: React.PropTypes.func.isRequired,
-        propName: React.PropTypes.string.isRequired,
-        editProps: React.PropTypes.object,
-        defaultProps: React.PropTypes.object,
-        isDisabled: React.PropTypes.bool,
-        validate: React.PropTypes.func,
-        shouldBlockWhileLoading: React.PropTypes.bool,
-        classLoading: React.PropTypes.string,
-        classEditing: React.PropTypes.string,
-        classDisabled: React.PropTypes.string,
-        classInvalid: React.PropTypes.string,
-        className: React.PropTypes.string
+        value: PropTypes.any.isRequired,
+        change: PropTypes.func.isRequired,
+        propName: PropTypes.string.isRequired,
+        editProps: PropTypes.object,
+        defaultProps: PropTypes.object,
+        isDisabled: PropTypes.bool,
+        validate: PropTypes.func,
+        handleValidationFail: PropTypes.func,
+        shouldBlockWhileLoading: PropTypes.bool,
+        shouldRemainWhileInvalid: PropTypes.bool,
+        classLoading: PropTypes.string,
+        classEditing: PropTypes.string,
+        classDisabled: PropTypes.string,
+        classInvalid: PropTypes.string,
+        className: PropTypes.string,
+        beforeStart: PropTypes.func,
+        afterStart: PropTypes.func,
+        beforeFinish: PropTypes.func,
+        afterFinish: PropTypes.func,
     };
 
     doValidations = (value) => {
+        let result;
         if(this.props.validate) {
-            this.setState({invalid: !this.props.validate(value)});
+            result = this.props.validate(value);
         } else if (this.validate) {
-            this.setState({invalid: !this.validate(value)});
+            result = this.validate(value);
         }
+        this.setState({invalid: !result});
+
+        return result;
     };
 
     selectInputText = (element) => {
@@ -49,7 +60,9 @@ export default class RIEBase extends React.Component {
     };
 
     componentWillReceiveProps = (nextProps) => {
-        if ('value' in nextProps) this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
+            this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        }
     };
 
     commit = (value) => {

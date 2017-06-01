@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RIEBase from './RIEBase';
 
 export default class RIEToggle extends RIEBase {
 
     static propTypes = {
-        textTrue: React.PropTypes.string,
-        textFalse: React.PropTypes.string
+        textTrue: PropTypes.string,
+        textFalse: PropTypes.string
     };
 
     elementClick = (e) => {
+        if(this.props.isDisabled) return;
         this.setState({value: !this.props.value});
         this.commit(!this.props.value);
     };
