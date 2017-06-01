@@ -10,6 +10,7 @@ export default class RIEToggle extends RIEBase {
     };
 
     elementClick = (e) => {
+        if(this.props.isDisabled) return;
         this.setState({value: !this.props.value});
         this.commit(!this.props.value);
     };

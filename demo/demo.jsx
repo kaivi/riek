@@ -7,26 +7,27 @@ class Demo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-    select : {id: "1", text: "broccoli"},
-    selectOptions : [
-      {id: "1", text: "broccoli"},
-      {id: "2", text: "arugula"},
-      {id: "3", text: "leek"},
-      {id: "4", text: "radish"},
-      {id: "5", text: "watercress"},
-      {id: "6", text: "dandelion"}
-    ],
-    boolean : true,
-    number : 9000,
-    text : "Example text value",
-    textarea : `Multiline example
-text value`,
-    date : Date.now(),
-    tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
-    simulateXHR: false,
-    XHRDelay: 450,
-    highlight: false,
-    showSource: false
+      select : {id: "1", text: "broccoli"},
+      selectOptions : [
+        {id: "1", text: "broccoli"},
+        {id: "2", text: "arugula"},
+        {id: "3", text: "leek"},
+        {id: "4", text: "radish"},
+        {id: "5", text: "watercress"},
+        {id: "6", text: "dandelion"}
+      ],
+      boolean : true,
+      number : 9000,
+      text : "Example text value",
+      textarea : `Multiline example
+  text value`,
+      date : Date.now(),
+      tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
+      simulateXHR: false,
+      XHRDelay: 450,
+      highlight: false,
+      showSource: false,
+      isDisabled: false,
     };
   }
 
@@ -49,7 +50,6 @@ text value`,
   };
 
   isStringEvenNumber = (string) => {
-    console.log('is even: ' + string);
     var number = parseInt(string);
     if (isNaN(number) || !isFinite(number)) return false;
     return number % 2 == 0;
@@ -91,6 +91,7 @@ text value`,
         {xhrDelaySwitch}
         <li>Highlight editable: <RIEToggle value={this.state.highlight} change={this.changeState} propName="highlight" textTrue="highlight" textFalse="don't" className="editable-pill" /></li>
         <li><RIEToggle value={this.state.showSource} change={this.changeState} propName="showSource" textTrue="Source shown" textFalse="Source hidden" className="editable-pill"/></li>
+        <li><RIEToggle value={this.state.isDisabled} change={this.changeState} propName="isDisabled" textTrue="fields disabled" textFalse="fields not disabled" className="editable-pill" /></li>
         </ul>
       </div>
     </div>
@@ -103,14 +104,16 @@ text value`,
           className={this.state.highlight ? "editable" : ""}
           change={this.virtualServerCallback}
           classLoading="loading"
-          propName="boolean" />
+          propName="boolean"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEToggle
-  value={this.state.boolean}
-  className={this.state.highlight ? "editable" : ""}
-  change={this.virtualServerCallback}
-  classLoading="loading"
-  propName="boolean" />`}
+value={this.state.boolean}
+className={this.state.highlight ? "editable" : ""}
+change={this.virtualServerCallback}
+classLoading="loading"
+propName="boolean"
+isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
         <br />
         <span>Custom labels: </span>
@@ -121,16 +124,18 @@ text value`,
           textTrue="activated"
           textFalse="deactivated"
           classLoading="loading"
-          propName="boolean" />
+          propName="boolean"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEToggle
-  value={this.state.boolean}
-  className={this.state.highlight ? "editable" : ""}
-  change={this.virtualServerCallback}
-  textTrue="activated"
-  textFalse="deactivated"
-  classLoading="loading"
-  propName="boolean" />`}
+value={this.state.boolean}
+className={this.state.highlight ? "editable" : ""}
+change={this.virtualServerCallback}
+textTrue="activated"
+textFalse="deactivated"
+classLoading="loading"
+propName="boolean"
+isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -144,7 +149,8 @@ text value`,
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringAcceptable}
           classLoading="loading"
-          classInvalid="invalid" />
+          classInvalid="invalid"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEInput
   value={this.state.text}
@@ -153,7 +159,8 @@ text value`,
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"
-  classInvalid="invalid"/>`}
+  classInvalid="invalid"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -167,7 +174,8 @@ text value`,
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringAcceptable}
           classLoading="loading"
-          classInvalid="invalid" />
+          classInvalid="invalid"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETextArea
   value={this.state.textarea}
@@ -176,7 +184,8 @@ text value`,
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"
-  classInvalid="invalid"/>`}
+  classInvalid="invalid"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -189,7 +198,8 @@ text value`,
           propName="number"
           className={this.state.highlight ? "editable" : ""}
           classLoading="loading"
-          classInvalid="invalid"/>
+          classInvalid="invalid"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIENumber
   value={this.state.number}
@@ -197,7 +207,8 @@ text value`,
   propName="number"
   className={this.state.highlight ? "editable" : ""}
   classLoading="loading"
-  classInvalid="invalid"/>`}
+  classInvalid="invalid"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
         <br />
         <span>Only even, custom formatter: </span>
@@ -209,7 +220,8 @@ text value`,
           classLoading="loading"
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringEvenNumber}
-          classInvalid="invalid"/>
+          classInvalid="invalid"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIENumber
   value={this.state.number}
@@ -219,7 +231,8 @@ text value`,
   classLoading="loading"
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringEvenNumber}
-  classInvalid="invalid"/>`}
+  classInvalid="invalid"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -234,7 +247,8 @@ text value`,
           propName="tags"
           placeholder="New"
           className={this.state.highlight ? "tags editable" : "tags"}
-          classLoading="loading" />
+          classLoading="loading"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETags
   value={this.state.tags}
@@ -244,7 +258,8 @@ text value`,
   propName="tags"
   placeholder="New"
   className={this.state.highlight ? "tags editable" : "tags"}
-  classLoading="loading" />`}
+  classLoading="loading"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -257,7 +272,8 @@ text value`,
           options={this.state.selectOptions}
           change={this.virtualServerCallback}
           classLoading="loading"
-          propName="select" />
+          propName="select"
+          isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIESelect
   value={this.state.select}
@@ -265,7 +281,8 @@ text value`,
   options={this.state.selectOptions}
   change={this.virtualServerCallback}
   classLoading="loading"
-  propName="select" />`}
+  propName="select"
+  isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>
     </div>
