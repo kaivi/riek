@@ -46,7 +46,7 @@ export default class RIEStatefulBase extends RIEBase {
         }
     };
 
-    renderEditingComponent = () => {
+    renderDefaultEditingComponent = () => {
         return <input
             disabled={this.state.loading}
             className={this.makeClassString()}
@@ -58,13 +58,25 @@ export default class RIEStatefulBase extends RIEBase {
             {...this.props.editProps} />;
     };
 
-    renderNormalComponent = () => {
+    renderEditingComponent = () => {
+        return this.props.renderEditingComponent
+          ? this.props.renderEditingComponent.call(this)
+          : this.renderDefaultEditingComponent()
+    };
+
+    renderDefaultNormalComponent = () => {
         return <span
             tabIndex="0"
             className={this.makeClassString()}
             onFocus={this.startEditing}
             onClick={this.startEditing}
             {...this.props.defaultProps}>{this.state.newValue || this.props.value}</span>;
+    };
+
+    renderNormalComponent = () => {
+        return this.props.renderNormalComponent
+          ? this.props.renderNormalComponent(this)
+          : this.renderDefaultNormalComponent()
     };
 
     elementBlur = (event) => {
