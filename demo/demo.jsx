@@ -149,6 +149,7 @@ text value`,
   value={this.state.text}
   change={this.virtualServerCallback}
   propName="text"
+  editing={true}
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringAcceptable}
   classLoading="loading"

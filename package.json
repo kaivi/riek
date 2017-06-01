@@ -26,7 +26,8 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
+    "react-dom": "^0.14.0 || ^15.0.0",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "babel-cli": "^6.4.0",
@@ -38,5 +39,8 @@
     "highlight.js": "^9.1.0",
     "react-highlight": "^0.6.1",
     "webpack": "^1.12.11"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }
