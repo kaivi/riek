@@ -28,6 +28,11 @@ See /demo/src/demo.js for examples.
 * **className**: CSS base class
 * **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea, or add `style`.
 * **defaultProps**: Additional props for idle component.
+### Optional hooks
+* **beforeStart**: Fires before editing starts
+* **afterStart**: Fires after editing starts
+* **beforeFinish**: Fires before editing ends, before validations
+* **afterFinish**: Fires after editing ends, after validations
 
 ### Component-specific props
 
@@ -52,7 +57,7 @@ See /demo/src/demo.js for examples.
 
 The build process does not work with Node v6 at the moment: use [Node Version Manager](https://github.com/creationix/nvm), or just plain Node v5.6.0.
 
-1. Clone this repo locally, run `npm install`
+1. Clone this repo locally, run `npm i`
 2. Make your changes
 3. Do `npm run build` to compile the lib and demo
 4. Open `index.html` and check if it works

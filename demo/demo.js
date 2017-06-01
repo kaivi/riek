@@ -17744,11 +17744,15 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RIEBase).call(this, props));
 
 	        _this.doValidations = function (value) {
+	            var result = undefined;
 	            if (_this.props.validate) {
-	                _this.setState({ invalid: !_this.props.validate(value) });
+	                result = _this.props.validate(value);
 	            } else if (_this.validate) {
-	                _this.setState({ invalid: !_this.validate(value) });
+	                result = _this.validate(value);
 	            }
+	            _this.setState({ invalid: !result });
+
+	            return result;
 	        };
 
 	        _this.selectInputText = function (element) {
@@ -17760,7 +17764,9 @@
 	        };
 
 	        _this.componentWillReceiveProps = function (nextProps) {
-	            if ('value' in nextProps) _this.setState({ loading: false, editing: false, invalid: false, newValue: null });
+	            if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && _this.state.invalid)) {
+	                _this.setState({ loading: false, editing: false, invalid: false, newValue: null });
+	            }
 	        };
 
 	        _this.commit = function (value) {
@@ -17814,12 +17820,18 @@
 	    defaultProps: _propTypes2.default.object,
 	    isDisabled: _propTypes2.default.bool,
 	    validate: _propTypes2.default.func,
+	    handleValidationFail: _propTypes2.default.func,
 	    shouldBlockWhileLoading: _propTypes2.default.bool,
+	    shouldRemainWhileInvalid: _propTypes2.default.bool,
 	    classLoading: _propTypes2.default.string,
 	    classEditing: _propTypes2.default.string,
 	    classDisabled: _propTypes2.default.string,
 	    classInvalid: _propTypes2.default.string,
-	    className: _propTypes2.default.string
+	    className: _propTypes2.default.string,
+	    beforeStart: _propTypes2.default.func,
+	    afterStart: _propTypes2.default.func,
+	    beforeFinish: _propTypes2.default.func,
+	    afterFinish: _propTypes2.default.func
 	};
 	exports.default = RIEBase;
 
@@ -17864,19 +17876,27 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RIEStatefulBase).call(this, props));
 
 	        _this.startEditing = function () {
-	            _this.props.onStart ? _this.props.onStart() : null;
+	            _this.props.beforeStart ? _this.props.beforeStart() : null;
 	            if (_this.props.isDisabled) return;
 	            _this.setState({ editing: true });
+	            _this.props.afterStart ? _this.props.afterStart() : null;
 	        };
 
 	        _this.finishEditing = function () {
-	            _this.props.onFinish ? _this.props.onFinish() : null;
+	            _this.props.beforeFinish ? _this.props.beforeFinish() : null;
 	            var newValue = _reactDom2.default.findDOMNode(_this.refs.input).value;
-	            _this.doValidations(newValue);
-	            if (!_this.state.invalid && _this.props.value !== newValue) {
+	            var result = _this.doValidations(newValue);
+	            if (result && _this.props.value !== newValue) {
 	                _this.commit(newValue);
 	            }
-	            _this.cancelEditing();
+	            if (!result && _this.props.handleValidationFail) {
+	                _this.props.handleValidationFail(result, newValue, function () {
+	                    return _this.cancelEditing();
+	                });
+	            } else {
+	                _this.cancelEditing();
+	            }
+	            _this.props.afterFinish ? _this.props.afterFinish() : null;
 	        };
 
 	        _this.cancelEditing = function () {

@@ -1,3 +1,25 @@
+1.0.8 / 2017-06-01
+==================
+
+- Bumped React dependency up to v15.5.4
+- Now using `prop-types` library as a dependency
+- Rework PR [#27](https://github.com/kaivi/riek/pull/27), add hooks `beforeStart, afterStart, beforeFinish, onFinish`
+- Use React v15.5.0 in demo
+- Use Highlight.js v9.4.0 in demo
+
+* Merged PR [18](https://github.com/kaivi/riek/pull/16) manually
+  - Not sure what that means, rephrased 1 assertion on [line 9](https://github.com/kaivi/riek/blob/master/src/RIEBase.js#L10) in RIEBase.js
+* Merged PR [24](https://github.com/kaivi/riek/pull/24)
+  - Fix [Issue #23](https://github.com/kaivi/riek/issues/23) [isDisabled]: enables the isDisabled prop
+* Merged PR [#27](https://github.com/kaivi/riek/pull/27)
+  - Added onFinish and onStart hooks
+* Merged PR [#32](https://github.com/kaivi/riek/pull/32)
+  - Remove console.log from demo.js
+* Merged PR [#35](https://github.com/kaivi/riek/pull/35)
+  - Fix titles in readme
+* Merged PR [#36](https://github.com/kaivi/riek/pull/36)
+  - Use separate `prop-types` library
+
 1.0.6 / 2016-11-01
 ==================
 
