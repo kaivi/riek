@@ -29,6 +29,7 @@
     "react-dom": "^0.14.0 || ^15.5.4"
   },
   "dependencies": {
+    "debug": "^2.6.8",
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
