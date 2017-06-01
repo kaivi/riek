@@ -22,6 +22,7 @@ See /demo/src/demo.js for examples.
 ### Optional
 * **validate**: validator function, returning a boolean
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
+* **shouldRemainWhileInvalid**: remain in editing mode if validation fails
 * **classLoading**: CSS class name to use when loading
 * **classEditing**: CSS class name to apply while in editing mode
 * **classInvalid**: CSS class name to apply when _doValidatoon_ returned false
