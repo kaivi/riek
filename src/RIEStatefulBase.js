@@ -8,11 +8,13 @@ export default class RIEStatefulBase extends RIEBase {
     }
 
     startEditing = () => {
+        this.props.onStart ? this.props.onStart() : null;
         if(this.props.isDisabled) return;
         this.setState({editing: true});
     };
 
     finishEditing = () => {
+        this.props.onFinish ? this.props.onFinish() : null;
         let newValue = ReactDOM.findDOMNode(this.refs.input).value;
         this.doValidations(newValue);
         if(!this.state.invalid && this.props.value !== newValue) {
