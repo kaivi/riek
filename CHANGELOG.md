@@ -19,6 +19,8 @@
   - Fix titles in readme
 * Merged PR [#36](https://github.com/kaivi/riek/pull/36)
   - Use separate `prop-types` library
+* Merged part of [springuper/riek](https://github.com/springuper/riek/commit/741c75d808f25d3ef5ecf1483162e24abb6bd677)
+  - Add `shouldRemainWhileInvalid` prop
 
 1.0.6 / 2016-11-01
 ==================
