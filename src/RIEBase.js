@@ -43,15 +43,16 @@ export default class RIEBase extends React.Component {
 
     doValidations = (value) => {
         debug(`doValidations(${value})`)
-        let result;
+        let isValid;
         if(this.props.validate) {
-            result = this.props.validate(value);
+            debug('using this.props.validate')
+            isValid = this.props.validate(value);
         } else if (this.validate) {
-            result = this.validate(value);
-        }
-        this.setState({invalid: !result});
-
-        return result;
+            debug('using this.validate')
+            isValid = this.validate(value);
+        } else return true
+        this.setState({invalid: !isValid});
+        return isValid;
     };
 
     selectInputText = (element) => {
