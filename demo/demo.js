@@ -313,7 +313,6 @@
 	              change: _this.virtualServerCallback,
 	              propName: 'text',
 	              className: _this.state.highlight ? "editable" : "",
-	              validate: _this.isStringAcceptable,
 	              classLoading: 'loading',
 	              classInvalid: 'invalid',
 	              isDisabled: _this.state.isDisabled }),
@@ -19352,15 +19351,16 @@
 
 	        _this.doValidations = function (value) {
 	            debug('doValidations(' + value + ')');
-	            var result = void 0;
+	            var isValid = void 0;
 	            if (_this.props.validate) {
-	                result = _this.props.validate(value);
+	                debug('using this.props.validate');
+	                isValid = _this.props.validate(value);
 	            } else if (_this.validate) {
-	                result = _this.validate(value);
-	            }
-	            _this.setState({ invalid: !result });
-
-	            return result;
+	                debug('using this.validate');
+	                isValid = _this.validate(value);
+	            } else return true;
+	            _this.setState({ invalid: !isValid });
+	            return isValid;
 	        };
 
 	        _this.selectInputText = function (element) {

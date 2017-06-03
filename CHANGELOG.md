@@ -1,3 +1,8 @@
+1.1.0 / 2017-06-03
+=================
+- Fixed issue [#41](https://github.com/kaivi/riek/issues/41)
+  * Always validate to true if no validator passed
+
 1.0.9 / 2017-06-01
 =================
 

@@ -147,7 +147,6 @@ isDisabled={this.state.isDisabled} />`}
           change={this.virtualServerCallback}
           propName="text"
           className={this.state.highlight ? "editable" : ""}
-          validate={this.isStringAcceptable}
           classLoading="loading"
           classInvalid="invalid"
           isDisabled={this.state.isDisabled} />
