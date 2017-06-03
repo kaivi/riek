@@ -79,13 +79,16 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **validate**: validator function, returning a boolean
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
 * **shouldRemainWhileInvalid**: remain in editing mode if validation fails
+* **defaultProps**: Additional props for idle component.
+
+#### Customization
 * **classLoading**: CSS class name to use when loading
 * **classEditing**: CSS class name to apply while in editing mode
-* **classInvalid**: CSS class name to apply when _doValidatoon_ returned false
+* **classInvalid**: CSS class name to apply when _validate_ returned false
 * **className**: CSS base class
 * **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea, or add `style`.
-* **defaultProps**: Additional props for idle component.
-### Optional hooks
+
+#### Hooks
 * **beforeStart**: Fires before editing starts
 * **afterStart**: Fires after editing starts
 * **beforeFinish**: Fires before editing ends, before validations

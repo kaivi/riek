@@ -19353,10 +19353,8 @@
 	            debug('doValidations(' + value + ')');
 	            var isValid = void 0;
 	            if (_this.props.validate) {
-	                debug('using this.props.validate');
 	                isValid = _this.props.validate(value);
 	            } else if (_this.validate) {
-	                debug('using this.validate');
 	                isValid = _this.validate(value);
 	            } else return true;
 	            _this.setState({ invalid: !isValid });
