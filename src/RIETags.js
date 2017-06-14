@@ -42,7 +42,7 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     addTag = (tag) => {
-        if([...this.props.value].length < (this.props.maxTags || 65535)) {
+        if(this.doValidations(tag) && [...this.props.value].length < (this.props.maxTags || 65535)) {
             this.commit(this.props.value.add(tag));
         }
     };
