@@ -12,7 +12,7 @@ export default class RIEBase extends React.Component {
         if (typeof this.props.value == 'undefined') throw "RTFM: missing 'value' prop";
 
         this.state = {
-            editing: false,
+            editing: this.props.editing,
             loading: false,
             disabled: false,
             invalid: false
@@ -39,6 +39,7 @@ export default class RIEBase extends React.Component {
         afterStart: PropTypes.func,
         beforeFinish: PropTypes.func,
         afterFinish: PropTypes.func,
+        editing: PropTypes.bool,
     };
 
     doValidations = (value) => {
@@ -66,6 +67,10 @@ export default class RIEBase extends React.Component {
         debug(`componentWillReceiveProps(${nextProps})`)
         if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
             this.setState({loading: false, editing: false, invalid: false, newValue: null});
+        }
+
+        if (nextProps.editing !== this.state.editing) {
+            this.setState({editing: nextProps.editing});
         }
     };
 
