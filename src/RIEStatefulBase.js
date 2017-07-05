@@ -93,6 +93,7 @@ export default class RIEStatefulBase extends RIEBase {
 
     elementClick = (event) => {
         debug(`elementClick(${event})`)
+        if (this.state.loading) return;
         this.startEditing();
         event.target.element.focus();
     };
