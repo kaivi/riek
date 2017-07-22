@@ -56,7 +56,9 @@ export default class RIEStatefulBase extends RIEBase {
         if (this.state.editing && !prevState.editing) {
             debug('entering edit mode')
             inputElem.focus();
-            this.selectInputText(inputElem);
+            if (typeof this.props.selectAll === 'undefined' || this.props.selectAll) {
+              this.selectInputText(inputElem);
+            }
         } else if (this.state.editing && prevProps.text != this.props.text) {
             debug('not editing && text not equal previous props -- finishing editing')
             this.finishEditing();

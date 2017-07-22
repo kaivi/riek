@@ -20099,7 +20099,9 @@
 	            if (_this.state.editing && !prevState.editing) {
 	                debug('entering edit mode');
 	                inputElem.focus();
-	                _this.selectInputText(inputElem);
+	                if (typeof _this.props.selectAll === 'undefined' || _this.props.selectAll) {
+	                    _this.selectInputText(inputElem);
+	                }
 	            } else if (_this.state.editing && prevProps.text != _this.props.text) {
 	                debug('not editing && text not equal previous props -- finishing editing');
 	                _this.finishEditing();
@@ -20236,9 +20238,9 @@
 	                spans_and_brs.push(_react2.default.createElement('br', { key: i + 1 }));
 	                i += 2;
 	            });
-	            spans_and_brs.pop // remove last br tag
+	            spans_and_brs.pop(); // remove last br tag
 
-	            ();return _react2.default.createElement(
+	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
@@ -20304,20 +20306,20 @@
 	        };
 
 	        _this.selectInputText = function (element) {
-	            debug('selectInputText(' + element + ')'
+	            debug('selectInputText(' + element + ')');
 	            // element.setSelectionRange won't work for an input of type "number"
-	            );setTimeout(function () {
+	            setTimeout(function () {
 	                element.select();
 	            }, 10);
 	        };
 
 	        _this.elementBlur = function (element) {
-	            debug('elementBlur(' + element + ')'
+	            debug('elementBlur(' + element + ')');
 	            /*  
 	                        Firefox workaround
 	                        Found at https://tirdadc.github.io/blog/2015/06/11/react-dot-js-firefox-issue-with-onblur/
 	            */
-	            );if (element.nativeEvent.explicitOriginalTarget && element.nativeEvent.explicitOriginalTarget == element.nativeEvent.originalTarget) {
+	            if (element.nativeEvent.explicitOriginalTarget && element.nativeEvent.explicitOriginalTarget == element.nativeEvent.originalTarget) {
 	                return;
 	            }
 	            _this.finishEditing();
