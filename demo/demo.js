@@ -19114,45 +19114,43 @@
 	var warning = emptyFunction;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  (function () {
-	    var printWarning = function printWarning(format) {
-	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        args[_key - 1] = arguments[_key];
+	  var printWarning = function printWarning(format) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+
+	    var argIndex = 0;
+	    var message = 'Warning: ' + format.replace(/%s/g, function () {
+	      return args[argIndex++];
+	    });
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+
+	  warning = function warning(condition, format) {
+	    if (format === undefined) {
+	      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+	    }
+
+	    if (format.indexOf('Failed Composite propType: ') === 0) {
+	      return; // Ignore CompositeComponent proptype check.
+	    }
+
+	    if (!condition) {
+	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	        args[_key2 - 2] = arguments[_key2];
 	      }
 
-	      var argIndex = 0;
-	      var message = 'Warning: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // --- Welcome to debugging React ---
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch (x) {}
-	    };
-
-	    warning = function warning(condition, format) {
-	      if (format === undefined) {
-	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-	      }
-
-	      if (format.indexOf('Failed Composite propType: ') === 0) {
-	        return; // Ignore CompositeComponent proptype check.
-	      }
-
-	      if (!condition) {
-	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	          args[_key2 - 2] = arguments[_key2];
-	        }
-
-	        printWarning.apply(undefined, [format].concat(args));
-	      }
-	    };
-	  })();
+	      printWarning.apply(undefined, [format].concat(args));
+	    }
+	  };
 	}
 
 	module.exports = warning;
@@ -20225,20 +20223,20 @@
 	            }, _this.props.editProps));
 	        }, _this.renderNormalComponent = function () {
 	            var value = _this.state.newValue || _this.props.value;
-	            var spans_and_brs = [];
+	            var spans_and_brs_and_whitespaces = [];
 	            var i = 0;
 	            value.split("\n").map(function (line) {
-	                spans_and_brs.push(_react2.default.createElement(
+	                spans_and_brs_and_whitespaces.push(_react2.default.createElement(
 	                    'span',
 	                    { key: i },
-	                    line
+	                    line.replace(/ /gi, '\xA0')
 	                ));
-	                spans_and_brs.push(_react2.default.createElement('br', { key: i + 1 }));
+	                spans_and_brs_and_whitespaces.push(_react2.default.createElement('br', { key: i + 1 }));
 	                i += 2;
 	            });
-	            spans_and_brs.pop // remove last br tag
+	            spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
-	            ();return _react2.default.createElement(
+	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
@@ -20246,7 +20244,7 @@
 	                    onFocus: _this.startEditing,
 	                    onClick: _this.startEditing
 	                }, _this.props.defaultProps),
-	                spans_and_brs
+	                spans_and_brs_and_whitespaces
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
@@ -20304,20 +20302,20 @@
 	        };
 
 	        _this.selectInputText = function (element) {
-	            debug('selectInputText(' + element + ')'
+	            debug('selectInputText(' + element + ')');
 	            // element.setSelectionRange won't work for an input of type "number"
-	            );setTimeout(function () {
+	            setTimeout(function () {
 	                element.select();
 	            }, 10);
 	        };
 
 	        _this.elementBlur = function (element) {
-	            debug('elementBlur(' + element + ')'
+	            debug('elementBlur(' + element + ')');
 	            /*  
 	                        Firefox workaround
 	                        Found at https://tirdadc.github.io/blog/2015/06/11/react-dot-js-firefox-issue-with-onblur/
 	            */
-	            );if (element.nativeEvent.explicitOriginalTarget && element.nativeEvent.explicitOriginalTarget == element.nativeEvent.originalTarget) {
+	            if (element.nativeEvent.explicitOriginalTarget && element.nativeEvent.explicitOriginalTarget == element.nativeEvent.originalTarget) {
 	                return;
 	            }
 	            _this.finishEditing();
