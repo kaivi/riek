@@ -1,5 +1,4 @@
 node_modules
-lib
 .idea
 *.log
 .DS_Store
