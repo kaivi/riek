@@ -2,44 +2,70 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RIEStatefulBase from './RIEStatefulBase';
 
-export default class RIESelect extends RIEStatefulBase {
+export default class RIESelect extends RIEStatefulBase
+{
     static propTypes = {
         options: React.PropTypes.array.isRequired
     };
 
-    finishEditing = () => {
-        // get the object from options that matches user selected value
-        const newValue = this.props.options.find(function(option) {
-            return option.id === ReactDOM.findDOMNode(this.refs.input).value;
-        }, this);
-        this.doValidations(newValue);
-        if(!this.state.invalid && this.props.value !== newValue) {
-            this.commit(newValue);
-        }
-        this.cancelEditing();
+    renderNormalComponent = () => {
+        return (
+            <span
+                tabIndex="0"
+                className={this.makeClassString()}
+                onFocus={this.startEditing}
+                onClick={this.startEditing}
+                {...this.props.defaultProps}
+            >
+                {this.getValue()}
+            </span>
+        );
     };
 
     renderEditingComponent = () => {
         const optionNodes = this.props.options.map(function(option) {
-            return <option value={option.id} key={option.id}>{option.text}</option>
+            return (
+                <option
+                    key={option.id}
+                    value={option.id}
+                >
+                    {option.text}
+                </option>
+            )
         });
 
-        return <select disabled={(this.props.shouldBlockWhileLoading && this.state.loading)}
-                       value={this.props.value.id}
-                       className={this.makeClassString()}
-                       onChange={this.finishEditing}
-                       onBlur={this.cancelEditing}
-                       ref="input"
-                       onKeyDown={this.keyDown}
-                       {...this.props.editProps}>{optionNodes}</select>
+        return (
+            <select
+                ref="input"
+                disabled={this.isDisabled()}
+                value={this.props.value.id}
+                className={this.makeClassString()}
+                onChange={this.finishEditing}
+                onBlur={this.cancelEditing}
+                onKeyDown={this.keyDown}
+                {...this.props.editProps}
+            >
+                {optionNodes}
+            </select>
+        )
     };
 
-    renderNormalComponent = () => {
-        return <span
-            tabIndex="0"
-            className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
-            {...this.props.defaultProps}>{(!!this.state.newValue) ? this.state.newValue.text : this.props.value.text}</span>;
+    finishEditing = () => {
+        // get the object from options that matches user selected value
+        const newValue = this.props.options.find((option) => {
+            return option.id === ReactDOM.findDOMNode(this.refs.input).value;
+        });
+
+        this.doValidations(newValue);
+
+        if(!this.state.invalid && this.props.value !== newValue) {
+            this.commit(newValue);
+        }
+
+        this.cancelEditing();
     };
+
+    getValue = () => {
+        return (!!this.state.newValue) ? this.state.newValue.text : this.props.value.text;
+    }
 }

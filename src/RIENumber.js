@@ -1,14 +1,46 @@
 import React from 'react';
 import RIEStatefulBase from './RIEStatefulBase';
 
-export default class RIENumber extends RIEStatefulBase {
+export default class RIENumber extends RIEStatefulBase
+{
+    static propTypes = {
+        format: React.PropTypes.func
+    };
 
     constructor(props) {
         super(props);
     }
 
-    static propTypes = {
-        format: React.PropTypes.func
+    renderNormalComponent = () => {
+        return (
+            <span
+                tabIndex="0"
+                className={this.makeClassString()}
+                onFocus={this.startEditing}
+                onClick={this.startEditing}
+                {...this.props.defaultProps}
+            >
+                {this.getValue()}
+            </span>
+        );
+    };
+
+    renderEditingComponent = () => {
+        const {value} = this.props;
+
+        return (
+            <input
+                ref="input"
+                type="number"
+                disabled={this.isDisabled()}
+                className={this.makeClassString()}
+                defaultValue={value}
+                onInput={this.textChanged}
+                onBlur={this.finishEditing}
+                onKeyDown={this.keyDown}
+                {...this.props.editProps}
+            />
+        );
     };
 
     validate = (value) => {
@@ -17,27 +49,17 @@ export default class RIENumber extends RIEStatefulBase {
 
     selectInputText = (element) => {
         // element.setSelectionRange won't work for an input of type "number"
-        setTimeout(function() { element.select(); }, 10);
-    }
-
-    renderNormalComponent = () => {
-        return <span
-            tabIndex="0"
-            className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
-            {...this.props.defaultProps}>{this.props.format ? this.props.format(this.state.newValue || this.props.value) : (this.state.newValue || this.props.value)}</span>;
+        setTimeout(() => { element.select(); }, 10);
     };
 
-    renderEditingComponent = () => {
-        return <input disabled={(this.props.shouldBlockWhileLoading && this.state.loading)}
-                      type="number"
-                      className={this.makeClassString()}
-                      defaultValue={this.props.value}
-                      onInput={this.textChanged}
-                      onBlur={this.finishEditing}
-                      ref="input"
-                      onKeyDown={this.keyDown}
-                      {...this.props.editProps} />;
+    getValue = () => {
+        const { format, value } = this.props;
+        const { newValue } = this.state;
+
+        if (format) {
+            return format(newValue || value);
+        }
+
+        return (newValue || value)
     };
 }
