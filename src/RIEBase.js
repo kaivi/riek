@@ -1,5 +1,5 @@
 import React from 'react';
-import * as classname from 'classnames';
+import classNames from 'classnames';
 
 export default class RIEBase extends React.Component
 {
@@ -106,7 +106,7 @@ export default class RIEBase extends React.Component
     };
 
     makeClassString = () => {
-        return classname(
+        return classNames(
             this.props.className,
             {
                 [this.props.classEditing]: this.state.editing && this.props.classEditing,
