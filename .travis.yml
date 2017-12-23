@@ -1,0 +1,14 @@
+dist: trusty
+cache:
+  directories:
+    - "node_modules"
+language: node_js
+node_js:
+  - "5"
+  - "6"
+  - "7"
+  - "stable"
+install:
+    - npm install
+script:
+    - npm run test
