@@ -9,15 +9,19 @@ import { shallow } from 'enzyme';
 import RIEBase from '../src/RIEBase';
 
 describe('<RIEBase />', () => {
-    const defaultProps = {
-        value: 'my-value',
-        change: () => {},
-        propName: 'my-prop'
-    };
+  const defaultProps = {
+    value   : 'my-value',
+    change  : () => {},
+    propName: 'my-prop',
+  };
 
-    it(`should have the value rendered as text`, () => {
-        const rieBase = shallow(<RIEBase {...defaultProps}/>);
-        expect(rieBase.text()).toEqual(defaultProps.value);
-    });
+  it('should have the value rendered as text', () => {
+    const rieBase = shallow(<RIEBase {...defaultProps} />);
+    expect(rieBase.text()).toEqual(defaultProps.value);
+  });
 
+  it('should have the value rendered as text', () => {
+    const rieBase = shallow(<RIEBase {...defaultProps} />);
+    expect(rieBase.text()).toEqual(defaultProps.value);
+  });
 });

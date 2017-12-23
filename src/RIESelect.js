@@ -1,71 +1,82 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 import RIEStatefulBase from './RIEStatefulBase';
 
-export default class RIESelect extends RIEStatefulBase
-{
-    static propTypes = {
-        options: React.PropTypes.array.isRequired
-    };
+class RIESelect extends RIEStatefulBase {
+  renderNormalComponent() {
+    const { defaultProps } = this.props;
 
-    renderNormalComponent = () => {
-        return (
-            <span
-                tabIndex="0"
-                className={this.makeClassString()}
-                onFocus={this.startEditing}
-                onClick={this.startEditing}
-                {...this.props.defaultProps}
-            >
-                {this.getValue()}
-            </span>
-        );
-    };
+    return (
+      <span
+        tabIndex="0"
+        className={this.makeClassString()}
+        onFocus={this.startEditing}
+        onClick={this.startEditing}
+        {...defaultProps}
+      >
+        {this.getValue()}
+      </span>
+    );
+  }
 
-    renderEditingComponent = () => {
-        const optionNodes = this.props.options.map(function(option) {
-            return (
-                <option
-                    key={option.id}
-                    value={option.id}
-                >
-                    {option.text}
-                </option>
-            )
-        });
+  renderEditingComponent() {
+    const { editProps, value } = this.props;
 
-        return (
-            <select
-                ref="input"
-                disabled={this.isDisabled()}
-                value={this.props.value.id}
-                className={this.makeClassString()}
-                onChange={this.finishEditing}
-                onBlur={this.cancelEditing}
-                onKeyDown={this.keyDown}
-                {...this.props.editProps}
-            >
-                {optionNodes}
-            </select>
-        )
-    };
+    if (!value.id) {
+      throw Error('every value needs an id field');
+    }
+
+    return (
+      <select
+        ref="input"
+        disabled={this.isDisabled()}
+        value={value.id}
+        className={this.makeClassString()}
+        onChange={this.finishEditing}
+        onBlur={this.cancelEditing}
+        onKeyDown={this.keyDown}
+        {...editProps}
+      >
+        {this.renderOptions()}
+      </select>
+    );
+  }
+
+  renderOptions() {
+    const { options } = this.props;
+
+    return options.map(option =>
+      <option
+        key={option.id}
+        value={option.id}
+      >
+        {option.text}
+      </option>
+    );
+  }
 
     finishEditing = () => {
-        // get the object from options that matches user selected value
-        const newValue = this.props.options.find((option) => {
-            return option.id === ReactDOM.findDOMNode(this.refs.input).value;
-        });
+      const { options, value } = this.props;
 
-        this.doValidations(newValue);
+      // get the object from options that matches user selected value
+      const newValue = options.find(option => option.id === ReactDOM.findDOMNode(this.refs.input).value);
 
-        if(!this.state.invalid && this.props.value !== newValue) {
-            this.commit(newValue);
-        }
+      this.doValidations(newValue);
 
-        this.cancelEditing();
+      if (!this.state.invalid && value !== newValue) {
+        this.commit(newValue);
+      }
+
+      this.cancelEditing();
     };
 
-    getValue = () => {
-        return (!!this.state.newValue) ? this.state.newValue.text : this.props.value.text;
-    }
+    getValue = () => this.state.newValue ? this.state.newValue.text : this.props.value.text
 }
+
+RIESelect.propTypes = {
+  options: PropTypes.array.isRequired,
+};
+
+export default RIESelect;
