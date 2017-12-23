@@ -1,83 +1,113 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import RIEBase from './RIEBase';
 
-export default class RIEStatefulBase extends RIEBase {
-    constructor(props){
-        super(props);
+class RIEStatefulBase extends RIEBase {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const inputElem = ReactDOM.findDOMNode(this.refs.input);
+    if (this.state.editing && !prevState.editing) {
+      inputElem.focus();
+      this.selectInputText(inputElem);
+    } else if (this.state.editing && prevProps.text !== this.props.text) {
+      this.finishEditing();
+    }
+  };
+
+  render() {
+    if (this.state.editing) {
+      return this.renderEditingComponent();
     }
 
-    startEditing = () => {
-        this.setState({editing: true});
-    };
+    return this.renderNormalComponent();
+  }
 
-    finishEditing = () => {
-        let newValue = ReactDOM.findDOMNode(this.refs.input).value;
-        this.doValidations(newValue);
-        if(!this.state.invalid && this.props.value !== newValue) {
-            this.commit(newValue);
-        }
-        this.cancelEditing();
-    };
+  renderNormalComponent() {
+    const { defaultProps, value } = this.props;
 
-    cancelEditing = () => {
-        this.setState({editing: false, invalid: false});
-    };
+    return (
+      <span
+        tabIndex="0"
+        className={this.makeClassString()}
+        onFocus={this.startEditing}
+        onClick={this.startEditing}
+        {...defaultProps}
+      >
+        {this.state.newValue || value}
+      </span>
+    );
+  }
 
-    keyDown = (event) => {
-        if(event.keyCode === 13) { this.finishEditing() }           // Enter
-        else if (event.keyCode === 27) { this.cancelEditing() }     // Escape
-    };
+  renderEditingComponent() {
+    const { editProps, value } = this.props;
 
-    textChanged = (event) => {
-        this.doValidations(event.target.value.trim());
-    };
+    return (
+      <input
+        ref="input"
+        defaultValue={value}
+        disabled={this.isDisabled()}
+        className={this.makeClassString()}
+        onInput={this.textChanged}
+        onBlur={this.finishEditing}
+        onKeyDown={this.keyDown}
+        {...editProps}
+      />
+    );
+  }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        var inputElem = ReactDOM.findDOMNode(this.refs.input);
-        if (this.state.editing && !prevState.editing) {
-            inputElem.focus();
-            this.selectInputText(inputElem);
-        } else if (this.state.editing && prevProps.text != this.props.text) {
-            this.finishEditing();
-        }
-    };
+  startEditing = () => {
+    this.setState({
+      editing: true,
+    });
+  };
 
-    renderEditingComponent = () => {
-        return <input
-            disabled={this.state.loading}
-            className={this.makeClassString()}
-            defaultValue={this.props.value}
-            onInput={this.textChanged}
-            onBlur={this.finishEditing}
-            ref="input"
-            onKeyDown={this.keyDown}
-            {...this.props.editProps} />;
-    };
+  finishEditing = () => {
+    const newValue = ReactDOM.findDOMNode(this.refs.input).value;
+    this.doValidations(newValue);
 
-    renderNormalComponent = () => {
-        return <span
-            tabIndex="0"
-            className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
-            {...this.props.defaultProps}>{this.state.newValue || this.props.value}</span>;
-    };
+    if (!this.state.invalid && this.props.value !== newValue) {
+      this.commit(newValue);
+    }
 
-    elementBlur = (event) => {
+    this.cancelEditing();
+  };
+
+  cancelEditing = () => {
+    this.setState({
+      editing: false,
+      invalid: false,
+    });
+  };
+
+  keyDown = event => {
+    switch (event.keyCode) {
+      case RIEStatefulBase.KEY_ENTER:
         this.finishEditing();
-    };
+        break;
+      case RIEStatefulBase.KEY_ESCAPE:
+        this.cancelEditing();
+        break;
+    }
+  };
 
-    elementClick = (event) => {
-        this.startEditing();
-        event.target.element.focus();
-    };
+  textChanged = event => {
+    this.doValidations(event.target.value.trim());
+  };
 
-    render = () => {
-        if(this.state.editing) {
-            return this.renderEditingComponent();
-        } else {
-            return this.renderNormalComponent();
-        }
-    };
+  elementBlur = () => {
+    this.finishEditing();
+  };
+
+  elementClick = event => {
+    this.startEditing();
+    event.target.element.focus();
+  };
+
+  isDisabled = () => this.props.shouldBlockWhileLoading && this.state.loading
 }
+
+export default RIEStatefulBase;

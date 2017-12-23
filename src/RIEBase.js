@@ -1,77 +1,133 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class RIEBase extends React.Component {
-    constructor(props){
-        super(props);
+import classNames from 'classnames';
 
-        if (!this.props.propName) throw "RTFM: missing 'propName' prop";
-        if (!this.props.change) throw "RTFM: missing 'change' prop";
-        if (this.props.value == undefined) throw "RTFM: missing 'value' prop";
+class RIEBase extends React.Component {
+  static KEY_ENTER = 13;
+  static KEY_ESCAPE = 27;
+  static KEY_BACKSPACE = 8;
 
-        this.state = {
-            editing: false,
-            loading: false,
-            disabled: false,
-            invalid: false
-        };
+  refs;
+
+  constructor(props) {
+    super(props);
+
+    if (!this.props.propName) {
+      throw Error("RTFM: missing 'propName' prop");
     }
 
-    static propTypes = {
-        value: React.PropTypes.any.isRequired,
-        change: React.PropTypes.func.isRequired,
-        propName: React.PropTypes.string.isRequired,
-        editProps: React.PropTypes.object,
-        defaultProps: React.PropTypes.object,
-        isDisabled: React.PropTypes.bool,
-        validate: React.PropTypes.func,
-        shouldBlockWhileLoading: React.PropTypes.bool,
-        classLoading: React.PropTypes.string,
-        classEditing: React.PropTypes.string,
-        classDisabled: React.PropTypes.string,
-        classInvalid: React.PropTypes.string,
-        className: React.PropTypes.string
-    };
+    if (!this.props.change) {
+      throw Error("RTFM: missing 'change' prop");
+    }
 
-    doValidations = (value) => {
-        if(this.props.validate) {
-            this.setState({invalid: !this.props.validate(value)});
-        } else if (this.validate) {
-            this.setState({invalid: !this.validate(value)});
-        }
-    };
+    if (this.props.value === undefined) {
+      throw Error("RTFM: missing 'value' prop");
+    }
 
-    selectInputText = (element) => {
-        if (element.setSelectionRange) element.setSelectionRange(0, element.value.length);
+    this.state = {
+      editing: false,
+      loading: false,
+      disabled: false,
+      invalid: false,
     };
+  }
 
-    elementClick = (event) => {
-        throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle, RIEDate et.c";
-    };
+  componentWillReceiveProps = nextProps => {
+    if ('value' in nextProps) {
+      this.setState({
+        loading: false,
+        editing: false,
+        invalid: false,
+        newValue: null,
+      });
+    }
+  };
 
-    componentWillReceiveProps = (nextProps) => {
-        if ('value' in nextProps) this.setState({loading: false, editing: false, invalid: false, newValue: null});
-    };
+  render() {
+    const { defaultProps, value } = this.props;
 
-    commit = (value) => {
-        if(!this.state.invalid) {
-            let newProp = {};
-            newProp[this.props.propName] = value;
-            this.setState({loading: true, newValue: value});
-            this.props.change(newProp);
-        }
-    };
+    return (
+      <span
+        {...defaultProps}
+        className={this.makeClassString()}
+        onClick={this.elementClick}
+      >
+        {value}
+      </span>
+    );
+  }
 
-    makeClassString = () => {
-        var classNames = [];
-        if (this.props.className) classNames.push(this.props.className);
-        if (this.state.editing && this.props.classEditing) classNames.push(this.props.classEditing);
-        if (this.state.loading && this.props.classLoading) classNames.push(this.props.classLoading);
-        if (this.state.disabled && this.props.classDisabled) classNames.push(this.props.classDisabled);
-        if (this.state.invalid && this.props.classInvalid) classNames.push(this.props.classInvalid);
-        return classNames.join(' ');
-    };
+  doValidations = value => {
+    const { validate } = this.props;
 
-    render = () => {
-        return <span {...this.props.defaultProps} tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
-    };
+    if (validate) {
+      this.setState({
+        invalid: !validate(value),
+      });
+    } else if (this.validate) {
+      this.setState({
+        invalid: !this.validate(value),
+      });
+    }
+  };
+
+  selectInputText = element => {
+    if (element.setSelectionRange) {
+      element.setSelectionRange(0, element.value.length);
+    }
+  };
+
+  commit = value => {
+    if (this.state.invalid) {
+      return;
+    }
+
+    this.setState({
+      loading: true,
+      newValue: value,
+    });
+
+    this.props.change({
+        [this.props.propName]: value,
+    });
+  };
+
+  makeClassString = () => {
+    const {
+      className, classEditing, classLoading, classInvalid, classDisabled,
+    } = this.props;
+
+    return classNames(
+      className,
+      {
+        [classEditing]: this.state.editing && classEditing,
+        [classLoading]: this.state.loading && classLoading,
+        [classDisabled]: this.state.disabled && classDisabled,
+        [classInvalid]: this.state.invalid && classInvalid,
+      },
+    );
+  };
+
+  elementClick = () => {
+    throw Error('RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle, RIEDate etc');
+  };
 }
+
+RIEBase.propTypes = {
+  value: PropTypes.any.isRequired,
+  change: PropTypes.func.isRequired,
+  propName: PropTypes.string.isRequired,
+  editProps: PropTypes.object,
+  defaultProps: PropTypes.object,
+  isDisabled: PropTypes.bool,
+  validate: PropTypes.func,
+  shouldBlockWhileLoading: PropTypes.bool,
+  classLoading: PropTypes.string,
+  classEditing: PropTypes.string,
+  classDisabled: PropTypes.string,
+  classInvalid: PropTypes.string,
+  className: PropTypes.string,
+};
+
+export default RIEBase;

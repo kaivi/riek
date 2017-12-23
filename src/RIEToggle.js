@@ -1,27 +1,50 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import RIEBase from './RIEBase';
 
-export default class RIEToggle extends RIEBase {
+class RIEToggle extends RIEBase {
+  render() {
+    const { defaultProps } = this.props;
+    return (
+      <span
+        tabIndex="0"
+        onKeyPress={this.elementClick}
+        onClick={this.elementClick}
+        className={this.makeClassString()}
+        {...defaultProps}
+      >
+        {this.getValue()}
+      </span>
+    );
+  }
 
-    static propTypes = {
-        textTrue: React.PropTypes.string,
-        textFalse: React.PropTypes.string
-    };
+  getValue() {
+    const { textTrue, textFalse, value } = this.props;
 
-    elementClick = (e) => {
-        this.setState({value: !this.props.value});
-        this.commit(!this.props.value);
-    };
+    const valueToRender = this.state.loading ? this.state.value : value;
 
-    render = () => {
-        let valueToRender = this.state.loading ? this.state.value : this.props.value;
-        return <span
-            tabIndex="0"
-            onKeyPress={this.elementClick}
-            onClick={this.elementClick}
-            className={this.makeClassString()}
-            {...this.props.defaultProps}>
-            {valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
-        </span>;
-    };
+    if (valueToRender) {
+      return textTrue || 'yes';
+    }
+
+    return textFalse || 'no';
+  }
+
+  elementClick = () => {
+    const { value } = this.props;
+
+    this.setState({
+      value,
+    });
+
+    this.commit(!value);
+  };
 }
+
+RIEToggle.propTypes = {
+  textTrue: PropTypes.string,
+  textFalse: PropTypes.string,
+};
+
+export default RIEToggle;

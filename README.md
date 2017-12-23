@@ -1,4 +1,11 @@
+# This is a fork because I am too much of a code nazi ;)
+ - The last update was 7 months
+ - There is no testing whatsoever
+ - There is no linting whatsoever (that's more taste)
+ - There are obvious bugs that are not getting fixed :) 
+
 #React Inline Edit Kit
+[![Build Status](https://travis-ci.org/chilimatic/riek.svg?branch=code-cleanup-and-bugfixes)](https://travis-ci.org/chilimatic/riek)
 An assortment of common HTML form elements, editable in-line the React way.
 
 Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
