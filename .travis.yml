@@ -4,7 +4,6 @@ cache:
     - "node_modules"
 language: node_js
 node_js:
-  - "5"
   - "6"
   - "7"
   - "stable"
