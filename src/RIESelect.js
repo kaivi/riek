@@ -57,22 +57,22 @@ class RIESelect extends RIEStatefulBase {
     );
   }
 
-    finishEditing = () => {
-      const { options, value } = this.props;
+  finishEditing = () => {
+    const { options, value } = this.props;
 
-      // get the object from options that matches user selected value
-      const newValue = options.find(option => option.id === ReactDOM.findDOMNode(this.refs.input).value);
+    // get the object from options that matches user selected value
+    const newValue = options.find(option => option.id === ReactDOM.findDOMNode(this.refs.input).value);
 
-      this.doValidations(newValue);
+    this.doValidations(newValue);
 
-      if (!this.state.invalid && value !== newValue) {
-        this.commit(newValue);
-      }
+    if (!this.state.invalid && value !== newValue) {
+      this.commit(newValue);
+    }
 
-      this.cancelEditing();
-    };
+    this.cancelEditing();
+  };
 
-    getValue = () => this.state.newValue ? this.state.newValue.text : this.props.value.text
+  getValue = () => this.state.newValue ? this.state.newValue.text : this.props.value.text
 }
 
 RIESelect.propTypes = {

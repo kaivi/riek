@@ -41,26 +41,26 @@ class RIETextArea extends RIEStatefulBase {
     );
   }
 
-    transformNewlineToBr = () => {
-      const value = String(this.state.newValue || this.props.value);
-      const spansAndBreaks = [];
-      let i = 0;
+  transformNewlineToBr = () => {
+    const value = String(this.state.newValue || this.props.value);
+    const spansAndBreaks = [];
+    let i = 0;
 
-      value.split('\n').forEach(line => {
-        spansAndBreaks.push(<span key={i}>{line}</span>);
-        spansAndBreaks.push(<br key={i + 1} />);
-        i += 2;
-      });
+    value.split('\n').forEach(line => {
+      spansAndBreaks.push(<span key={i}>{line}</span>);
+      spansAndBreaks.push(<br key={i + 1} />);
+      i += 2;
+    });
 
-      spansAndBreaks.pop(); // remove last br tag
-      return spansAndBreaks;
-    };
+    spansAndBreaks.pop(); // remove last br tag
+    return spansAndBreaks;
+  };
 
-    keyDown = event => {
-      if (event.keyCode === RIEBase.KEY_ESCAPE) {
-        this.cancelEditing();
-      }
-    };
+  keyDown = event => {
+    if (event.keyCode === RIEBase.KEY_ESCAPE) {
+      this.cancelEditing();
+    }
+  };
 }
 
 export default RIETextArea;

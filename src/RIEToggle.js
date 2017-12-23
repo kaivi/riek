@@ -31,15 +31,15 @@ class RIEToggle extends RIEBase {
     return textFalse || 'no';
   }
 
-    elementClick = () => {
-      const { value } = this.props;
+  elementClick = () => {
+    const { value } = this.props;
 
-      this.setState({
-        value,
-      });
+    this.setState({
+      value,
+    });
 
-      this.commit(!value);
-    };
+    this.commit(!value);
+  };
 }
 
 RIEToggle.propTypes = {

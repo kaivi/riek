@@ -23,9 +23,9 @@ class RIETag extends React.Component {
     );
   }
 
-    remove = () => {
-      this.props.removeHandler(this.props.text);
-    };
+  remove = () => {
+    this.props.removeHandler(this.props.text);
+  };
 }
 
 RIETag.propTypes = {

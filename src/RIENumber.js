@@ -9,13 +9,15 @@ class RIENumber extends RIEStatefulBase {
   }
 
   renderNormalComponent() {
+    const { defaultProps } = this.props;
+
     return (
       <span
         tabIndex="0"
         className={this.makeClassString()}
         onFocus={this.startEditing}
         onClick={this.startEditing}
-        {...this.props.defaultProps}
+        {...defaultProps}
       >
         {this.getValue()}
       </span>
@@ -40,23 +42,23 @@ class RIENumber extends RIEStatefulBase {
     );
   }
 
-    validate = value => !isNaN(value) && isFinite(value) && value.length > 0;
+  validate = value => !isNaN(value) && isFinite(value) && value.length > 0;
 
-    selectInputText = element => {
-      // element.setSelectionRange won't work for an input of type "number"
-      setTimeout(() => { element.select(); }, 10);
-    };
+  selectInputText = element => {
+    // element.setSelectionRange won't work for an input of type "number"
+    setTimeout(() => { element.select(); }, 10);
+  };
 
-    getValue = () => {
-      const { format, value } = this.props;
-      const { newValue } = this.state;
+  getValue = () => {
+    const { format, value } = this.props;
+    const { newValue } = this.state;
 
-      if (format) {
-        return format(newValue || value);
-      }
+    if (format) {
+      return format(newValue || value);
+    }
 
-      return newValue || value;
-    };
+    return newValue || value;
+  };
 }
 
 
