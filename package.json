@@ -1,12 +1,12 @@
 {
-  "name": "riek",
-  "version": "1.0.7",
-  "description": "React Inline Edit Kit",
-  "author": "Kai Vik <kvi@ieee.org>",
+  "name": "rieke",
+  "version": "1.0.8",
+  "description": "React Inline Edit Kit extended",
+  "author": "Kai Vik <kvi@ieee.org>, Jakob Oberhummer <riek@chilimatic.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaivi/riek.git"
+    "url": "git://github.com/chilimatic/riek.git"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -20,14 +20,15 @@
   "scripts": {
     "prepublish": "npm run build",
     "build-lib": "rm -rf lib/*; babel src --out-dir lib",
-    "build-demo": "rm demo/demo.js; webpack demo/demo.jsx demo/demo.js",
+    "build-demo": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js --progress --color",
     "build": "npm run build-lib && npm run build-demo",
     "test": "jest",
     "lint": "eslint src test"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
+    "react-dom": "^0.14.0 || ^15.0.0",
+    "react-select": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.4.0",
@@ -44,21 +45,26 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "highlight.js": "^9.1.0",
     "jest": "^22.0.4",
     "prettier": "1.9.2",
     "prettier-eslint": "^8.6.0",
     "react": "^15.5.*",
     "react-dom": "15.5.*",
-    "react-highlight": "^0.6.1",
     "react-test-renderer": "^15.5.*",
-    "webpack": "^1.12.11"
+    "react-select": "^1.1.0",
+    "webpack": "^2.7.0",
+    "react-highlight": "^0.6.1",
+    "highlight.js": "^9.1.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "install": "^0.10.2",
+    "npm": "^5.6.0",
+    "path": "^0.12.7",
     "prop-types": "15.6.0",
     "react": "^15.5.*",
-    "react-dom": "15.5.*"
+    "react-dom": "15.5.*",
+    "uglifyjs-webpack-plugin": "^1.1.4"
   },
   "jest": {
     "verbose": true,
