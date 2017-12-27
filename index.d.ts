@@ -1,4 +1,4 @@
-declare module 'riek' {
+declare module 'rieke' {
     import {ReactElement} from "react";
     import * as React from "react";
 
