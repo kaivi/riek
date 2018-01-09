@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import RIEStatefulBase from './RIEStatefulBase';
 
-class RIENumber extends RIEStatefulBase {
+class RIENumber extends RIEStatefulBase
+{
   constructor(props) {
     super(props);
   }
@@ -45,7 +46,6 @@ class RIENumber extends RIEStatefulBase {
   validate = value => !isNaN(value) && isFinite(value) && value.length > 0;
 
   selectInputText = element => {
-    // element.setSelectionRange won't work for an input of type "number"
     setTimeout(() => { element.select(); }, 10);
   };
 
@@ -60,7 +60,6 @@ class RIENumber extends RIEStatefulBase {
     return newValue || value;
   };
 }
-
 
 RIENumber.propTypes = {
   format: PropTypes.func,

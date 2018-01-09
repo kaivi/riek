@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import RIEBase from './RIEBase';
 
-class RIEToggle extends RIEBase {
+class RIEToggle extends RIEBase
+{
   render() {
     const { defaultProps } = this.props;
     return (

@@ -3,7 +3,8 @@ import React from 'react';
 import RIEStatefulBase from './RIEStatefulBase';
 import RIEBase from './RIEBase';
 
-class RIETextArea extends RIEStatefulBase {
+class RIETextArea extends RIEStatefulBase
+{
   renderNormalComponent() {
     const { defaultProps } = this.props;
 

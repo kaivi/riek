@@ -8,7 +8,7 @@ class RIEStatefulBase extends RIEBase {
     super(props);
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate(prevProps, prevState) {
     const inputElem = ReactDOM.findDOMNode(this.refs.input);
     if (this.state.editing && !prevState.editing) {
       inputElem.focus();
@@ -16,7 +16,7 @@ class RIEStatefulBase extends RIEBase {
     } else if (this.state.editing && prevProps.text !== this.props.text) {
       this.finishEditing();
     }
-  };
+  }
 
   render() {
     if (this.state.editing) {

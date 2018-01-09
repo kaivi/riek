@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import RIEStatefulBase from './RIEStatefulBase';
 
-class RIESelect extends RIEStatefulBase {
+class RIESelect extends RIEStatefulBase
+{
   renderNormalComponent() {
     const { defaultProps } = this.props;
 

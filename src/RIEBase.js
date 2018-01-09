@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import classNames from 'classnames';
 
-class RIEBase extends React.Component {
+class RIEBase extends React.Component
+{
   static KEY_ENTER = 13;
   static KEY_ESCAPE = 27;
   static KEY_BACKSPACE = 8;
@@ -33,7 +34,7 @@ class RIEBase extends React.Component {
     };
   }
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
         loading: false,
@@ -42,7 +43,7 @@ class RIEBase extends React.Component {
         newValue: null,
       });
     }
-  };
+  }
 
   render() {
     const { defaultProps, value } = this.props;
