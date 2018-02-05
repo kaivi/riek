@@ -28,6 +28,7 @@ class Demo extends React.Component {
       highlight: false,
       showSource: false,
       isDisabled: false,
+      editOnDoubleClick: false
     };
   }
 
@@ -92,6 +93,7 @@ class Demo extends React.Component {
         <li>Highlight editable: <RIEToggle value={this.state.highlight} change={this.changeState} propName="highlight" textTrue="highlight" textFalse="don't" className="editable-pill" /></li>
         <li><RIEToggle value={this.state.showSource} change={this.changeState} propName="showSource" textTrue="Source shown" textFalse="Source hidden" className="editable-pill"/></li>
         <li><RIEToggle value={this.state.isDisabled} change={this.changeState} propName="isDisabled" textTrue="fields disabled" textFalse="fields not disabled" className="editable-pill" /></li>
+        <li><RIEToggle value={this.state.editOnDoubleClick} change={this.changeState} propName="editOnDoubleClick" textTrue="Edit on double click" textFalse="Edit on click" className="editable-pill" /></li>
         </ul>
       </div>
     </div>
@@ -105,7 +107,8 @@ class Demo extends React.Component {
           change={this.virtualServerCallback}
           classLoading="loading"
           propName="boolean"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEToggle
 value={this.state.boolean}
@@ -113,7 +116,8 @@ className={this.state.highlight ? "editable" : ""}
 change={this.virtualServerCallback}
 classLoading="loading"
 propName="boolean"
-isDisabled={this.state.isDisabled} />`}
+isDisabled={this.state.isDisabled}
+shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
         <br />
         <span>Custom labels: </span>
@@ -125,7 +129,8 @@ isDisabled={this.state.isDisabled} />`}
           textFalse="deactivated"
           classLoading="loading"
           propName="boolean"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEToggle
 value={this.state.boolean}
@@ -135,7 +140,8 @@ textTrue="activated"
 textFalse="deactivated"
 classLoading="loading"
 propName="boolean"
-isDisabled={this.state.isDisabled} />`}
+isDisabled={this.state.isDisabled}
+shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -149,7 +155,8 @@ isDisabled={this.state.isDisabled} />`}
           className={this.state.highlight ? "editable" : ""}
           classLoading="loading"
           classInvalid="invalid"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIEInput
   value={this.state.text}
@@ -159,7 +166,8 @@ isDisabled={this.state.isDisabled} />`}
   validate={this.isStringAcceptable}
   classLoading="loading"
   classInvalid="invalid"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -174,7 +182,8 @@ isDisabled={this.state.isDisabled} />`}
           validate={this.isStringAcceptable}
           classLoading="loading"
           classInvalid="invalid"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETextArea
   value={this.state.textarea}
@@ -184,7 +193,8 @@ isDisabled={this.state.isDisabled} />`}
   validate={this.isStringAcceptable}
   classLoading="loading"
   classInvalid="invalid"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -198,7 +208,8 @@ isDisabled={this.state.isDisabled} />`}
           className={this.state.highlight ? "editable" : ""}
           classLoading="loading"
           classInvalid="invalid"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIENumber
   value={this.state.number}
@@ -207,7 +218,8 @@ isDisabled={this.state.isDisabled} />`}
   className={this.state.highlight ? "editable" : ""}
   classLoading="loading"
   classInvalid="invalid"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
         <br />
         <span>Only even, custom formatter: </span>
@@ -220,7 +232,8 @@ isDisabled={this.state.isDisabled} />`}
           className={this.state.highlight ? "editable" : ""}
           validate={this.isStringEvenNumber}
           classInvalid="invalid"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIENumber
   value={this.state.number}
@@ -231,7 +244,8 @@ isDisabled={this.state.isDisabled} />`}
   className={this.state.highlight ? "editable" : ""}
   validate={this.isStringEvenNumber}
   classInvalid="invalid"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -247,7 +261,8 @@ isDisabled={this.state.isDisabled} />`}
           placeholder="New"
           className={this.state.highlight ? "tags editable" : "tags"}
           classLoading="loading"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETags
   value={this.state.tags}
@@ -258,7 +273,8 @@ isDisabled={this.state.isDisabled} />`}
   placeholder="New"
   className={this.state.highlight ? "tags editable" : "tags"}
   classLoading="loading"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
       <hr />
@@ -272,7 +288,8 @@ isDisabled={this.state.isDisabled} />`}
           change={this.virtualServerCallback}
           classLoading="loading"
           propName="select"
-          isDisabled={this.state.isDisabled} />
+          isDisabled={this.state.isDisabled}
+          shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIESelect
   value={this.state.select}
@@ -281,7 +298,8 @@ isDisabled={this.state.isDisabled} />`}
   change={this.virtualServerCallback}
   classLoading="loading"
   propName="select"
-  isDisabled={this.state.isDisabled} />`}
+  isDisabled={this.state.isDisabled}
+  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />`}
         </Highlight> : null}
       </div>
     </div>
