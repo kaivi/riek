@@ -99,10 +99,15 @@ export default class RIETags extends RIEStatefulBase {
 
     renderNormalComponent = () => {
         let tags = [...this.props.value].join(this.props.separator || ", ");
+        const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+        } : {
+            onDoubleClick: this.startEditing,
+        };
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}
+            {...editingHandlers}
             {...this.props.defaultProps}>{tags}</span>;
     };
 

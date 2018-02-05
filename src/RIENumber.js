@@ -40,11 +40,16 @@ export default class RIENumber extends RIEStatefulBase {
 
     renderNormalComponent = () => {
         debug(`renderNormalComponent()`)
+        const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+            onClick: this.elementClick,
+        } : {
+            onDoubleClick: this.elementDoubleClick,
+        };
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.elementClick}
+            {...editingHandlers}
             {...this.props.defaultProps}>{this.props.format ? this.props.format(this.state.newValue || this.props.value) : (this.state.newValue || this.props.value)}</span>;
     };
 
