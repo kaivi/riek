@@ -22,7 +22,7 @@ export default class RIEStatefulBase extends RIEBase {
         this.props.beforeFinish ? this.props.beforeFinish() : null;
         let newValue = ReactDOM.findDOMNode(this.refs.input).value;
         const result = this.doValidations(newValue);
-        if(result && this.props.value !== newValue) {
+        if(result && this.props.value != newValue) {
             this.commit(newValue);
         }
         if(!result && this.props.handleValidationFail) {
