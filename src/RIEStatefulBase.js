@@ -39,13 +39,13 @@ export default class RIEStatefulBase extends RIEBase {
     };
 
     keyDown = (event) => {
-        debug('keyDown(${event.keyCode})')
+        debug(`keyDown(${event.keyCode})`)
         if(event.keyCode === 13) { this.finishEditing() }           // Enter
         else if (event.keyCode === 27) { this.cancelEditing() }     // Escape
     };
 
     textChanged = (event) => {
-        debug('textChanged(${event.target.value})')
+        debug(`textChanged(${event.target.value})`)
         this.doValidations(event.target.value.trim());
     };
 
