@@ -19399,7 +19399,7 @@
 	        };
 
 	        _this.render = function () {
-	            debuf('render()');
+	            debug('render()');
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({}, _this.props.defaultProps, { tabindex: '0', className: _this.makeClassString(), onClick: _this.elementClick }),
@@ -20059,7 +20059,7 @@
 	            _this.props.beforeFinish ? _this.props.beforeFinish() : null;
 	            var newValue = _reactDom2.default.findDOMNode(_this.refs.input).value;
 	            var result = _this.doValidations(newValue);
-	            if (result && _this.props.value !== newValue) {
+	            if (result && _this.props.value != newValue) {
 	                _this.commit(newValue);
 	            }
 	            if (!result && _this.props.handleValidationFail) {
@@ -20078,7 +20078,7 @@
 	        };
 
 	        _this.keyDown = function (event) {
-	            debug('keyDown(${event.keyCode})');
+	            debug('keyDown(' + event.keyCode + ')');
 	            if (event.keyCode === 13) {
 	                _this.finishEditing();
 	            } // Enter
@@ -20088,7 +20088,7 @@
 	        };
 
 	        _this.textChanged = function (event) {
-	            debug('textChanged(${event.target.value})');
+	            debug('textChanged(' + event.target.value + ')');
 	            _this.doValidations(event.target.value.trim());
 	        };
 
