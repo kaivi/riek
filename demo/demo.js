@@ -423,6 +423,8 @@
 	              placeholder: 'New',
 	              className: _this.state.highlight ? "tags editable" : "tags",
 	              classLoading: 'loading',
+	              wrapper: 'div',
+	              wrapperClass: 'tag-item',
 	              isDisabled: _this.state.isDisabled }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
@@ -19399,7 +19401,7 @@
 	        };
 
 	        _this.render = function () {
-	            debuf('render()');
+	            debug('render()');
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({}, _this.props.defaultProps, { tabindex: '0', className: _this.makeClassString(), onClick: _this.elementClick }),
@@ -20059,7 +20061,7 @@
 	            _this.props.beforeFinish ? _this.props.beforeFinish() : null;
 	            var newValue = _reactDom2.default.findDOMNode(_this.refs.input).value;
 	            var result = _this.doValidations(newValue);
-	            if (result && _this.props.value !== newValue) {
+	            if (result && _this.props.value != newValue) {
 	                _this.commit(newValue);
 	            }
 	            if (!result && _this.props.handleValidationFail) {
@@ -20078,7 +20080,7 @@
 	        };
 
 	        _this.keyDown = function (event) {
-	            debug('keyDown(${event.keyCode})');
+	            debug('keyDown(' + event.keyCode + ')');
 	            if (event.keyCode === 13) {
 	                _this.finishEditing();
 	            } // Enter
@@ -20088,7 +20090,7 @@
 	        };
 
 	        _this.textChanged = function (event) {
-	            debug('textChanged(${event.target.value})');
+	            debug('textChanged(' + event.target.value + ')');
 	            _this.doValidations(event.target.value.trim());
 	        };
 
@@ -20414,11 +20416,17 @@
 	        _this.render = function () {
 	            return _react2.default.createElement(
 	                'div',
-	                { key: _this.props.text },
+	                {
+	                    key: _this.props.text,
+	                    className: _this.props.className
+	                },
 	                _this.props.text,
 	                _react2.default.createElement(
 	                    'div',
-	                    { onClick: _this.remove, className: _this.props.className || "remove" },
+	                    {
+	                        onClick: _this.remove,
+	                        className: _this.props.className + '-remove'
+	                    },
 	                    ' \xD7 '
 	                )
 	            );
@@ -20503,20 +20511,49 @@
 	        };
 
 	        _this2.renderNormalComponent = function () {
-	            var tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ", ");
-	            return _react2.default.createElement(
-	                'span',
-	                _extends({
-	                    tabIndex: '0',
-	                    className: _this2.makeClassString(),
-	                    onFocus: _this2.startEditing
-	                }, _this2.props.defaultProps),
-	                tags
-	            );
+	            if (_this2.props.wrapper) {
+	                var tags = [].concat(_toConsumableArray(_this2.props.value)).map(function (value, index) {
+	                    var wrapper = _react2.default.createElement(_this2.props.wrapper, {
+	                        key: index,
+	                        children: [value],
+	                        className: _this2.props.wrapperClass
+	                    });
+
+	                    return wrapper;
+	                });
+
+	                return _react2.default.createElement(
+	                    'span',
+	                    _extends({
+	                        tabIndex: '0',
+	                        className: _this2.makeClassString(),
+	                        onFocus: _this2.startEditing
+	                    }, _this2.props.defaultProps),
+	                    tags.reduce(function (result, el, index, arr) {
+	                        result.push(el);
+
+	                        if (index < arr.length - 1) result.push(_this2.props.separator || ', ');
+
+	                        return result;
+	                    }, [])
+	                );
+	            } else {
+	                var _tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ', ');
+
+	                return _react2.default.createElement(
+	                    'span',
+	                    _extends({
+	                        tabIndex: '0',
+	                        className: _this2.makeClassString(),
+	                        onFocus: _this2.startEditing
+	                    }, _this2.props.defaultProps),
+	                    _tags
+	                );
+	            }
 	        };
 
 	        _this2.makeTagElement = function (text) {
-	            return _react2.default.createElement(RIETag, { key: text, text: text, removeHandler: _this2.removeTag });
+	            return _react2.default.createElement(RIETag, { className: _this2.props.wrapperEditing, key: text, text: text, removeHandler: _this2.removeTag });
 	        };
 
 	        _this2.renderEditingComponent = function () {
@@ -20548,7 +20585,10 @@
 	    separator: _propTypes2.default.string,
 	    elementClass: _propTypes2.default.string,
 	    blurDelay: _propTypes2.default.number,
-	    placeholder: _propTypes2.default.string
+	    placeholder: _propTypes2.default.string,
+	    wrapper: _propTypes2.default.string,
+	    wrapperClass: _propTypes2.default.string,
+	    wrapperEditing: _propTypes2.default.string
 	};
 	exports.default = RIETags;
 

@@ -19,7 +19,16 @@ class RIETag extends React.Component {
     };
 
     render = () => {
-        return  <div key={this.props.text}>{this.props.text}<div onClick={this.remove} className={this.props.className || "remove"}> × </div></div>;
+        return  <div
+            key={this.props.text}
+            className={this.props.className}
+        >
+            {this.props.text}
+            <div
+                onClick={this.remove}
+                className={`${this.props.className}-remove`}
+            > × </div>
+        </div>;
     };
 }
 
@@ -38,7 +47,10 @@ export default class RIETags extends RIEStatefulBase {
         separator: PropTypes.string,
         elementClass: PropTypes.string,
         blurDelay: PropTypes.number,
-        placeholder: PropTypes.string
+        placeholder: PropTypes.string,
+        wrapper: PropTypes.string,
+        wrapperClass: PropTypes.string,
+        wrapperEditing: PropTypes.string,
     };
 
     addTag = (tag) => {
@@ -98,16 +110,48 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     renderNormalComponent = () => {
-        let tags = [...this.props.value].join(this.props.separator || ", ");
-        return <span
-            tabIndex="0"
-            className={this.makeClassString()}
-            onFocus={this.startEditing}
-            {...this.props.defaultProps}>{tags}</span>;
+        if(this.props.wrapper) {
+            let tags = [...this.props.value].map((value, index) => {
+                const wrapper = React.createElement(this.props.wrapper, {
+                    key: index,
+                    children: [value],
+                    className: this.props.wrapperClass,
+                });
+
+                return wrapper;
+            });
+
+            return <span
+                tabIndex="0"
+                className={this.makeClassString()}
+                onFocus={this.startEditing}
+                {...this.props.defaultProps}
+            >{
+                tags.reduce((result, el, index, arr) => {
+                    result.push(el);
+
+                    if(index < arr.length - 1)
+                        result.push(this.props.separator || ', ');
+
+                    return result;
+                }, [])
+            }</span>;
+        }
+        else {
+            let tags = [...this.props.value].join(this.props.separator || ', ');
+
+            return <span
+                tabIndex="0"
+                className={this.makeClassString()}
+                onFocus={this.startEditing}
+                {...this.props.defaultProps}>
+                {tags}
+            </span>;
+        }
     };
 
     makeTagElement = (text) => {
-        return <RIETag key={text} text={text} removeHandler={this.removeTag} />;
+        return <RIETag className={this.props.wrapperEditing} key={text} text={text} removeHandler={this.removeTag} />;
     };
 
     renderEditingComponent = () => {
