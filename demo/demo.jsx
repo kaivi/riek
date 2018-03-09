@@ -247,6 +247,8 @@ isDisabled={this.state.isDisabled} />`}
           placeholder="New"
           className={this.state.highlight ? "tags editable" : "tags"}
           classLoading="loading"
+          wrapper="div"
+          wrapperClass="tag-item"
           isDisabled={this.state.isDisabled} />
         {this.state.showSource ? <Highlight className="jsx">
         {`<RIETags

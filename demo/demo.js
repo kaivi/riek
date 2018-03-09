@@ -423,6 +423,8 @@
 	              placeholder: 'New',
 	              className: _this.state.highlight ? "tags editable" : "tags",
 	              classLoading: 'loading',
+	              wrapper: 'div',
+	              wrapperClass: 'tag-item',
 	              isDisabled: _this.state.isDisabled }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
@@ -20503,16 +20505,45 @@
 	        };
 
 	        _this2.renderNormalComponent = function () {
-	            var tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ", ");
-	            return _react2.default.createElement(
-	                'span',
-	                _extends({
-	                    tabIndex: '0',
-	                    className: _this2.makeClassString(),
-	                    onFocus: _this2.startEditing
-	                }, _this2.props.defaultProps),
-	                tags
-	            );
+	            if (_this2.props.wrapper) {
+	                var tags = [].concat(_toConsumableArray(_this2.props.value)).map(function (value, index) {
+	                    var wrapper = _react2.default.createElement(_this2.props.wrapper, {
+	                        key: index,
+	                        children: [value],
+	                        className: _this2.props.wrapperClass
+	                    });
+
+	                    return wrapper;
+	                });
+
+	                return _react2.default.createElement(
+	                    'span',
+	                    _extends({
+	                        tabIndex: '0',
+	                        className: _this2.makeClassString(),
+	                        onFocus: _this2.startEditing
+	                    }, _this2.props.defaultProps),
+	                    tags.reduce(function (result, el, index, arr) {
+	                        result.push(el);
+
+	                        if (index < arr.length - 1) result.push(_this2.props.separator || ', ');
+
+	                        return result;
+	                    }, [])
+	                );
+	            } else {
+	                var _tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ', ');
+
+	                return _react2.default.createElement(
+	                    'span',
+	                    _extends({
+	                        tabIndex: '0',
+	                        className: _this2.makeClassString(),
+	                        onFocus: _this2.startEditing
+	                    }, _this2.props.defaultProps),
+	                    _tags
+	                );
+	            }
 	        };
 
 	        _this2.makeTagElement = function (text) {
@@ -20548,7 +20579,9 @@
 	    separator: _propTypes2.default.string,
 	    elementClass: _propTypes2.default.string,
 	    blurDelay: _propTypes2.default.number,
-	    placeholder: _propTypes2.default.string
+	    placeholder: _propTypes2.default.string,
+	    wrapper: _propTypes2.default.string,
+	    wrapperClass: _propTypes2.default.string
 	};
 	exports.default = RIETags;
 
