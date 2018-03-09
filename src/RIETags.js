@@ -19,7 +19,16 @@ class RIETag extends React.Component {
     };
 
     render = () => {
-        return  <div key={this.props.text}>{this.props.text}<div onClick={this.remove} className={this.props.className || "remove"}> × </div></div>;
+        return  <div
+            key={this.props.text}
+            className={this.props.className}
+        >
+            {this.props.text}
+            <div
+                onClick={this.remove}
+                className={`${this.props.className}-remove`}
+            > × </div>
+        </div>;
     };
 }
 
@@ -41,6 +50,7 @@ export default class RIETags extends RIEStatefulBase {
         placeholder: PropTypes.string,
         wrapper: PropTypes.string,
         wrapperClass: PropTypes.string,
+        wrapperEditing: PropTypes.string,
     };
 
     addTag = (tag) => {
@@ -141,7 +151,7 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     makeTagElement = (text) => {
-        return <RIETag key={text} text={text} removeHandler={this.removeTag} />;
+        return <RIETag className={this.props.wrapperEditing} key={text} text={text} removeHandler={this.removeTag} />;
     };
 
     renderEditingComponent = () => {

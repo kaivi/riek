@@ -20416,11 +20416,17 @@
 	        _this.render = function () {
 	            return _react2.default.createElement(
 	                'div',
-	                { key: _this.props.text },
+	                {
+	                    key: _this.props.text,
+	                    className: _this.props.className
+	                },
 	                _this.props.text,
 	                _react2.default.createElement(
 	                    'div',
-	                    { onClick: _this.remove, className: _this.props.className || "remove" },
+	                    {
+	                        onClick: _this.remove,
+	                        className: _this.props.className + '-remove'
+	                    },
 	                    ' \xD7 '
 	                )
 	            );
@@ -20547,7 +20553,7 @@
 	        };
 
 	        _this2.makeTagElement = function (text) {
-	            return _react2.default.createElement(RIETag, { key: text, text: text, removeHandler: _this2.removeTag });
+	            return _react2.default.createElement(RIETag, { className: _this2.props.wrapperEditing, key: text, text: text, removeHandler: _this2.removeTag });
 	        };
 
 	        _this2.renderEditingComponent = function () {
@@ -20581,7 +20587,8 @@
 	    blurDelay: _propTypes2.default.number,
 	    placeholder: _propTypes2.default.string,
 	    wrapper: _propTypes2.default.string,
-	    wrapperClass: _propTypes2.default.string
+	    wrapperClass: _propTypes2.default.string,
+	    wrapperEditing: _propTypes2.default.string
 	};
 	exports.default = RIETags;
 
