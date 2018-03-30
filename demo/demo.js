@@ -20149,7 +20149,9 @@
 	            if (_this.state.editing && !prevState.editing) {
 	                debug('entering edit mode');
 	                inputElem.focus();
-	                _this.selectInputText(inputElem);
+	                if (typeof _this.props.selectAll === 'undefined' || _this.props.selectAll) {
+	                    _this.selectInputText(inputElem);
+	                }
 	            } else if (_this.state.editing && prevProps.text != _this.props.text) {
 	                debug('not editing && text not equal previous props -- finishing editing');
 	                _this.finishEditing();

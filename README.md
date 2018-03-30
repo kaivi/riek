@@ -88,6 +88,7 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **classInvalid**: CSS class name to apply when _validate_ returned false
 * **className**: CSS base class
 * **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea, or add `style`.
+* **selectAll**: Default true. When editing, select all the input's contents if true, otherwise simply `focus()`
 
 #### Hooks
 * **beforeStart**: Fires before editing starts
