@@ -20453,7 +20453,7 @@
 	        var _this2 = _possibleConstructorReturn(this, (RIETags.__proto__ || Object.getPrototypeOf(RIETags)).call(this, props));
 
 	        _this2.addTag = function (tag) {
-	            if ([].concat(_toConsumableArray(_this2.props.value)).length < (_this2.props.maxTags || 65535)) {
+	            if (_this2.doValidations(tag) && [].concat(_toConsumableArray(_this2.props.value)).length < (_this2.props.maxTags || 65535)) {
 	                _this2.commit(_this2.props.value.add(tag));
 	            }
 	        };
