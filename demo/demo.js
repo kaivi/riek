@@ -93,7 +93,7 @@
 	    };
 
 	    _this.isStringAcceptable = function (string) {
-	      return string.length >= 1; // Minimum 4 letters long
+	      return string.length >= 1; // At least one letter
 	    };
 
 	    _this.isStringEvenNumber = function (string) {
@@ -18157,23 +18157,23 @@
 
 	var _RIEToggle2 = _interopRequireDefault(_RIEToggle);
 
-	var _RIEStatefulBase2 = __webpack_require__(198);
+	var _RIEStatefulBase2 = __webpack_require__(199);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
-	var _RIETextArea = __webpack_require__(199);
+	var _RIETextArea = __webpack_require__(200);
 
 	var _RIETextArea2 = _interopRequireDefault(_RIETextArea);
 
-	var _RIENumber = __webpack_require__(200);
+	var _RIENumber = __webpack_require__(201);
 
 	var _RIENumber2 = _interopRequireDefault(_RIENumber);
 
-	var _RIETags = __webpack_require__(201);
+	var _RIETags = __webpack_require__(202);
 
 	var _RIETags2 = _interopRequireDefault(_RIETags);
 
-	var _RIESelect = __webpack_require__(202);
+	var _RIESelect = __webpack_require__(203);
 
 	var _RIESelect2 = _interopRequireDefault(_RIESelect);
 
@@ -18224,7 +18224,7 @@
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _RIEBase2 = __webpack_require__(194);
+	var _RIEBase2 = __webpack_require__(195);
 
 	var _RIEBase3 = _interopRequireDefault(_RIEBase2);
 
@@ -18283,12 +18283,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	if (process.env.NODE_ENV !== 'production') {
@@ -18310,7 +18308,7 @@
 	} else {
 	  // By explicitly using `prop-types` you are opting into new production behavior.
 	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(193)();
+	  module.exports = __webpack_require__(194)();
 	}
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(186)))
@@ -18510,12 +18508,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -18523,9 +18519,10 @@
 	var emptyFunction = __webpack_require__(188);
 	var invariant = __webpack_require__(189);
 	var warning = __webpack_require__(190);
+	var assign = __webpack_require__(191);
 
-	var ReactPropTypesSecret = __webpack_require__(191);
-	var checkPropTypes = __webpack_require__(192);
+	var ReactPropTypesSecret = __webpack_require__(192);
+	var checkPropTypes = __webpack_require__(193);
 
 	module.exports = function(isValidElement, throwOnDirectAccess) {
 	  /* global Symbol */
@@ -18621,7 +18618,8 @@
 	    objectOf: createObjectOfTypeChecker,
 	    oneOf: createEnumTypeChecker,
 	    oneOfType: createUnionTypeChecker,
-	    shape: createShapeTypeChecker
+	    shape: createShapeTypeChecker,
+	    exact: createStrictShapeTypeChecker,
 	  };
 
 	  /**
@@ -18836,7 +18834,7 @@
 	      if (typeof checker !== 'function') {
 	        warning(
 	          false,
-	          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
+	          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
 	          'received %s at index %s.',
 	          getPostfixForTypeWarning(checker),
 	          i
@@ -18887,6 +18885,36 @@
 	      }
 	      return null;
 	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createStrictShapeTypeChecker(shapeTypes) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== 'object') {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+	      }
+	      // We need to check all keys in case some are required but missing from
+	      // props.
+	      var allKeys = assign({}, props[propName], shapeTypes);
+	      for (var key in allKeys) {
+	        var checker = shapeTypes[key];
+	        if (!checker) {
+	          return new PropTypeError(
+	            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+	            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+	            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+	          );
+	        }
+	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	        if (error) {
+	          return error;
+	        }
+	      }
+	      return null;
+	    }
+
 	    return createChainableTypeChecker(validate);
 	  }
 
@@ -19032,11 +19060,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -19073,11 +19099,9 @@
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19133,12 +19157,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19156,45 +19178,43 @@
 	var warning = emptyFunction;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  (function () {
-	    var printWarning = function printWarning(format) {
-	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        args[_key - 1] = arguments[_key];
+	  var printWarning = function printWarning(format) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+
+	    var argIndex = 0;
+	    var message = 'Warning: ' + format.replace(/%s/g, function () {
+	      return args[argIndex++];
+	    });
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+
+	  warning = function warning(condition, format) {
+	    if (format === undefined) {
+	      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+	    }
+
+	    if (format.indexOf('Failed Composite propType: ') === 0) {
+	      return; // Ignore CompositeComponent proptype check.
+	    }
+
+	    if (!condition) {
+	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	        args[_key2 - 2] = arguments[_key2];
 	      }
 
-	      var argIndex = 0;
-	      var message = 'Warning: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // --- Welcome to debugging React ---
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch (x) {}
-	    };
-
-	    warning = function warning(condition, format) {
-	      if (format === undefined) {
-	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-	      }
-
-	      if (format.indexOf('Failed Composite propType: ') === 0) {
-	        return; // Ignore CompositeComponent proptype check.
-	      }
-
-	      if (!condition) {
-	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	          args[_key2 - 2] = arguments[_key2];
-	        }
-
-	        printWarning.apply(undefined, [format].concat(args));
-	      }
-	    };
-	  })();
+	      printWarning.apply(undefined, [format].concat(args));
+	    }
+	  };
 	}
 
 	module.exports = warning;
@@ -19204,13 +19224,107 @@
 /* 191 */
 /***/ (function(module, exports) {
 
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+
+			// Detect buggy property enumeration order in older V8 versions.
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+
+			return true;
+		} catch (err) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
+
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports) {
+
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -19221,16 +19335,14 @@
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -19238,7 +19350,7 @@
 	if (process.env.NODE_ENV !== 'production') {
 	  var invariant = __webpack_require__(189);
 	  var warning = __webpack_require__(190);
-	  var ReactPropTypesSecret = __webpack_require__(191);
+	  var ReactPropTypesSecret = __webpack_require__(192);
 	  var loggedTypeFailures = {};
 	}
 
@@ -19264,7 +19376,7 @@
 	        try {
 	          // This is intentionally an invariant that gets caught. It's the same
 	          // behavior as without this statement except with a better message.
-	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
+	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
 	          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
 	        } catch (ex) {
 	          error = ex;
@@ -19289,23 +19401,21 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(186)))
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
 
 	var emptyFunction = __webpack_require__(188);
 	var invariant = __webpack_require__(189);
-	var ReactPropTypesSecret = __webpack_require__(191);
+	var ReactPropTypesSecret = __webpack_require__(192);
 
 	module.exports = function() {
 	  function shim(props, propName, componentName, location, propFullName, secret) {
@@ -19343,7 +19453,8 @@
 	    objectOf: getShim,
 	    oneOf: getShim,
 	    oneOfType: getShim,
-	    shape: getShim
+	    shape: getShim,
+	    exact: getShim
 	  };
 
 	  ReactPropTypes.checkPropTypes = emptyFunction;
@@ -19354,7 +19465,7 @@
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19381,7 +19492,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var debug = __webpack_require__(195)('RIEBase');
+	var debug = __webpack_require__(196)('RIEBase');
 
 	var RIEBase = function (_React$Component) {
 	    _inherits(RIEBase, _React$Component);
@@ -19495,7 +19606,7 @@
 	exports.default = RIEBase;
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19504,7 +19615,7 @@
 	 * Expose `debug()` as the module.
 	 */
 
-	exports = module.exports = __webpack_require__(196);
+	exports = module.exports = __webpack_require__(197);
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -19687,7 +19798,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(186)))
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
@@ -19703,7 +19814,7 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
-	exports.humanize = __webpack_require__(197);
+	exports.humanize = __webpack_require__(198);
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -19895,7 +20006,7 @@
 
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports) {
 
 	/**
@@ -20053,7 +20164,7 @@
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20074,7 +20185,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _RIEBase2 = __webpack_require__(194);
+	var _RIEBase2 = __webpack_require__(195);
 
 	var _RIEBase3 = _interopRequireDefault(_RIEBase2);
 
@@ -20086,7 +20197,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var debug = __webpack_require__(195)('RIEStatefulBase');
+	var debug = __webpack_require__(196)('RIEStatefulBase');
 
 	var RIEStatefulBase = function (_RIEBase) {
 	    _inherits(RIEStatefulBase, _RIEBase);
@@ -20223,7 +20334,7 @@
 	exports.default = RIEStatefulBase;
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20242,7 +20353,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _RIEStatefulBase2 = __webpack_require__(198);
+	var _RIEStatefulBase2 = __webpack_require__(199);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
@@ -20286,18 +20397,18 @@
 	            }, _this.props.editProps));
 	        }, _this.renderNormalComponent = function () {
 	            var value = _this.state.newValue || _this.props.value;
-	            var spans_and_brs = [];
+	            var spans_and_brs_and_whitespaces = [];
 	            var i = 0;
 	            value.split("\n").map(function (line) {
-	                spans_and_brs.push(_react2.default.createElement(
+	                spans_and_brs_and_whitespaces.push(_react2.default.createElement(
 	                    'span',
 	                    { key: i },
-	                    line
+	                    line.replace(/ /gi, '\xA0')
 	                ));
-	                spans_and_brs.push(_react2.default.createElement('br', { key: i + 1 }));
+	                spans_and_brs_and_whitespaces.push(_react2.default.createElement('br', { key: i + 1 }));
 	                i += 2;
 	            });
-	            spans_and_brs.pop(); // remove last br tag
+	            spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
 	            return _react2.default.createElement(
 	                'span',
@@ -20307,7 +20418,7 @@
 	                    onFocus: _this.startEditing,
 	                    onClick: _this.startEditing
 	                }, _this.props.defaultProps),
-	                spans_and_brs
+	                spans_and_brs_and_whitespaces
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
@@ -20318,7 +20429,7 @@
 	exports.default = RIETextArea;
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20337,7 +20448,7 @@
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _RIEStatefulBase2 = __webpack_require__(198);
+	var _RIEStatefulBase2 = __webpack_require__(199);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
@@ -20349,7 +20460,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var debug = __webpack_require__(195)('RIENumber');
+	var debug = __webpack_require__(196)('RIENumber');
 
 	var RIENumber = function (_RIEStatefulBase) {
 	    _inherits(RIENumber, _RIEStatefulBase);
@@ -20423,7 +20534,7 @@
 	exports.default = RIENumber;
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20446,7 +20557,7 @@
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _RIEStatefulBase2 = __webpack_require__(198);
+	var _RIEStatefulBase2 = __webpack_require__(199);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
@@ -20652,7 +20763,7 @@
 	exports.default = RIETags;
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20675,7 +20786,7 @@
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _RIEStatefulBase2 = __webpack_require__(198);
+	var _RIEStatefulBase2 = __webpack_require__(199);
 
 	var _RIEStatefulBase3 = _interopRequireDefault(_RIEStatefulBase2);
 
