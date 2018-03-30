@@ -64,7 +64,8 @@ export default class RIEBase extends React.Component {
 
     componentWillReceiveProps = (nextProps) => {
         debug(`componentWillReceiveProps(${nextProps})`)
-        if ('value' in nextProps && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
+        const isNewValue = this.props.value !== nextProps.value
+        if (isNewValue && !(nextProps.shouldRemainWhileInvalid && this.state.invalid)) {
             this.setState({loading: false, editing: false, invalid: false, newValue: null});
         }
     };
