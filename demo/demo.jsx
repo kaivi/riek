@@ -48,7 +48,7 @@ class Demo extends React.Component {
   };
 
   isStringAcceptable = (string) => {
-    return (string.length >= 1);  // Minimum 4 letters long
+    return (string.length >= 1);  // At least one letter
   };
 
   isStringEvenNumber = (string) => {
