@@ -326,6 +326,44 @@
 	          _react2.default.createElement(
 	            'h3',
 	            null,
+	            'Controlled Input'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              'Editing mode: ',
+	              _react2.default.createElement(_index.RIEToggle, { value: _this.state.editing, change: _this.changeState, propName: 'editing', textTrue: 'on', textFalse: 'off', className: 'editable-pill' })
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Default: '
+	            ),
+	            _react2.default.createElement(_index.RIEInput, {
+	              editing: _this.state.editing,
+	              value: _this.state.controlledText,
+	              change: _this.virtualServerCallback,
+	              propName: 'controlledText',
+	              className: _this.state.highlight ? "editable" : "",
+	              classLoading: 'loading',
+	              classInvalid: 'invalid',
+	              afterFinish: function afterFinish() {
+	                return _this.setState({ editing: false });
+	              },
+	              isDisabled: _this.state.isDisabled }),
+	            _this.state.showSource ? _react2.default.createElement(
+	              _reactHighlight2.default,
+	              { className: 'jsx' },
+	              '<RIEInput\n  editing={this.state.editing}\n  value={this.state.controlledText}\n  change={this.virtualServerCallback}\n  propName="text"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"\n  afterFinish={() => this.setState({editing: false})}\n  isDisabled={this.state.isDisabled} />'
+	            ) : null
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
 	            'Textarea'
 	          ),
 	          _react2.default.createElement(
@@ -467,9 +505,11 @@
 	    _this.state = {
 	      select: { id: "1", text: "broccoli" },
 	      selectOptions: [{ id: "1", text: "broccoli" }, { id: "2", text: "arugula" }, { id: "3", text: "leek" }, { id: "4", text: "radish" }, { id: "5", text: "watercress" }, { id: "6", text: "dandelion" }],
+	      editing: false,
 	      boolean: true,
 	      number: 9000,
 	      text: "Example text value",
+	      controlledText: "Example controlled text value",
 	      textarea: 'Multiline example\n  text value',
 	      date: Date.now(),
 	      tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
@@ -19378,6 +19418,10 @@
 	            if (isNewValue && !(nextProps.shouldRemainWhileInvalid && _this.state.invalid)) {
 	                _this.setState({ loading: false, editing: false, invalid: false, newValue: null });
 	            }
+
+	            if (nextProps.editing !== _this.state.editing) {
+	                _this.setState({ editing: nextProps.editing });
+	            }
 	        };
 
 	        _this.commit = function (value) {
@@ -19415,7 +19459,7 @@
 	        if (typeof _this.props.value == 'undefined') throw "RTFM: missing 'value' prop";
 
 	        _this.state = {
-	            editing: false,
+	            editing: _this.props.editing,
 	            loading: false,
 	            disabled: false,
 	            invalid: false
@@ -19445,7 +19489,8 @@
 	    beforeStart: _propTypes2.default.func,
 	    afterStart: _propTypes2.default.func,
 	    beforeFinish: _propTypes2.default.func,
-	    afterFinish: _propTypes2.default.func
+	    afterFinish: _propTypes2.default.func,
+	    editing: _propTypes2.default.bool
 	};
 	exports.default = RIEBase;
 
@@ -20019,6 +20064,8 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -20158,6 +20205,15 @@
 
 	        return _this;
 	    }
+
+	    _createClass(RIEStatefulBase, [{
+	        key: 'componentWillReciveProps',
+	        value: function componentWillReciveProps(nextProps) {
+	            if (nextProps.editing && !this.state.editing) {
+	                this.startEditing();
+	            }
+	        }
+	    }]);
 
 	    return RIEStatefulBase;
 	}(_RIEBase3.default);

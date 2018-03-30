@@ -16,9 +16,11 @@ class Demo extends React.Component {
         {id: "5", text: "watercress"},
         {id: "6", text: "dandelion"}
       ],
+      editing: false,
       boolean : true,
       number : 9000,
       text : "Example text value",
+      controlledText : "Example controlled text value",
       textarea : `Multiline example
   text value`,
       date : Date.now(),
@@ -159,6 +161,35 @@ isDisabled={this.state.isDisabled} />`}
   validate={this.isStringAcceptable}
   classLoading="loading"
   classInvalid="invalid"
+  isDisabled={this.state.isDisabled} />`}
+        </Highlight> : null}
+      </div>
+      <hr />
+      <h3>Controlled Input</h3>
+      <div>
+        <div>Editing mode: <RIEToggle value={this.state.editing} change={this.changeState} propName="editing" textTrue="on" textFalse="off" className="editable-pill"/></div>
+        <span>Default: </span>
+        <RIEInput
+          editing={this.state.editing}
+          value={this.state.controlledText}
+          change={this.virtualServerCallback}
+          propName="controlledText"
+          className={this.state.highlight ? "editable" : ""}
+          classLoading="loading"
+          classInvalid="invalid"
+          afterFinish={() => this.setState({editing: false})}
+          isDisabled={this.state.isDisabled} />
+        {this.state.showSource ? <Highlight className="jsx">
+        {`<RIEInput
+  editing={this.state.editing}
+  value={this.state.controlledText}
+  change={this.virtualServerCallback}
+  propName="text"
+  className={this.state.highlight ? "editable" : ""}
+  validate={this.isStringAcceptable}
+  classLoading="loading"
+  classInvalid="invalid"
+  afterFinish={() => this.setState({editing: false})}
   isDisabled={this.state.isDisabled} />`}
         </Highlight> : null}
       </div>

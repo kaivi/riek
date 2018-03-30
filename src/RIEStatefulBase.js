@@ -17,6 +17,12 @@ export default class RIEStatefulBase extends RIEBase {
         this.props.afterStart ? this.props.afterStart() : null;
     };
 
+    componentWillReciveProps(nextProps) {
+        if (nextProps.editing && !this.state.editing) {
+            this.startEditing();
+        }
+    }
+
     finishEditing = () => {
         debug('finishEditing')
         this.props.beforeFinish ? this.props.beforeFinish() : null;
