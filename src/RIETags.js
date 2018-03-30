@@ -110,6 +110,12 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     renderNormalComponent = () => {
+		const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+        } : {
+            onDoubleClick: this.startEditing,
+		};
+
         if(this.props.wrapper) {
             let tags = [...this.props.value].map((value, index) => {
                 const wrapper = React.createElement(this.props.wrapper, {
@@ -119,12 +125,12 @@ export default class RIETags extends RIEStatefulBase {
                 });
 
                 return wrapper;
-            });
+			});
 
             return <span
                 tabIndex="0"
                 className={this.makeClassString()}
-                onFocus={this.startEditing}
+                {...editingHandlers}
                 {...this.props.defaultProps}
             >{
                 tags.reduce((result, el, index, arr) => {
@@ -143,7 +149,7 @@ export default class RIETags extends RIEStatefulBase {
             return <span
                 tabIndex="0"
                 className={this.makeClassString()}
-                onFocus={this.startEditing}
+                {...editingHandlers}
                 {...this.props.defaultProps}>
                 {tags}
             </span>;

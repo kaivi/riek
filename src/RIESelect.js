@@ -36,11 +36,16 @@ export default class RIESelect extends RIEStatefulBase {
     };
 
     renderNormalComponent = () => {
+        const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+            onClick: this.startEditing,
+        } : {
+            onDoubleClick: this.startEditing,
+        };
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
+            {...editingHandlers}
             {...this.props.defaultProps}>{(!!this.state.newValue) ? this.state.newValue.text : this.props.value.text}</span>;
     };
 }

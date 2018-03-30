@@ -32,11 +32,17 @@ export default class RIETextArea extends RIEStatefulBase {
         })
         spans_and_brs_and_whitespaces.pop() // remove last br tag
 
+        const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+            onClick: this.startEditing,
+        } : {
+            onDoubleClick: this.startEditing,
+		};
+
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
+            {...editingHandlers}
             {...this.props.defaultProps}>{spans_and_brs_and_whitespaces}</span>;
     };
 }

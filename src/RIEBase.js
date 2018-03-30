@@ -30,6 +30,7 @@ export default class RIEBase extends React.Component {
         handleValidationFail: PropTypes.func,
         shouldBlockWhileLoading: PropTypes.bool,
         shouldRemainWhileInvalid: PropTypes.bool,
+        shouldStartEditOnDoubleClick: PropTypes.bool,
         classLoading: PropTypes.string,
         classEditing: PropTypes.string,
         classDisabled: PropTypes.string,
@@ -40,6 +41,10 @@ export default class RIEBase extends React.Component {
         beforeFinish: PropTypes.func,
         afterFinish: PropTypes.func,
         editing: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        shouldStartEditOnDoubleClick: false,
     };
 
     doValidations = (value) => {
@@ -60,6 +65,10 @@ export default class RIEBase extends React.Component {
     };
 
     elementClick = (event) => {
+        throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle et.c";
+    };
+
+    elementDoubleClick = (event) => {
         throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle et.c";
     };
 

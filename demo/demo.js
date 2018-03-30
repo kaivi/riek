@@ -241,6 +241,11 @@
 	                'li',
 	                null,
 	                _react2.default.createElement(_index.RIEToggle, { value: _this.state.isDisabled, change: _this.changeState, propName: 'isDisabled', textTrue: 'fields disabled', textFalse: 'fields not disabled', className: 'editable-pill' })
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(_index.RIEToggle, { value: _this.state.editOnDoubleClick, change: _this.changeState, propName: 'editOnDoubleClick', textTrue: 'Edit on double click', textFalse: 'Edit on click', className: 'editable-pill' })
 	              )
 	            )
 	          )
@@ -267,11 +272,12 @@
 	              change: _this.virtualServerCallback,
 	              classLoading: 'loading',
 	              propName: 'boolean',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIEToggle\nvalue={this.state.boolean}\nclassName={this.state.highlight ? "editable" : ""}\nchange={this.virtualServerCallback}\nclassLoading="loading"\npropName="boolean"\nisDisabled={this.state.isDisabled} />'
+	              '<RIEToggle\nvalue={this.state.boolean}\nclassName={this.state.highlight ? "editable" : ""}\nchange={this.virtualServerCallback}\nclassLoading="loading"\npropName="boolean"\nisDisabled={this.state.isDisabled}\nshouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null,
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
@@ -287,11 +293,12 @@
 	              textFalse: 'deactivated',
 	              classLoading: 'loading',
 	              propName: 'boolean',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIEToggle\nvalue={this.state.boolean}\nclassName={this.state.highlight ? "editable" : ""}\nchange={this.virtualServerCallback}\ntextTrue="activated"\ntextFalse="deactivated"\nclassLoading="loading"\npropName="boolean"\nisDisabled={this.state.isDisabled} />'
+	              '<RIEToggle\nvalue={this.state.boolean}\nclassName={this.state.highlight ? "editable" : ""}\nchange={this.virtualServerCallback}\ntextTrue="activated"\ntextFalse="deactivated"\nclassLoading="loading"\npropName="boolean"\nisDisabled={this.state.isDisabled}\nshouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -315,11 +322,12 @@
 	              className: _this.state.highlight ? "editable" : "",
 	              classLoading: 'loading',
 	              classInvalid: 'invalid',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIEInput\n  value={this.state.text}\n  change={this.virtualServerCallback}\n  propName="text"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIEInput\n  value={this.state.text}\n  change={this.virtualServerCallback}\n  propName="text"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -382,11 +390,12 @@
 	              validate: _this.isStringAcceptable,
 	              classLoading: 'loading',
 	              classInvalid: 'invalid',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIETextArea\n  value={this.state.textarea}\n  change={this.virtualServerCallback}\n  propName="textarea"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIETextArea\n  value={this.state.textarea}\n  change={this.virtualServerCallback}\n  propName="textarea"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringAcceptable}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -410,11 +419,12 @@
 	              className: _this.state.highlight ? "editable" : "",
 	              classLoading: 'loading',
 	              classInvalid: 'invalid',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIENumber\n  value={this.state.number}\n  change={this.virtualServerCallback}\n  propName="number"\n  className={this.state.highlight ? "editable" : ""}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIENumber\n  value={this.state.number}\n  change={this.virtualServerCallback}\n  propName="number"\n  className={this.state.highlight ? "editable" : ""}\n  classLoading="loading"\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null,
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
@@ -431,11 +441,12 @@
 	              className: _this.state.highlight ? "editable" : "",
 	              validate: _this.isStringEvenNumber,
 	              classInvalid: 'invalid',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIENumber\n  value={this.state.number}\n  change={this.virtualServerCallback}\n  propName="number"\n  format={this.formatInteger}\n  classLoading="loading"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringEvenNumber}\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIENumber\n  value={this.state.number}\n  change={this.virtualServerCallback}\n  propName="number"\n  format={this.formatInteger}\n  classLoading="loading"\n  className={this.state.highlight ? "editable" : ""}\n  validate={this.isStringEvenNumber}\n  classInvalid="invalid"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -463,11 +474,12 @@
 	              classLoading: 'loading',
 	              wrapper: 'div',
 	              wrapperClass: 'tag-item',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIETags\n  value={this.state.tags}\n  change={this.virtualServerCallback}\n  maxTags={10}\n  minTags={2}\n  propName="tags"\n  placeholder="New"\n  className={this.state.highlight ? "tags editable" : "tags"}\n  classLoading="loading"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIETags\n  value={this.state.tags}\n  change={this.virtualServerCallback}\n  maxTags={10}\n  minTags={2}\n  propName="tags"\n  placeholder="New"\n  className={this.state.highlight ? "tags editable" : "tags"}\n  classLoading="loading"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          ),
 	          _react2.default.createElement('hr', null),
@@ -491,11 +503,12 @@
 	              change: _this.virtualServerCallback,
 	              classLoading: 'loading',
 	              propName: 'select',
-	              isDisabled: _this.state.isDisabled }),
+	              isDisabled: _this.state.isDisabled,
+	              shouldStartEditOnDoubleClick: _this.state.editOnDoubleClick }),
 	            _this.state.showSource ? _react2.default.createElement(
 	              _reactHighlight2.default,
 	              { className: 'jsx' },
-	              '<RIESelect\n  value={this.state.select}\n  className={this.state.highlight ? "editable" : ""}\n  options={this.state.selectOptions}\n  change={this.virtualServerCallback}\n  classLoading="loading"\n  propName="select"\n  isDisabled={this.state.isDisabled} />'
+	              '<RIESelect\n  value={this.state.select}\n  className={this.state.highlight ? "editable" : ""}\n  options={this.state.selectOptions}\n  change={this.virtualServerCallback}\n  classLoading="loading"\n  propName="select"\n  isDisabled={this.state.isDisabled}\n  shouldStartEditOnDoubleClick={this.state.editOnDoubleClick} />'
 	            ) : null
 	          )
 	        )
@@ -517,7 +530,8 @@
 	      XHRDelay: 450,
 	      highlight: false,
 	      showSource: false,
-	      isDisabled: false
+	      isDisabled: false,
+	      editOnDoubleClick: false
 	    };
 	    return _this;
 	  }
@@ -18230,6 +18244,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -18256,12 +18272,14 @@
 	            _this.commit(!_this.props.value);
 	        }, _this.render = function () {
 	            var valueToRender = _this.state.loading ? _this.state.value : _this.props.value;
+	            var editingHandlers = _defineProperty({
+	                onKeyPress: _this.elementClick
+	            }, !_this.props.shouldStartEditOnDoubleClick ? 'onClick' : 'onDoubleClick', _this.elementClick);
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
-	                    tabIndex: '0',
-	                    onKeyPress: _this.elementClick,
-	                    onClick: _this.elementClick,
+	                    tabIndex: '0'
+	                }, editingHandlers, {
 	                    className: _this.makeClassString()
 	                }, _this.props.defaultProps),
 	                valueToRender ? _this.props.textTrue || 'yes' : _this.props.textFalse || 'no'
@@ -19523,6 +19541,10 @@
 	            throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle et.c";
 	        };
 
+	        _this.elementDoubleClick = function (event) {
+	            throw "RIEBase must be subclassed first: use a concrete class like RIEInput, RIEToggle et.c";
+	        };
+
 	        _this.componentWillReceiveProps = function (nextProps) {
 	            debug('componentWillReceiveProps(' + nextProps + ')');
 	            var isNewValue = _this.props.value !== nextProps.value;
@@ -19592,6 +19614,7 @@
 	    handleValidationFail: _propTypes2.default.func,
 	    shouldBlockWhileLoading: _propTypes2.default.bool,
 	    shouldRemainWhileInvalid: _propTypes2.default.bool,
+	    shouldStartEditOnDoubleClick: _propTypes2.default.bool,
 	    classLoading: _propTypes2.default.string,
 	    classEditing: _propTypes2.default.string,
 	    classDisabled: _propTypes2.default.string,
@@ -19602,6 +19625,9 @@
 	    beforeFinish: _propTypes2.default.func,
 	    afterFinish: _propTypes2.default.func,
 	    editing: _propTypes2.default.bool
+	};
+	RIEBase.defaultProps = {
+	    shouldStartEditOnDoubleClick: false
 	};
 	exports.default = RIEBase;
 
@@ -20248,6 +20274,22 @@
 	                } // Escape
 	        };
 
+	        _this.keyUp = function () {
+	            debug('keyUp');
+	            _this.resizeInput(_this.refs.input);
+	        };
+
+	        _this.resizeInput = function (input) {
+	            if (!input.startW) {
+	                input.startW = input.offsetWidth;
+	            }
+	            var style = input.style;
+	            style.width = 0; // recalculate from 0, in case characters are deleted
+	            var desiredW = input.scrollWidth;
+	            desiredW += input.offsetHeight; // pad to reduce jerkyness when typing
+	            style.width = Math.max(desiredW, input.startW) + 'px';
+	        };
+
 	        _this.textChanged = function (event) {
 	            debug('textChanged(' + event.target.value + ')');
 	            _this.doValidations(event.target.value.trim());
@@ -20260,6 +20302,8 @@
 	            if (_this.state.editing && !prevState.editing) {
 	                debug('entering edit mode');
 	                inputElem.focus();
+	                _this.resizeInput(inputElem);
+
 	                if (typeof _this.props.selectAll === 'undefined' || _this.props.selectAll) {
 	                    _this.selectInputText(inputElem);
 	                }
@@ -20278,20 +20322,25 @@
 	                onInput: _this.textChanged,
 	                onBlur: _this.elementBlur,
 	                ref: 'input',
-	                onKeyDown: _this.keyDown
+	                onKeyDown: _this.keyDown,
+	                onKeyUp: _this.keyUp
 	            }, _this.props.editProps));
 	        };
 
 	        _this.renderNormalComponent = function () {
 	            debug('renderNormalComponent');
+	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
+	                onFocus: _this.startEditing,
+	                onClick: _this.startEditing
+	            } : {
+	                onDoubleClick: _this.startEditing
+	            };
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
-	                    className: _this.makeClassString(),
-	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing
-	                }, _this.props.defaultProps),
+	                    className: _this.makeClassString()
+	                }, editingHandlers, _this.props.defaultProps),
 	                _this.state.newValue || _this.props.value
 	            );
 	        };
@@ -20304,7 +20353,17 @@
 	        _this.elementClick = function (event) {
 	            debug('elementClick(' + event + ')');
 	            _this.startEditing();
-	            event.target.element.focus();
+	            if (event.target.element) {
+	                event.target.element.focus();
+	            }
+	        };
+
+	        _this.elementDoubleClick = function (event) {
+	            debug('elementDoubleClick(' + event + ')');
+	            _this.startEditing();
+	            if (event.target.element) {
+	                event.target.element.focus();
+	            }
 	        };
 
 	        _this.render = function () {
@@ -20410,14 +20469,19 @@
 	            });
 	            spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
+	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
+	                onFocus: _this.startEditing,
+	                onClick: _this.startEditing
+	            } : {
+	                onDoubleClick: _this.startEditing
+	            };
+
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
-	                    className: _this.makeClassString(),
-	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing
-	                }, _this.props.defaultProps),
+	                    className: _this.makeClassString()
+	                }, editingHandlers, _this.props.defaultProps),
 	                spans_and_brs_and_whitespaces
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -20497,14 +20561,18 @@
 
 	        _this.renderNormalComponent = function () {
 	            debug('renderNormalComponent()');
+	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
+	                onFocus: _this.startEditing,
+	                onClick: _this.elementClick
+	            } : {
+	                onDoubleClick: _this.elementDoubleClick
+	            };
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
-	                    className: _this.makeClassString(),
-	                    onFocus: _this.startEditing,
-	                    onClick: _this.elementClick
-	                }, _this.props.defaultProps),
+	                    className: _this.makeClassString()
+	                }, editingHandlers, _this.props.defaultProps),
 	                _this.props.format ? _this.props.format(_this.state.newValue || _this.props.value) : _this.state.newValue || _this.props.value
 	            );
 	        };
@@ -20681,6 +20749,12 @@
 	        };
 
 	        _this2.renderNormalComponent = function () {
+	            var editingHandlers = !_this2.props.shouldStartEditOnDoubleClick ? {
+	                onFocus: _this2.startEditing
+	            } : {
+	                onDoubleClick: _this2.startEditing
+	            };
+
 	            if (_this2.props.wrapper) {
 	                var tags = [].concat(_toConsumableArray(_this2.props.value)).map(function (value, index) {
 	                    var wrapper = _react2.default.createElement(_this2.props.wrapper, {
@@ -20696,9 +20770,8 @@
 	                    'span',
 	                    _extends({
 	                        tabIndex: '0',
-	                        className: _this2.makeClassString(),
-	                        onFocus: _this2.startEditing
-	                    }, _this2.props.defaultProps),
+	                        className: _this2.makeClassString()
+	                    }, editingHandlers, _this2.props.defaultProps),
 	                    tags.reduce(function (result, el, index, arr) {
 	                        result.push(el);
 
@@ -20714,9 +20787,8 @@
 	                    'span',
 	                    _extends({
 	                        tabIndex: '0',
-	                        className: _this2.makeClassString(),
-	                        onFocus: _this2.startEditing
-	                    }, _this2.props.defaultProps),
+	                        className: _this2.makeClassString()
+	                    }, editingHandlers, _this2.props.defaultProps),
 	                    _tags
 	                );
 	            }
@@ -20844,14 +20916,18 @@
 	                optionNodes
 	            );
 	        }, _this.renderNormalComponent = function () {
+	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
+	                onFocus: _this.startEditing,
+	                onClick: _this.startEditing
+	            } : {
+	                onDoubleClick: _this.startEditing
+	            };
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
 	                    tabIndex: '0',
-	                    className: _this.makeClassString(),
-	                    onFocus: _this.startEditing,
-	                    onClick: _this.startEditing
-	                }, _this.props.defaultProps),
+	                    className: _this.makeClassString()
+	                }, editingHandlers, _this.props.defaultProps),
 	                !!_this.state.newValue ? _this.state.newValue.text : _this.props.value.text
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);

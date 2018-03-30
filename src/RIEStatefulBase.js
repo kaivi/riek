@@ -103,11 +103,16 @@ export default class RIEStatefulBase extends RIEBase {
 
     renderNormalComponent = () => {
         debug('renderNormalComponent')
+        const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
+            onFocus: this.startEditing,
+            onClick: this.startEditing,
+        } : {
+            onDoubleClick: this.startEditing,
+        };
         return <span
             tabIndex="0"
             className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
+            {...editingHandlers}
             {...this.props.defaultProps}>{this.state.newValue || this.props.value}</span>;
     };
 
@@ -119,7 +124,17 @@ export default class RIEStatefulBase extends RIEBase {
     elementClick = (event) => {
         debug(`elementClick(${event})`)
         this.startEditing();
-        event.target.element.focus();
+        if (event.target.element) {
+            event.target.element.focus();
+        }
+    };
+
+    elementDoubleClick = (event) => {
+        debug(`elementDoubleClick(${event})`)
+        this.startEditing();
+        if (event.target.element) {
+            event.target.element.focus();
+        }
     };
 
     render = () => {

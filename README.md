@@ -80,6 +80,7 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **validate**: validator function, returning a boolean
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
 * **shouldRemainWhileInvalid**: remain in editing mode if validation fails
+* **shouldStartEditOnDoubleClick**: start editing mode on click if `false` or on double click if `true`, default : `false`
 * **defaultProps**: Additional props for idle component.
 
 #### Customization
