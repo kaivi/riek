@@ -12,11 +12,14 @@ export default class RIESelect extends RIEStatefulBase {
         // get the object from options that matches user selected value
         const newValue = this.props.options.find(function(option) {
             return option.id === ReactDOM.findDOMNode(this.refs.input).value;
-        }, this);
-        this.doValidations(newValue);
+		}, this);
+
+		this.doValidations(newValue);
+
         if(!this.state.invalid && this.props.value !== newValue) {
             this.commit(newValue);
-        }
+		}
+
         this.cancelEditing();
     };
 

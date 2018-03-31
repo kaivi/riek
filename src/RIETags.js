@@ -9,7 +9,7 @@ class RIETag extends React.Component {
     }
 
     static propTypes = {
-        text: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
         removeHandler: PropTypes.func,
         className: PropTypes.string
     };
@@ -20,7 +20,6 @@ class RIETag extends React.Component {
 
     render = () => {
         return  <div
-            key={this.props.text}
             className={this.props.className}
         >
             {this.props.text}
@@ -33,14 +32,13 @@ class RIETag extends React.Component {
 }
 
 export default class RIETags extends RIEStatefulBase {
-
     constructor(props) {
         super(props);
         this.state.currentText = "";
         this.state.blurTimer = null;
     }
 
-    static propTyes = {
+    static propTypes = {
         value: PropTypes.object.isRequired,
         maxTags: PropTypes.number,
         minTags: PropTypes.number,
@@ -51,7 +49,13 @@ export default class RIETags extends RIEStatefulBase {
         wrapper: PropTypes.string,
         wrapperClass: PropTypes.string,
         wrapperEditing: PropTypes.string,
-    };
+	};
+
+	static defaultProps = {
+		...RIEStatefulBase.defaultProps,
+		defaultValue: new Set(['CLICK TO EDIT']),
+		minTags: 1,
+	};
 
     addTag = (tag) => {
         if(this.doValidations(tag) && [...this.props.value].length < (this.props.maxTags || 65535)) {
@@ -60,14 +64,28 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     removeTag = (tag) => {
+		clearTimeout(this.state.blurTimer);
 
-        clearTimeout(this.state.blurTimer);
+		let set = this.props.value;
+		set.delete(tag);
+		this.commit(set);
 
-        if ([...this.props.value].length >= (this.props.minTags || 1)) {
-            let newSet = this.props.value;
-            newSet.delete(tag);
-            this.commit(newSet);
-        }
+		if(set.size < this.props.minTags + 1) {
+			if(typeof this.defaultValue === 'function')
+				this.commit(this.defaultValue(set));
+			else if(this.props.defaultValue instanceof Set) {
+				let setIndex = (set.size - 1 >= 0 ? set.size : 0);
+
+				while(set.size < this.props.minTags) {
+					if(setIndex >= this.props.defaultValue.size)
+						setIndex = 0;
+
+					this.addTag([...this.props.defaultValue][setIndex]);
+				}
+			}
+			else
+				this.addTag(this.props.defaultValue);
+		}
     };
 
     componentWillReceiveProps = (nextProps) => {
@@ -156,8 +174,8 @@ export default class RIETags extends RIEStatefulBase {
         }
     };
 
-    makeTagElement = (text) => {
-        return <RIETag className={this.props.wrapperEditing} key={text} text={text} removeHandler={this.removeTag} />;
+    makeTagElement = (text, index) => {
+        return <RIETag className={this.props.wrapperEditing} key={index} text={text} removeHandler={this.removeTag} />;
     };
 
     renderEditingComponent = () => {

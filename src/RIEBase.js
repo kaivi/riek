@@ -20,7 +20,8 @@ export default class RIEBase extends React.Component {
     }
 
     static propTypes = {
-        value: PropTypes.any.isRequired,
+		value: PropTypes.any.isRequired,
+		defaultValue: PropTypes.any,
         change: PropTypes.func.isRequired,
         propName: PropTypes.string.isRequired,
         editProps: PropTypes.object,
@@ -44,18 +45,32 @@ export default class RIEBase extends React.Component {
     };
 
     static defaultProps = {
-        shouldStartEditOnDoubleClick: false,
-    };
+		shouldStartEditOnDoubleClick: false,
+		defaultValue: 'CLICK TO EDIT',
+	};
+
+	getValue = (oldValue = this.props.value) => {
+        const value = (typeof this.props.defaultValue === 'function') ?
+			this.props.defaultValue(oldValue) :
+			(!oldValue && this.props.defaultValue !== undefined) ?
+				this.props.defaultValue :
+				oldValue;
+
+		return value;
+	};
 
     doValidations = (value) => {
         debug(`doValidations(${value})`)
-        let isValid;
-        if(this.props.validate) {
+		let isValid;
+
+        if(this.props.validate)
             isValid = this.props.validate(value);
-        } else if (this.validate) {
-            isValid = this.validate(value);
-        } else return true
-        this.setState({invalid: !isValid});
+		else if (this.validate)
+			isValid = this.validate(value);
+		else return true
+
+		this.setState({invalid: !isValid});
+
         return isValid;
     };
 
@@ -85,11 +100,13 @@ export default class RIEBase extends React.Component {
     };
 
     commit = (value) => {
-        debug(`commit(${value})`)
+		debug(`commit(${value})`)
+
         if(!this.state.invalid) {
+			const newValue = this.getValue(value);
             let newProp = {};
-            newProp[this.props.propName] = value;
-            this.setState({loading: true, newValue: value});
+            newProp[this.props.propName] = newValue;
+            this.setState({loading: true, newValue});
             this.props.change(newProp);
         }
     };
@@ -106,7 +123,9 @@ export default class RIEBase extends React.Component {
     };
 
     render = () => {
-        debug(`render()`)
-        return <span {...this.props.defaultProps} tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{this.props.value}</span>;
+		debug(`render()`)
+		const value = this.getValue();
+
+        return <span {...this.props.defaultProps} tabindex="0" className={this.makeClassString()} onClick={this.elementClick}>{value}</span>;
     };
 }

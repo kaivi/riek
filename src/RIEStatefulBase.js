@@ -25,17 +25,18 @@ export default class RIEStatefulBase extends RIEBase {
 
     finishEditing = () => {
         debug('finishEditing')
-        this.props.beforeFinish ? this.props.beforeFinish() : null;
+		this.props.beforeFinish ? this.props.beforeFinish() : null;
+
         let newValue = ReactDOM.findDOMNode(this.refs.input).value;
-        const result = this.doValidations(newValue);
-        if(result && this.props.value != newValue) {
-            this.commit(newValue);
-        }
-        if(!result && this.props.handleValidationFail) {
-            this.props.handleValidationFail(result, newValue, () => this.cancelEditing());
-        } else {
+		const valid = this.doValidations(newValue);
+
+        if(valid && this.props.value != newValue)
+			this.commit(newValue);
+		else if(this.props.handleValidationFail)
+            this.props.handleValidationFail(valid, newValue, () => this.cancelEditing());
+		else
             this.cancelEditing();
-        }
+
         this.props.afterFinish ? this.props.afterFinish() : null;
     };
 

@@ -12,10 +12,19 @@ export default class RIENumber extends RIEStatefulBase {
 
     static propTypes = {
         format: PropTypes.func
-    };
+	};
+
+	static defaultProps = {
+		...RIEStatefulBase.defaultProps,
+		defaultValue: 0,
+	};
 
     validate = (value) => {
-        debug(`validate(${value})`)
+		debug(`validate(${value})`)
+
+		if(value === '')
+			value = `${this.props.defaultValue}`;
+
         return !isNaN(value) && isFinite(value) && value.length > 0;
     };
 
@@ -27,7 +36,7 @@ export default class RIENumber extends RIEStatefulBase {
 
     elementBlur = (element) => {
         debug(`elementBlur(${element})`)
-/*  
+/*
             Firefox workaround
             Found at https://tirdadc.github.io/blog/2015/06/11/react-dot-js-firefox-issue-with-onblur/
 */
@@ -45,7 +54,8 @@ export default class RIENumber extends RIEStatefulBase {
             onClick: this.elementClick,
         } : {
             onDoubleClick: this.elementDoubleClick,
-        };
+		};
+
         return <span
             tabIndex="0"
             className={this.makeClassString()}
@@ -54,7 +64,8 @@ export default class RIENumber extends RIEStatefulBase {
     };
 
     renderEditingComponent = () => {
-        debug(`renderEditingComponent()`)
+		debug(`renderEditingComponent()`)
+
         return <input disabled={(this.props.shouldBlockWhileLoading && this.state.loading)}
                       type="number"
                       className={this.makeClassString()}
