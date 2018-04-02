@@ -53,7 +53,7 @@ export default class RIETags extends RIEStatefulBase {
 
 	static defaultProps = {
 		...RIEStatefulBase.defaultProps,
-		defaultValue: new Set(['CLICK TO EDIT']),
+		defaultValue: new Set(['default']),
 		minTags: 1,
 	};
 
@@ -68,24 +68,30 @@ export default class RIETags extends RIEStatefulBase {
 
 		let set = this.props.value;
 		set.delete(tag);
-		this.commit(set);
 
-		if(set.size < this.props.minTags + 1) {
+		if(set.size < this.props.minTags - 1) {
 			if(typeof this.defaultValue === 'function')
 				this.commit(this.defaultValue(set));
 			else if(this.props.defaultValue instanceof Set) {
-				let setIndex = (set.size - 1 >= 0 ? set.size : 0);
+				let setIndex = (set.size - 1 >= 0 ? set.size - 1 : 0);
 
-				while(set.size < this.props.minTags) {
+				while(set.size < this.props.minTags - 1) {
 					if(setIndex >= this.props.defaultValue.size)
 						setIndex = 0;
 
-					this.addTag([...this.props.defaultValue][setIndex]);
+					set.add([...this.props.defaultValue][setIndex]);
+					setIndex++;
 				}
+
+				this.commit(set);
 			}
-			else
-				this.addTag(this.props.defaultValue);
+			else {
+				set.add(this.props.defaultValue);
+				this.commit(set);
+			}
 		}
+		else
+			this.commit(set);
     };
 
     componentWillReceiveProps = (nextProps) => {

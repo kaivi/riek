@@ -18225,7 +18225,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -18253,47 +18253,52 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var RIEToggle = function (_RIEBase) {
-	    _inherits(RIEToggle, _RIEBase);
+		_inherits(RIEToggle, _RIEBase);
 
-	    function RIEToggle() {
-	        var _ref;
+		function RIEToggle() {
+			var _ref;
 
-	        var _temp, _this, _ret;
+			var _temp, _this, _ret;
 
-	        _classCallCheck(this, RIEToggle);
+			_classCallCheck(this, RIEToggle);
 
-	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	            args[_key] = arguments[_key];
-	        }
+			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+				args[_key] = arguments[_key];
+			}
 
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RIEToggle.__proto__ || Object.getPrototypeOf(RIEToggle)).call.apply(_ref, [this].concat(args))), _this), _this.elementClick = function (e) {
-	            if (_this.props.isDisabled) return;
-	            _this.setState({ value: !_this.props.value });
-	            _this.commit(!_this.props.value);
-	        }, _this.render = function () {
-	            var valueToRender = _this.state.loading ? _this.state.value : _this.props.value;
-	            var editingHandlers = _defineProperty({
-	                onKeyPress: _this.elementClick
-	            }, !_this.props.shouldStartEditOnDoubleClick ? 'onClick' : 'onDoubleClick', _this.elementClick);
-	            return _react2.default.createElement(
-	                'span',
-	                _extends({
-	                    tabIndex: '0'
-	                }, editingHandlers, {
-	                    className: _this.makeClassString()
-	                }, _this.props.defaultProps),
-	                valueToRender ? _this.props.textTrue || 'yes' : _this.props.textFalse || 'no'
-	            );
-	        }, _temp), _possibleConstructorReturn(_this, _ret);
-	    }
+			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RIEToggle.__proto__ || Object.getPrototypeOf(RIEToggle)).call.apply(_ref, [this].concat(args))), _this), _this.elementClick = function (e) {
+				if (_this.props.isDisabled) return;
+				_this.setState({ value: !_this.props.value });
+				_this.commit(!_this.props.value);
+			}, _this.render = function () {
+				var valueToRender = _this.getValue(_this.state.loading ? _this.state.value : _this.props.value);
 
-	    return RIEToggle;
+				var editingHandlers = _defineProperty({
+					onKeyPress: _this.elementClick
+				}, !_this.props.shouldStartEditOnDoubleClick ? 'onClick' : 'onDoubleClick', _this.elementClick);
+
+				return _react2.default.createElement(
+					'span',
+					_extends({
+						tabIndex: '0'
+					}, _this.props.defaultProps, editingHandlers, {
+						className: _this.makeClassString()
+					}),
+					valueToRender ? _this.props.textTrue || 'yes' : _this.props.textFalse || 'no'
+				);
+			}, _temp), _possibleConstructorReturn(_this, _ret);
+		}
+
+		return RIEToggle;
 	}(_RIEBase3.default);
 
 	RIEToggle.propTypes = {
-	    textTrue: _propTypes2.default.string,
-	    textFalse: _propTypes2.default.string
+		textTrue: _propTypes2.default.string,
+		textFalse: _propTypes2.default.string
 	};
+	RIEToggle.defaultProps = _extends({}, _RIEBase3.default.defaultProps, {
+		defaultValue: false
+	});
 	exports.default = RIEToggle;
 
 /***/ }),
@@ -19520,15 +19525,22 @@
 
 	        var _this = _possibleConstructorReturn(this, (RIEBase.__proto__ || Object.getPrototypeOf(RIEBase)).call(this, props));
 
+	        _this.getValue = function () {
+	            var oldValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.props.value;
+
+	            var value = typeof _this.props.defaultValue === 'function' ? _this.props.defaultValue(oldValue) : !oldValue && _this.props.defaultValue !== undefined ? _this.props.defaultValue : oldValue;
+
+	            return value;
+	        };
+
 	        _this.doValidations = function (value) {
 	            debug('doValidations(' + value + ')');
 	            var isValid = void 0;
-	            if (_this.props.validate) {
-	                isValid = _this.props.validate(value);
-	            } else if (_this.validate) {
-	                isValid = _this.validate(value);
-	            } else return true;
+
+	            if (_this.props.validate) isValid = _this.props.validate(value);else if (_this.validate) isValid = _this.validate(value);else return true;
+
 	            _this.setState({ invalid: !isValid });
+
 	            return isValid;
 	        };
 
@@ -19559,10 +19571,12 @@
 
 	        _this.commit = function (value) {
 	            debug('commit(' + value + ')');
+
 	            if (!_this.state.invalid) {
+	                var newValue = _this.getValue(value);
 	                var newProp = {};
-	                newProp[_this.props.propName] = value;
-	                _this.setState({ loading: true, newValue: value });
+	                newProp[_this.props.propName] = newValue;
+	                _this.setState({ loading: true, newValue: newValue });
 	                _this.props.change(newProp);
 	            }
 	        };
@@ -19580,10 +19594,12 @@
 
 	        _this.render = function () {
 	            debug('render()');
+	            var value = _this.getValue();
+
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({}, _this.props.defaultProps, { tabindex: '0', className: _this.makeClassString(), onClick: _this.elementClick }),
-	                _this.props.value
+	                value
 	            );
 	        };
 
@@ -19605,6 +19621,7 @@
 
 	RIEBase.propTypes = {
 	    value: _propTypes2.default.any.isRequired,
+	    defaultValue: _propTypes2.default.any,
 	    change: _propTypes2.default.func.isRequired,
 	    propName: _propTypes2.default.string.isRequired,
 	    editProps: _propTypes2.default.object,
@@ -19627,7 +19644,8 @@
 	    editing: _propTypes2.default.bool
 	};
 	RIEBase.defaultProps = {
-	    shouldStartEditOnDoubleClick: false
+	    shouldStartEditOnDoubleClick: false,
+	    defaultValue: 'CLICK TO EDIT'
 	};
 	exports.default = RIEBase;
 
@@ -20244,18 +20262,14 @@
 	        _this.finishEditing = function () {
 	            debug('finishEditing');
 	            _this.props.beforeFinish ? _this.props.beforeFinish() : null;
+
 	            var newValue = _reactDom2.default.findDOMNode(_this.refs.input).value;
-	            var result = _this.doValidations(newValue);
-	            if (result && _this.props.value != newValue) {
-	                _this.commit(newValue);
-	            }
-	            if (!result && _this.props.handleValidationFail) {
-	                _this.props.handleValidationFail(result, newValue, function () {
-	                    return _this.cancelEditing();
-	                });
-	            } else {
-	                _this.cancelEditing();
-	            }
+	            var valid = _this.doValidations(newValue);
+
+	            if (valid && _this.props.value != newValue) _this.commit(newValue);else if (_this.props.handleValidationFail) _this.props.handleValidationFail(valid, newValue, function () {
+	                return _this.cancelEditing();
+	            });else _this.cancelEditing();
+
 	            _this.props.afterFinish ? _this.props.afterFinish() : null;
 	        };
 
@@ -20536,6 +20550,9 @@
 
 	        _this.validate = function (value) {
 	            debug('validate(' + value + ')');
+
+	            if (value === '') value = '' + _this.props.defaultValue;
+
 	            return !isNaN(value) && isFinite(value) && value.length > 0;
 	        };
 
@@ -20549,7 +20566,7 @@
 
 	        _this.elementBlur = function (element) {
 	            debug('elementBlur(' + element + ')');
-	            /*  
+	            /*
 	                        Firefox workaround
 	                        Found at https://tirdadc.github.io/blog/2015/06/11/react-dot-js-firefox-issue-with-onblur/
 	            */
@@ -20567,6 +20584,7 @@
 	            } : {
 	                onDoubleClick: _this.elementDoubleClick
 	            };
+
 	            return _react2.default.createElement(
 	                'span',
 	                _extends({
@@ -20579,6 +20597,7 @@
 
 	        _this.renderEditingComponent = function () {
 	            debug('renderEditingComponent()');
+
 	            return _react2.default.createElement('input', _extends({ disabled: _this.props.shouldBlockWhileLoading && _this.state.loading,
 	                type: 'number',
 	                className: _this.makeClassString(),
@@ -20599,6 +20618,9 @@
 	RIENumber.propTypes = {
 	    format: _propTypes2.default.func
 	};
+	RIENumber.defaultProps = _extends({}, _RIEStatefulBase3.default.defaultProps, {
+	    defaultValue: 0
+	});
 	exports.default = RIENumber;
 
 /***/ }),
@@ -20655,7 +20677,6 @@
 	            return _react2.default.createElement(
 	                'div',
 	                {
-	                    key: _this.props.text,
 	                    className: _this.props.className
 	                },
 	                _this.props.text,
@@ -20697,14 +20718,28 @@
 	        };
 
 	        _this2.removeTag = function (tag) {
-
 	            clearTimeout(_this2.state.blurTimer);
 
-	            if ([].concat(_toConsumableArray(_this2.props.value)).length >= (_this2.props.minTags || 1)) {
-	                var newSet = _this2.props.value;
-	                newSet.delete(tag);
-	                _this2.commit(newSet);
-	            }
+	            var set = _this2.props.value;
+	            set.delete(tag);
+
+	            if (set.size < _this2.props.minTags - 1) {
+	                if (typeof _this2.defaultValue === 'function') _this2.commit(_this2.defaultValue(set));else if (_this2.props.defaultValue instanceof Set) {
+	                    var setIndex = set.size - 1 >= 0 ? set.size - 1 : 0;
+
+	                    while (set.size < _this2.props.minTags - 1) {
+	                        if (setIndex >= _this2.props.defaultValue.size) setIndex = 0;
+
+	                        set.add([].concat(_toConsumableArray(_this2.props.defaultValue))[setIndex]);
+	                        setIndex++;
+	                    }
+
+	                    _this2.commit(set);
+	                } else {
+	                    set.add(_this2.props.defaultValue);
+	                    _this2.commit(set);
+	                }
+	            } else _this2.commit(set);
 	        };
 
 	        _this2.componentWillReceiveProps = function (nextProps) {
@@ -20794,8 +20829,8 @@
 	            }
 	        };
 
-	        _this2.makeTagElement = function (text) {
-	            return _react2.default.createElement(RIETag, { className: _this2.props.wrapperEditing, key: text, text: text, removeHandler: _this2.removeTag });
+	        _this2.makeTagElement = function (text, index) {
+	            return _react2.default.createElement(RIETag, { className: _this2.props.wrapperEditing, key: index, text: text, removeHandler: _this2.removeTag });
 	        };
 
 	        _this2.renderEditingComponent = function () {
@@ -20820,7 +20855,7 @@
 	    return RIETags;
 	}(_RIEStatefulBase3.default);
 
-	RIETags.propTyes = {
+	RIETags.propTypes = {
 	    value: _propTypes2.default.object.isRequired,
 	    maxTags: _propTypes2.default.number,
 	    minTags: _propTypes2.default.number,
@@ -20832,6 +20867,10 @@
 	    wrapperClass: _propTypes2.default.string,
 	    wrapperEditing: _propTypes2.default.string
 	};
+	RIETags.defaultProps = _extends({}, _RIEStatefulBase3.default.defaultProps, {
+	    defaultValue: new Set(['default']),
+	    minTags: 1
+	});
 	exports.default = RIETags;
 
 /***/ }),
@@ -20889,10 +20928,13 @@
 	            var newValue = _this.props.options.find(function (option) {
 	                return option.id === _reactDom2.default.findDOMNode(this.refs.input).value;
 	            }, _this);
+
 	            _this.doValidations(newValue);
+
 	            if (!_this.state.invalid && _this.props.value !== newValue) {
 	                _this.commit(newValue);
 	            }
+
 	            _this.cancelEditing();
 	        }, _this.renderEditingComponent = function () {
 	            var optionNodes = _this.props.options.map(function (option) {

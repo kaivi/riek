@@ -28,12 +28,15 @@ export default class RIEToggle extends RIEBase {
             [!this.props.shouldStartEditOnDoubleClick ? 'onClick' : 'onDoubleClick']: this.elementClick,
 		}
 
-        return <span
-            tabIndex="0"
-            {...editingHandlers}
-            className={this.makeClassString()}
-            {...this.props.defaultProps}>
-            {valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
-        </span>;
+		return (
+			<span
+				tabIndex="0"
+				{...this.props.defaultProps}
+				{...editingHandlers}
+				className={this.makeClassString()}
+			>
+				{valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
+			</span>
+		);
     };
 }
