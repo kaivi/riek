@@ -19528,7 +19528,7 @@
 	        _this.getValue = function () {
 	            var oldValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.props.value;
 
-	            var value = typeof _this.props.defaultValue === 'function' ? _this.props.defaultValue(oldValue) : !oldValue && _this.props.defaultValue !== undefined ? _this.props.defaultValue : oldValue;
+	            var value = !oldValue && _this.props.defaultValue !== undefined ? typeof _this.props.defaultValue === 'function' ? _this.props.defaultValue(oldValue) : _this.props.defaultValue : oldValue;
 
 	            return value;
 	        };
@@ -20462,7 +20462,7 @@
 	                cols: _this.props.cols,
 	                disabled: _this.state.loading,
 	                className: _this.makeClassString(),
-	                defaultValue: _this.getValue(),
+	                defaultValue: _this.props.value,
 	                onInput: _this.textChanged,
 	                onBlur: _this.finishEditing,
 	                ref: 'input',

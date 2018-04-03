@@ -50,11 +50,11 @@ export default class RIEBase extends React.Component {
 	};
 
 	getValue = (oldValue = this.props.value) => {
-        const value = (typeof this.props.defaultValue === 'function') ?
-			this.props.defaultValue(oldValue) :
-			(!oldValue && this.props.defaultValue !== undefined) ?
+		const value = (!oldValue && this.props.defaultValue !== undefined) ?
+			typeof this.props.defaultValue === 'function' ?
+				this.props.defaultValue(oldValue) :
 				this.props.defaultValue :
-				oldValue;
+			oldValue;
 
 		return value;
 	};
