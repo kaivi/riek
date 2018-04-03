@@ -93,7 +93,7 @@
 	    };
 
 	    _this.isStringAcceptable = function (string) {
-	      return string.length >= 1; // At least one letter
+	      return string.length >= 0; // At least one letter
 	    };
 
 	    _this.isStringEvenNumber = function (string) {
@@ -20462,7 +20462,7 @@
 	                cols: _this.props.cols,
 	                disabled: _this.state.loading,
 	                className: _this.makeClassString(),
-	                defaultValue: _this.props.value,
+	                defaultValue: _this.getValue(),
 	                onInput: _this.textChanged,
 	                onBlur: _this.finishEditing,
 	                ref: 'input',
@@ -20471,7 +20471,9 @@
 	        }, _this.renderNormalComponent = function () {
 	            var value = _this.state.newValue || _this.props.value;
 	            var spans_and_brs_and_whitespaces = [];
+
 	            var i = 0;
+
 	            value.split("\n").map(function (line) {
 	                spans_and_brs_and_whitespaces.push(_react2.default.createElement(
 	                    'span',
@@ -20481,6 +20483,7 @@
 	                spans_and_brs_and_whitespaces.push(_react2.default.createElement('br', { key: i + 1 }));
 	                i += 2;
 	            });
+
 	            spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
 	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
