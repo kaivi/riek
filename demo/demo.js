@@ -93,7 +93,7 @@
 	    };
 
 	    _this.isStringAcceptable = function (string) {
-	      return string.length >= 0; // At least one letter
+	      return string.length >= 1; // At least one letter
 	    };
 
 	    _this.isStringEvenNumber = function (string) {
@@ -20687,7 +20687,8 @@
 	                    'div',
 	                    {
 	                        onClick: _this.remove,
-	                        className: _this.props.className + '-remove'
+	                        className: _this.props.className ? _this.props.className + '-remove' : '',
+	                        style: { margin: '3px', cursor: 'pointer' }
 	                    },
 	                    ' \xD7 '
 	                )

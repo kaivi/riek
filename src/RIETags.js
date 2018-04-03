@@ -25,7 +25,8 @@ class RIETag extends React.Component {
             {this.props.text}
             <div
                 onClick={this.remove}
-                className={`${this.props.className}-remove`}
+				className={this.props.className ? `${this.props.className}-remove` : ''}
+				style={{margin: '3px', cursor: 'pointer'}}
             > × </div>
         </div>;
     };
