@@ -20,7 +20,8 @@ class RIETag extends React.Component {
 
     render = () => {
         return  <div
-            className={this.props.className}
+			className={this.props.className}
+			style={{cursor: 'default'}}
         >
             {this.props.text}
             <div

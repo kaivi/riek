@@ -20680,7 +20680,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                {
-	                    className: _this.props.className
+	                    className: _this.props.className,
+	                    style: { cursor: 'default' }
 	                },
 	                _this.props.text,
 	                _react2.default.createElement(
