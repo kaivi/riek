@@ -114,7 +114,7 @@ export default class RIEStatefulBase extends RIEBase {
             tabIndex="0"
             className={this.makeClassString()}
             {...editingHandlers}
-            {...this.props.defaultProps}>{this.state.newValue || this.props.value}</span>;
+            {...this.props.defaultProps}>{this.state.newValue || this.props.value || this.getValue()}</span>;
     };
 
     elementBlur = (event) => {

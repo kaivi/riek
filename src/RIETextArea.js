@@ -22,7 +22,7 @@ export default class RIETextArea extends RIEStatefulBase {
     };
 
     renderNormalComponent = () => {
-        const value = this.state.newValue || this.props.value;
+        const value = this.state.newValue || this.props.value || this.getValue();
 		const contents = [];
 
 		const lines = value.split('\n');

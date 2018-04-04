@@ -20355,7 +20355,7 @@
 	                    tabIndex: '0',
 	                    className: _this.makeClassString()
 	                }, editingHandlers, _this.props.defaultProps),
-	                _this.state.newValue || _this.props.value
+	                _this.state.newValue || _this.props.value || _this.getValue()
 	            );
 	        };
 
@@ -20469,7 +20469,7 @@
 	                onKeyDown: _this.keyDown
 	            }, _this.props.editProps));
 	        }, _this.renderNormalComponent = function () {
-	            var value = _this.state.newValue || _this.props.value;
+	            var value = _this.state.newValue || _this.props.value || _this.getValue();
 	            var contents = [];
 
 	            var lines = value.split('\n');
