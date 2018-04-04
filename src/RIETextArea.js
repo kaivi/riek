@@ -23,17 +23,15 @@ export default class RIETextArea extends RIEStatefulBase {
 
     renderNormalComponent = () => {
         const value = this.state.newValue || this.props.value;
-		const spans_and_brs_and_whitespaces = [];
+		const contents = [];
 
-		let i = 0;
+		const lines = value.split('\n');
+		lines.map((line, index) => {
+			contents.push(line);
 
-        value.split("\n").map(line => {
-          spans_and_brs_and_whitespaces.push(<span key={i}>{line.replace(/ /gi, '\u00A0')}</span>);
-          spans_and_brs_and_whitespaces.push(<br key={i+1} />);
-          i += 2;
+			if(index < lines.length - 1)
+				contents.push(<br key={index} />);
 		});
-
-        spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
         const editingHandlers = !this.props.shouldStartEditOnDoubleClick ? {
             onFocus: this.startEditing,
@@ -49,7 +47,7 @@ export default class RIETextArea extends RIEStatefulBase {
 				{...editingHandlers}
 				{...this.props.defaultProps}
 			>
-				{spans_and_brs_and_whitespaces}
+				{contents}
 			</span>
 		);
     };

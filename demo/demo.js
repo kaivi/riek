@@ -20470,21 +20470,14 @@
 	            }, _this.props.editProps));
 	        }, _this.renderNormalComponent = function () {
 	            var value = _this.state.newValue || _this.props.value;
-	            var spans_and_brs_and_whitespaces = [];
+	            var contents = [];
 
-	            var i = 0;
+	            var lines = value.split('\n');
+	            lines.map(function (line, index) {
+	                contents.push(line);
 
-	            value.split("\n").map(function (line) {
-	                spans_and_brs_and_whitespaces.push(_react2.default.createElement(
-	                    'span',
-	                    { key: i },
-	                    line.replace(/ /gi, '\xA0')
-	                ));
-	                spans_and_brs_and_whitespaces.push(_react2.default.createElement('br', { key: i + 1 }));
-	                i += 2;
+	                if (index < lines.length - 1) contents.push(_react2.default.createElement('br', { key: index }));
 	            });
-
-	            spans_and_brs_and_whitespaces.pop(); // remove last br tag
 
 	            var editingHandlers = !_this.props.shouldStartEditOnDoubleClick ? {
 	                onFocus: _this.startEditing,
@@ -20499,7 +20492,7 @@
 	                    tabIndex: '0',
 	                    className: _this.makeClassString()
 	                }, editingHandlers, _this.props.defaultProps),
-	                spans_and_brs_and_whitespaces
+	                contents
 	            );
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
