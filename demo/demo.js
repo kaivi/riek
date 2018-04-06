@@ -525,7 +525,7 @@
 	      controlledText: "Example controlled text value",
 	      textarea: 'Multiline example\n  text value',
 	      date: Date.now(),
-	      tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
+	      tags: ["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"],
 	      simulateXHR: false,
 	      XHRDelay: 450,
 	      highlight: false,
@@ -20710,34 +20710,35 @@
 	        var _this2 = _possibleConstructorReturn(this, (RIETags.__proto__ || Object.getPrototypeOf(RIETags)).call(this, props));
 
 	        _this2.addTag = function (tag) {
-	            if (_this2.doValidations(tag) && [].concat(_toConsumableArray(_this2.props.value)).length < (_this2.props.maxTags || 65535)) {
-	                _this2.commit(_this2.props.value.add(tag));
+	            if (_this2.doValidations(tag) && _this2.props.value.length < (_this2.props.maxTags || 65535)) {
+	                var value = [].concat(_toConsumableArray(_this2.props.value), [tag]);
+	                _this2.commit([].concat(_toConsumableArray(new Set(value))));
 	            }
 	        };
 
 	        _this2.removeTag = function (tag) {
 	            clearTimeout(_this2.state.blurTimer);
 
-	            var set = _this2.props.value;
-	            set.delete(tag);
+	            var value = [].concat(_toConsumableArray(_this2.props.value));
+	            value.splice(value.indexOf(tag), 1);
 
-	            if (set.size < _this2.props.minTags - 1) {
-	                if (typeof _this2.defaultValue === 'function') _this2.commit(_this2.defaultValue(set));else if (_this2.props.defaultValue instanceof Set) {
-	                    var setIndex = set.size - 1 >= 0 ? set.size - 1 : 0;
+	            if (value.length < _this2.props.minTags - 1) {
+	                if (typeof _this2.defaultValue === 'function') _this2.commit(_this2.defaultValue(value));else if (_this2.props.defaultValue instanceof Array) {
+	                    var valueIndex = value.length - 1 >= 0 ? value.length - 1 : 0;
 
-	                    while (set.size < _this2.props.minTags - 1) {
-	                        if (setIndex >= _this2.props.defaultValue.size) setIndex = 0;
+	                    while (value.length < _this2.props.minTags - 1) {
+	                        if (valueIndex >= _this2.props.defaultValue.length) valueIndex = 0;
 
-	                        set.add([].concat(_toConsumableArray(_this2.props.defaultValue))[setIndex]);
-	                        setIndex++;
+	                        value.push(_this2.props.defaultValue[valueIndex]);
+	                        valueIndex++;
 	                    }
 
-	                    _this2.commit(set);
+	                    _this2.commit(value);
 	                } else {
-	                    set.add(_this2.props.defaultValue);
-	                    _this2.commit(set);
+	                    value.push(_this2.props.defaultValue);
+	                    _this2.commit(value);
 	                }
-	            } else _this2.commit(set);
+	            } else _this2.commit(value);
 	        };
 
 	        _this2.componentWillReceiveProps = function (nextProps) {
@@ -20748,7 +20749,7 @@
 	            if (event.keyCode === 8) {
 	                // Backspace
 	                if (event.target.value.length == 0) {
-	                    var tagToRemove = [].concat(_toConsumableArray(_this2.props.value)).pop();
+	                    var tagToRemove = _this2.props.value[_this2.props.value.length - 1];
 	                    _this2.removeTag(tagToRemove);
 	                }
 	            } else if (event.keyCode === 13) {
@@ -20776,9 +20777,7 @@
 
 	        _this2.componentDidUpdate = function (prevProps, prevState) {
 	            var inputElem = _reactDom2.default.findDOMNode(_this2.refs.input);
-	            if (_this2.state.editing) {
-	                inputElem.focus();
-	            }
+	            if (_this2.state.editing) inputElem.focus();
 	        };
 
 	        _this2.renderNormalComponent = function () {
@@ -20789,7 +20788,7 @@
 	            };
 
 	            if (_this2.props.wrapper) {
-	                var tags = [].concat(_toConsumableArray(_this2.props.value)).map(function (value, index) {
+	                var tags = _this2.props.value.map(function (value, index) {
 	                    var wrapper = _react2.default.createElement(_this2.props.wrapper, {
 	                        key: index,
 	                        children: [value],
@@ -20814,7 +20813,7 @@
 	                    }, [])
 	                );
 	            } else {
-	                var _tags = [].concat(_toConsumableArray(_this2.props.value)).join(_this2.props.separator || ', ');
+	                var _tags = _this2.props.value.join(_this2.props.separator || ', ');
 
 	                return _react2.default.createElement(
 	                    'span',
@@ -20832,7 +20831,7 @@
 	        };
 
 	        _this2.renderEditingComponent = function () {
-	            var elements = [].concat(_toConsumableArray(_this2.props.value)).map(_this2.makeTagElement);
+	            var elements = _this2.props.value.map(_this2.makeTagElement);
 	            return _react2.default.createElement(
 	                'div',
 	                _extends({ tabIndex: '1', onClick: _this2.startEditing, className: _this2.makeClassString() }, _this2.props.editProps),
@@ -20845,8 +20844,10 @@
 	            );
 	        };
 
-	        _this2.state.currentText = "";
-	        _this2.state.blurTimer = null;
+	        _this2.state = {
+	            currentText: '',
+	            blurTimer: null
+	        };
 	        return _this2;
 	    }
 
@@ -20854,7 +20855,7 @@
 	}(_RIEStatefulBase3.default);
 
 	RIETags.propTypes = {
-	    value: _propTypes2.default.object.isRequired,
+	    value: _propTypes2.default.array.isRequired,
 	    maxTags: _propTypes2.default.number,
 	    minTags: _propTypes2.default.number,
 	    separator: _propTypes2.default.string,
@@ -20866,7 +20867,7 @@
 	    wrapperEditing: _propTypes2.default.string
 	};
 	RIETags.defaultProps = _extends({}, _RIEStatefulBase3.default.defaultProps, {
-	    defaultValue: new Set(['default']),
+	    defaultValue: ['default'],
 	    minTags: 1
 	});
 	exports.default = RIETags;

@@ -24,7 +24,7 @@ class Demo extends React.Component {
       textarea : `Multiline example
   text value`,
       date : Date.now(),
-      tags: new Set(["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"]),
+      tags: ["Bergen", "Asmara", "Göteborg", "Newcastle", "Seattle"],
       simulateXHR: false,
       XHRDelay: 450,
       highlight: false,

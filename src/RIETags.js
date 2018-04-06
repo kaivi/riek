@@ -35,13 +35,16 @@ class RIETag extends React.Component {
 
 export default class RIETags extends RIEStatefulBase {
     constructor(props) {
-        super(props);
-        this.state.currentText = "";
-        this.state.blurTimer = null;
+		super(props);
+
+		this.state = {
+			currentText: '',
+			blurTimer: null,
+		};
     }
 
     static propTypes = {
-        value: PropTypes.object.isRequired,
+        value: PropTypes.array.isRequired,
         maxTags: PropTypes.number,
         minTags: PropTypes.number,
         separator: PropTypes.string,
@@ -55,59 +58,61 @@ export default class RIETags extends RIEStatefulBase {
 
 	static defaultProps = {
 		...RIEStatefulBase.defaultProps,
-		defaultValue: new Set(['default']),
+		defaultValue: ['default'],
 		minTags: 1,
 	};
 
     addTag = (tag) => {
-        if(this.doValidations(tag) && [...this.props.value].length < (this.props.maxTags || 65535)) {
-            this.commit(this.props.value.add(tag));
+        if(this.doValidations(tag) && this.props.value.length < (this.props.maxTags || 65535)) {
+			const value = [...this.props.value, tag];
+            this.commit([...(new Set(value))]);
         }
     };
 
     removeTag = (tag) => {
 		clearTimeout(this.state.blurTimer);
 
-		let set = this.props.value;
-		set.delete(tag);
+		const value = [...this.props.value];
+		value.splice(value.indexOf(tag), 1);
 
-		if(set.size < this.props.minTags - 1) {
+		if(value.length < this.props.minTags - 1) {
 			if(typeof this.defaultValue === 'function')
-				this.commit(this.defaultValue(set));
-			else if(this.props.defaultValue instanceof Set) {
-				let setIndex = (set.size - 1 >= 0 ? set.size - 1 : 0);
+				this.commit(this.defaultValue(value));
+			else if(this.props.defaultValue instanceof Array) {
+				let valueIndex = (value.length - 1 >= 0 ? value.length - 1 : 0);
 
-				while(set.size < this.props.minTags - 1) {
-					if(setIndex >= this.props.defaultValue.size)
-						setIndex = 0;
+				while(value.length < this.props.minTags - 1) {
+					if(valueIndex >= this.props.defaultValue.length)
+						valueIndex = 0;
 
-					set.add([...this.props.defaultValue][setIndex]);
-					setIndex++;
+					value.push(this.props.defaultValue[valueIndex]);
+					valueIndex++;
 				}
 
-				this.commit(set);
+				this.commit(value);
 			}
 			else {
-				set.add(this.props.defaultValue);
-				this.commit(set);
+				value.push(this.props.defaultValue);
+				this.commit(value);
 			}
 		}
 		else
-			this.commit(set);
+			this.commit(value);
     };
 
     componentWillReceiveProps = (nextProps) => {
-        if ('value' in nextProps) this.setState({loading: false, invalid: false});
+        if('value' in nextProps)
+			this.setState({loading: false, invalid: false});
     };
 
     keyDown = (event) => {
-        if (event.keyCode === 8) { // Backspace
+        if(event.keyCode === 8) { // Backspace
             if(event.target.value.length == 0){
-                let tagToRemove = [...this.props.value].pop();
+                const tagToRemove = this.props.value[this.props.value.length - 1];
                 this.removeTag(tagToRemove);
             }
 
-        } else if (event.keyCode === 13) { // Enter
+        } else if(event.keyCode === 13) { // Enter
             event.preventDefault();
             if(event.target.value.length === 0) {
                 this.cancelEditing();
@@ -115,7 +120,7 @@ export default class RIETags extends RIEStatefulBase {
                 this.addTag(event.target.value);
                 event.target.value = "";
             }
-        } else if (event.keyCode === 27) { // Escape
+        } else if(event.keyCode === 27) { // Escape
             this.cancelEditing();
         }
     };
@@ -129,10 +134,9 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     componentDidUpdate = (prevProps, prevState) => {
-        var inputElem = ReactDOM.findDOMNode(this.refs.input);
-        if (this.state.editing) {
+        const inputElem = ReactDOM.findDOMNode(this.refs.input);
+        if(this.state.editing)
             inputElem.focus();
-        }
     };
 
     renderNormalComponent = () => {
@@ -143,7 +147,7 @@ export default class RIETags extends RIEStatefulBase {
 		};
 
         if(this.props.wrapper) {
-            let tags = [...this.props.value].map((value, index) => {
+            let tags = this.props.value.map((value, index) => {
                 const wrapper = React.createElement(this.props.wrapper, {
                     key: index,
                     children: [value],
@@ -170,7 +174,7 @@ export default class RIETags extends RIEStatefulBase {
             }</span>;
         }
         else {
-            let tags = [...this.props.value].join(this.props.separator || ', ');
+            let tags = this.props.value.join(this.props.separator || ', ');
 
             return <span
                 tabIndex="0"
@@ -187,7 +191,7 @@ export default class RIETags extends RIEStatefulBase {
     };
 
     renderEditingComponent = () => {
-        let elements = [...this.props.value].map(this.makeTagElement);
+        let elements = this.props.value.map(this.makeTagElement);
         return <div tabIndex="1" onClick={this.startEditing} className={this.makeClassString()} {...this.props.editProps}>
             {elements}
             <input
