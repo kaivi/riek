@@ -1,12 +1,12 @@
 {
-  "name": "riek",
+  "name": "@attently/riek",
   "version": "2.0.0",
   "description": "React Inline Edit Kit",
   "author": "Kai Vik <kvi@ieee.org>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/attently/riek.git"
+    "url": "git+https://github.com/attently/riek.git"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -17,6 +17,10 @@
     "inplace",
     "inline"
   ],
+  "bugs": {
+	"url": "https://github.com/attently/riek/issues"
+  },
+  "homepage": "https://github.com/attently/riek#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build",
