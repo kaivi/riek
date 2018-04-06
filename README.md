@@ -4,11 +4,11 @@ An assortment of common HTML form elements, editable in-line the React way.
 Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 # Installation
-`npm install riek --save-dev`
+`npm install @attently/riek --save-dev`
 
 *or*
 
-`yarn add riek --dev`
+`yarn add @attently/riek --dev`
 
 *Use `--save-dev` because you don't want to build and pack JS/CSS in production*
 
@@ -16,7 +16,7 @@ Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 Import the library:
 
 ```javascript
-import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from '@attently/riek'
 import _ from 'lodash'
 ```
 
