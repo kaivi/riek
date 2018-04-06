@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaivi/riek.git"
+    "url": "git://github.com/attently/riek.git"
   },
   "main": "lib/index.js",
   "keywords": [
