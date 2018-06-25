@@ -26,7 +26,8 @@
     "build-lib": "rm -rf lib/*; babel src --out-dir lib",
     "build-demo": "NODE_ENV=production ./node_modules/.bin/webpack --progress --color",
     "build": "npm run build-lib && npm run build-demo",
-    "test": "jest",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "jest",
     "lint": "eslint src demo/demo.jsx",
     "lint:clean": "prettier src/**/*.js demo/demo.jsx --write; eslint --fix src/**/*.js demo/demo.jsx"
   },
