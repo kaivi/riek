@@ -2,12 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import RIEBase from "./RIEBase";
 
-export default class RIEToggle extends RIEBase {
-  static propTypes = {
-    textTrue: PropTypes.string,
-    textFalse: PropTypes.string,
-  };
+const debug = require("debug")("RIEToggle");
 
+class RIEToggle extends RIEBase {
   static defaultProps = {
     ...RIEBase.defaultProps,
     defaultValue: false,
@@ -21,10 +18,9 @@ export default class RIEToggle extends RIEBase {
     this.commit(!this.props.value);
   };
 
-  render = () => {
-    const valueToRender = this.getValue(
-      this.state.loading ? this.state.value : this.props.value
-    );
+  render () {
+    debug("render()");
+    const { defaultProps } = this.props;
 
     const editingHandlers = {
       onKeyPress: this.elementClick,
@@ -36,14 +32,29 @@ export default class RIEToggle extends RIEBase {
     return (
       <span
         tabIndex="0"
-        {...this.props.defaultProps}
+        {...defaultProps}
         {...editingHandlers}
         className={this.makeClassString()}
       >
-        {valueToRender
-          ? this.props.textTrue || "yes"
-          : this.props.textFalse || "no"}
+        {this.formatValue()}
       </span>
     );
-  };
+  }
+
+  formatValue (value = this.getValue()) {
+    return value
+      ? this.props.textTrue || "yes"
+      : this.props.textFalse || "no"
+  }
+
+  getValue() {
+    return this.state.loading ? this.state.value : this.props.value;
+  }
 }
+
+RIEToggle.propTypes = {
+  textTrue: PropTypes.string,
+  textFalse: PropTypes.string,
+};
+
+export default RIEToggle;

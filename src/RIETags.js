@@ -2,31 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import RIEStatefulBase from "./RIEStatefulBase";
+import RIEBase from "./RIEBase";
+
+const debugTag = require("debug")("RIETag");
 
 class RIETag extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  static propTypes = {
-    text: PropTypes.string.isRequired,
-    removeHandler: PropTypes.func,
-    className: PropTypes.string,
-  };
-
   remove = () => {
     this.props.removeHandler(this.props.text);
-  };
+  }
 
-  render = () => {
+  render () {
+    debugTag("render()");
+    const { className, text } = this.props;
     return (
-      <div className={this.props.className} style={{ cursor: "default" }}>
-        {this.props.text}
+      <div className={ className } style={{ cursor: "default" }}>
+        { text }
         <div
-          onClick={this.remove}
-          className={
-            this.props.className ? `${this.props.className}-remove` : ""
-          }
+          onClick={ this.remove }
+          className={ className ? `${className}-remove` : "remove" }
           style={{ margin: "3px", cursor: "pointer" }}
         >
           {" "}
@@ -34,10 +30,18 @@ class RIETag extends React.Component {
         </div>
       </div>
     );
-  };
+  }
 }
 
-export default class RIETags extends RIEStatefulBase {
+RIETag.propTypes = {
+  text: PropTypes.string.isRequired,
+  removeHandler: PropTypes.func,
+  className: PropTypes.string,
+};
+
+const debug = require("debug")("RIETags");
+
+class RIETags extends RIEStatefulBase {
   constructor(props) {
     super(props);
 
@@ -47,26 +51,14 @@ export default class RIETags extends RIEStatefulBase {
     };
   }
 
-  static propTypes = {
-    value: PropTypes.array.isRequired,
-    maxTags: PropTypes.number,
-    minTags: PropTypes.number,
-    separator: PropTypes.string,
-    elementClass: PropTypes.string,
-    blurDelay: PropTypes.number,
-    placeholder: PropTypes.string,
-    wrapper: PropTypes.string,
-    wrapperClass: PropTypes.string,
-    wrapperEditing: PropTypes.string,
-  };
-
   static defaultProps = {
     ...RIEStatefulBase.defaultProps,
     defaultValue: ["default"],
     minTags: 1,
   };
 
-  addTag = tag => {
+  addTag (tag) {
+    debug(`addTag(${tag})`);
     if (
       this.doValidations(tag) &&
       this.props.value.length < (this.props.maxTags || 65535)
@@ -74,9 +66,10 @@ export default class RIETags extends RIEStatefulBase {
       const value = [...this.props.value, tag];
       this.commit([...new Set(value)]);
     }
-  };
+  }
 
   removeTag = tag => {
+    debug(`removeTag(${tag})`);
     clearTimeout(this.state.blurTimer);
 
     const value = [...this.props.value];
@@ -107,53 +100,66 @@ export default class RIETags extends RIEStatefulBase {
     }
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps (nextProps) {
     if ("value" in nextProps) {
-      this.setState({ loading: false, invalid: false });
+      this.setState({
+        loading: false,
+        invalid: false,
+      });
     }
-  };
+  }
 
   keyDown = event => {
-    if (event.keyCode === 8) {
-      // Backspace
-      if (event.target.value.length === 0) {
-        const tagToRemove = this.props.value[this.props.value.length - 1];
-        this.removeTag(tagToRemove);
-      }
-    } else if (event.keyCode === 13) {
-      // Enter
-      event.preventDefault();
-      if (event.target.value.length === 0) {
-        this.cancelEditing();
-      } else {
+    debug(`removeTag(${event.keyCode})`);
+    switch (event.keyCode) {
+      case RIEBase.KEY_BACKSPACE:
+        if (event.target.value.length === 0) {
+          const tagToRemove = this.props.value[this.props.value.length - 1];
+          this.removeTag(tagToRemove);
+        }
+        break;
+      case RIEBase.KEY_ENTER:
+        event.preventDefault();
+        if (event.target.value.length === 0) {
+          this.cancelEditing();
+          return;
+        }
+
         this.addTag(event.target.value);
         // eslint-disable-next-line
         event.target.value = "";
-      }
-    } else if (event.keyCode === 27) {
-      // Escape
-      this.cancelEditing();
+        break;
+      case RIEBase.KEY_ESCAPE:
+        this.cancelEditing();
+        break;
     }
   };
 
   cancelEditingDelayed = () => {
     this.setState({
-      blurTimer: setTimeout(this.cancelEditing, this.props.blurDelay || 180),
+      blurTimer: setTimeout(
+        this.cancelEditing,
+        this.props.blurDelay || 180,
+      ),
     });
   };
 
   cancelEditing = () => {
-    this.setState({ editing: false, invalid: false });
+    this.setState({
+      editing: false,
+      invalid: false,
+    });
   };
 
-  componentDidUpdate = () => {
+  componentDidUpdate () {
     const inputElem = ReactDOM.findDOMNode(this.refs.input);
     if (this.state.editing) {
       inputElem.focus();
     }
-  };
+  }
 
-  renderNormalComponent = () => {
+  renderNormalComponent () {
+    debug("renderNormalComponent()");
     const editingHandlers = !this.props.shouldStartEditOnDoubleClick
       ? {
           onFocus: this.startEditing,
@@ -206,9 +212,9 @@ export default class RIETags extends RIEStatefulBase {
         </span>
       );
     }
-  };
+  }
 
-  makeTagElement = (text, index) => {
+  renderTagElement = (text, index) => {
     return (
       <RIETag
         className={this.props.wrapperEditing}
@@ -219,8 +225,9 @@ export default class RIETags extends RIEStatefulBase {
     );
   };
 
-  renderEditingComponent = () => {
-    const elements = this.props.value.map(this.makeTagElement);
+  renderEditingComponent () {
+    debug("renderEditingComponent()");
+    const elements = this.props.value.map(this.renderTagElement);
     return (
       <div
         tabIndex="1"
@@ -237,5 +244,17 @@ export default class RIETags extends RIEStatefulBase {
         />
       </div>
     );
-  };
+  }
 }
+
+RIETags.propTyes = {
+  value: PropTypes.object.isRequired,
+  maxTags: PropTypes.number,
+  minTags: PropTypes.number,
+  separator: PropTypes.string,
+  elementClass: PropTypes.string,
+  blurDelay: PropTypes.number,
+  placeholder: PropTypes.string,
+};
+
+export default RIETags;

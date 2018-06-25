@@ -4,21 +4,17 @@ import RIEStatefulBase from "./RIEStatefulBase";
 
 const debug = require("debug")("RIENumber");
 
-export default class RIENumber extends RIEStatefulBase {
+class RIENumber extends RIEStatefulBase {
   constructor(props) {
     super(props);
   }
-
-  static propTypes = {
-    format: PropTypes.func,
-  };
 
   static defaultProps = {
     ...RIEStatefulBase.defaultProps,
     defaultValue: 0,
   };
 
-  validate = value => {
+  validate (value) {
     debug(`validate(${value})`);
 
     let result = value;
@@ -27,15 +23,15 @@ export default class RIENumber extends RIEStatefulBase {
     }
 
     return !isNaN(result) && isFinite(result) && result.length > 0;
-  };
+  }
 
-  selectInputText = element => {
+  selectInputText (element) {
     debug(`selectInputText(${element})`);
     // element.setSelectionRange won't work for an input of type "number"
     setTimeout(() => {
       element.select();
     }, 10);
-  };
+  }
 
   elementBlur = element => {
     debug(`elementBlur(${element})`);
@@ -53,7 +49,7 @@ export default class RIENumber extends RIEStatefulBase {
     this.finishEditing();
   };
 
-  renderNormalComponent = () => {
+  renderNormalComponent () {
     debug(`renderNormalComponent()`);
     const editingHandlers = !this.props.shouldStartEditOnDoubleClick
       ? {
@@ -71,22 +67,20 @@ export default class RIENumber extends RIEStatefulBase {
         {...editingHandlers}
         {...this.props.defaultProps}
       >
-        {this.props.format
-          ? this.props.format(this.state.newValue || this.props.value)
-          : this.state.newValue || this.props.value}
+        {this.formatValue()}
       </span>
     );
-  };
+  }
 
-  renderEditingComponent = () => {
+  renderEditingComponent () {
     debug(`renderEditingComponent()`);
-
+    const { value } = this.props;
     return (
       <input
-        disabled={this.props.shouldBlockWhileLoading && this.state.loading}
+        disabled={this.isDisabled()}
         type="number"
         className={this.makeClassString()}
-        defaultValue={this.props.value}
+        defaultValue={value}
         onInput={this.textChanged}
         onBlur={this.elementBlur}
         ref="input"
@@ -94,5 +88,22 @@ export default class RIENumber extends RIEStatefulBase {
         {...this.props.editProps}
       />
     );
-  };
+  }
+
+  formatValue (value = this.getValue()) {
+    const { format } = this.props;
+
+    if (format && value !== undefined) {
+      return String(format(value));
+    }
+
+    return value;
+  }
 }
+
+
+RIENumber.propTypes = {
+  format: PropTypes.func,
+};
+
+export default RIENumber;

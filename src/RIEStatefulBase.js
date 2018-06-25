@@ -4,26 +4,27 @@ import RIEBase from "./RIEBase";
 
 const debug = require("debug")("RIEStatefulBase");
 
-export default class RIEStatefulBase extends RIEBase {
+class RIEStatefulBase extends RIEBase {
   constructor(props) {
     super(props);
   }
 
   startEditing = () => {
     debug("startEditing");
-    if (this.props.beforeStart) {
-      this.props.beforeStart();
+    const { beforeStart, afterStart, isDisabled } = this.props;
+    if (beforeStart) {
+      beforeStart();
     }
-    if (this.props.isDisabled) {
+    if (isDisabled) {
       return;
     }
     this.setState({ editing: true });
-    if (this.props.afterStart) {
-      this.props.afterStart();
+    if (afterStart) {
+      afterStart();
     }
   };
 
-  componentWillReciveProps(nextProps) {
+  componentWillReciveProps (nextProps) {
     if (nextProps.editing && !this.state.editing) {
       this.startEditing();
     }
@@ -31,41 +32,47 @@ export default class RIEStatefulBase extends RIEBase {
 
   finishEditing = () => {
     debug("finishEditing");
-    if (this.props.beforeFinish) {
-      this.props.beforeFinish();
+    const { beforeFinish, afterFinish } = this.props
+    if (beforeFinish) {
+      beforeFinish();
     }
 
     const newValue = ReactDOM.findDOMNode(this.refs.input).value;
     const valid = this.doValidations(newValue);
 
+    debug(`finishEditing: value=${this.props.value} newValue=${newValue} valid=${valid}`);
+
     if (valid && this.props.value !== newValue) {
       this.commit(newValue);
     } else if (this.props.handleValidationFail) {
-      this.props.handleValidationFail(valid, newValue, () =>
-        this.cancelEditing()
-      );
+      this.props.handleValidationFail(valid, newValue, this.cancelEditing);
     } else {
       this.cancelEditing();
     }
 
-    if (this.props.afterFinish) {
-      this.props.afterFinish();
+    if (afterFinish) {
+      afterFinish();
     }
-  };
+  }
 
   cancelEditing = () => {
     debug("cancelEditing");
-    this.setState({ editing: false, invalid: false });
+    this.setState({
+      editing: false,
+      invalid: false,
+    });
   };
 
   keyDown = event => {
     debug(`keyDown(${event.keyCode})`);
-    if (event.keyCode === 13) {
-      this.finishEditing();
-    } else if (event.keyCode === 27) {
-      // Enter
-      this.cancelEditing();
-    } // Escape
+    switch (event.keyCode) {
+      case RIEStatefulBase.KEY_ENTER:
+        this.finishEditing();
+        break;
+      case RIEStatefulBase.KEY_ESCAPE:
+        this.cancelEditing();
+        break;
+    }
   };
 
   keyUp = () => {
@@ -73,7 +80,7 @@ export default class RIEStatefulBase extends RIEBase {
     this.resizeInput(this.refs.input);
   };
 
-  resizeInput = input => {
+  resizeInput (input) {
     if (!input.startW) {
       // eslint-disable-next-line
       input.startW = input.offsetWidth;
@@ -83,14 +90,14 @@ export default class RIEStatefulBase extends RIEBase {
     let desiredW = input.scrollWidth;
     desiredW += input.offsetHeight; // pad to reduce jerkyness when typing
     style.width = Math.max(desiredW, input.startW) + "px";
-  };
+  }
 
   textChanged = event => {
     debug(`textChanged(${event.target.value})`);
     this.doValidations(event.target.value.trim());
   };
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate (prevProps, prevState) {
     debug(`componentDidUpdate(${prevProps}, ${prevState})`);
     const inputElem = ReactDOM.findDOMNode(this.refs.input);
     debug(inputElem);
@@ -108,27 +115,29 @@ export default class RIEStatefulBase extends RIEBase {
       );
       this.finishEditing();
     }
-  };
+  }
 
-  renderEditingComponent = () => {
+  renderEditingComponent () {
     debug("renderEditingComponent()");
+    const { editProps, value } = this.props;
     return (
       <input
-        disabled={this.state.loading}
+        disabled={this.isDisabled()}
         className={this.makeClassString()}
-        defaultValue={this.props.value}
+        defaultValue={value}
         onInput={this.textChanged}
         onBlur={this.elementBlur}
         ref="input"
         onKeyDown={this.keyDown}
         onKeyUp={this.keyUp}
-        {...this.props.editProps}
+        {...editProps}
       />
     );
-  };
+  }
 
-  renderNormalComponent = () => {
-    debug("renderNormalComponent");
+  renderNormalComponent () {
+    debug("renderNormalComponent()");
+    const { defaultProps } = this.props;
     const editingHandlers = !this.props.shouldStartEditOnDoubleClick
       ? {
           onFocus: this.startEditing,
@@ -142,12 +151,12 @@ export default class RIEStatefulBase extends RIEBase {
         tabIndex="0"
         className={this.makeClassString()}
         {...editingHandlers}
-        {...this.props.defaultProps}
+        {...defaultProps}
       >
-        {this.state.newValue || this.props.value || this.getValue()}
+        {this.formatValue()}
       </span>
     );
-  };
+  }
 
   elementBlur = event => {
     debug(`elementBlur(${event})`);
@@ -170,11 +179,21 @@ export default class RIEStatefulBase extends RIEBase {
     }
   };
 
-  render = () => {
+  render () {
     debug("render()");
     if (this.state.editing) {
       return this.renderEditingComponent();
     }
     return this.renderNormalComponent();
-  };
+  }
+
+  isDisabled () {
+    return this.props.shouldBlockWhileLoading && this.state.loading;
+  }
 }
+
+RIEStatefulBase.propTypes = {
+  selectAll: PropTypes.bool,
+};
+
+export default RIEStatefulBase;

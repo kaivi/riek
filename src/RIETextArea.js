@@ -1,32 +1,40 @@
+
 import React from "react";
+import RIEBase from './RIEBase';
 import RIEStatefulBase from "./RIEStatefulBase";
 
-export default class RIETextArea extends RIEStatefulBase {
+const debug = require("debug")("RIETextArea");
+
+class RIETextArea extends RIEStatefulBase {
   keyDown = event => {
-    if (event.keyCode === 27) {
+    if (event.keyCode === RIEBase.KEY_ESCAPE) {
       this.cancelEditing();
-    } // Escape
+    }
   };
 
-  renderEditingComponent = () => {
+  renderEditingComponent () {
+    debug("renderEditingComponent()");
+    const {
+      rows, cols, value, editProps,
+    } = this.props;
     return (
       <textarea
-        rows={this.props.rows}
-        cols={this.props.cols}
-        disabled={this.state.loading}
+        rows={rows}
+        cols={cols}
+        disabled={this.isDisabled()}
         className={this.makeClassString()}
-        defaultValue={this.props.value}
+        defaultValue={value}
         onInput={this.textChanged}
         onBlur={this.finishEditing}
         ref="input"
         onKeyDown={this.keyDown}
-        {...this.props.editProps}
+        {...editProps}
       />
     );
-  };
+  }
 
-  renderNormalComponent = () => {
-    const value = this.state.newValue || this.props.value || this.getValue();
+  transformNewlineToBr () {
+    const value = this.formatValue();
     const contents = [];
 
     const lines = value.split("\n");
@@ -38,6 +46,12 @@ export default class RIETextArea extends RIEStatefulBase {
       }
     });
 
+    return contents;
+  }
+
+  renderNormalComponent () {
+    debug("renderNormalComponent()");
+    const { defaultProps } = this.props;
     const editingHandlers = !this.props.shouldStartEditOnDoubleClick
       ? {
           onFocus: this.startEditing,
@@ -52,10 +66,13 @@ export default class RIETextArea extends RIEStatefulBase {
         tabIndex="0"
         className={this.makeClassString()}
         {...editingHandlers}
-        {...this.props.defaultProps}
+        {...defaultProps}
       >
-        {contents}
+        {this.transformNewlineToBr()}
       </span>
     );
-  };
+  }
 }
+
+export default RIETextArea;
+
