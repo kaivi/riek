@@ -1,42 +1,60 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RIEBase from './RIEBase';
+import React from "react";
+import PropTypes from "prop-types";
+import RIEBase from "./RIEBase";
 
-export default class RIEToggle extends RIEBase {
+const debug = require("debug")("RIEToggle");
 
-    static propTypes = {
-        textTrue: PropTypes.string,
-        textFalse: PropTypes.string,
-	};
+class RIEToggle extends RIEBase {
+  static defaultProps = {
+    ...RIEBase.defaultProps,
+    defaultValue: false,
+  };
 
-	static defaultProps = {
-		...RIEBase.defaultProps,
-		defaultValue: false,
-	};
+  elementClick = () => {
+    if (this.props.isDisabled) {
+      return;
+    }
+    this.setState({ value: !this.props.value });
+    this.commit(!this.props.value);
+  };
 
-    elementClick = (e) => {
-        if(this.props.isDisabled) return;
-        this.setState({value: !this.props.value});
-        this.commit(!this.props.value);
+  render () {
+    debug("render()");
+    const { defaultProps } = this.props;
+
+    const editingHandlers = {
+      onKeyPress: this.elementClick,
+      [!this.props.shouldStartEditOnDoubleClick
+        ? "onClick"
+        : "onDoubleClick"]: this.elementClick,
     };
 
-    render = () => {
-		let valueToRender = this.getValue(this.state.loading ? this.state.value : this.props.value);
+    return (
+      <span
+        tabIndex="0"
+        {...defaultProps}
+        {...editingHandlers}
+        className={this.makeClassString()}
+      >
+        {this.formatValue()}
+      </span>
+    );
+  }
 
-        const editingHandlers = {
-            onKeyPress: this.elementClick,
-            [!this.props.shouldStartEditOnDoubleClick ? 'onClick' : 'onDoubleClick']: this.elementClick,
-		}
+  formatValue (value = this.getValue()) {
+    return value
+      ? this.props.textTrue || "yes"
+      : this.props.textFalse || "no"
+  }
 
-		return (
-			<span
-				tabIndex="0"
-				{...this.props.defaultProps}
-				{...editingHandlers}
-				className={this.makeClassString()}
-			>
-				{valueToRender ? (this.props.textTrue || 'yes') : (this.props.textFalse || 'no')}
-			</span>
-		);
-    };
+  getValue() {
+    return this.state.loading ? this.state.value : this.props.value;
+  }
 }
+
+RIEToggle.propTypes = {
+  textTrue: PropTypes.string,
+  textFalse: PropTypes.string,
+};
+
+export default RIEToggle;
