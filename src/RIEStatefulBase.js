@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import RIEBase from "./RIEBase";
 
@@ -8,6 +7,7 @@ const debug = require("debug")("RIEStatefulBase");
 class RIEStatefulBase extends RIEBase {
   constructor(props) {
     super(props);
+    this.input = React.createRef();
   }
 
   startEditing = () => {
@@ -38,7 +38,7 @@ class RIEStatefulBase extends RIEBase {
       beforeFinish();
     }
 
-    const newValue = ReactDOM.findDOMNode(this.refs.input).value;
+    const newValue = this.input.current.value;
     const valid = this.doValidations(newValue);
 
     debug(`finishEditing: value=${this.props.value} newValue=${newValue} valid=${valid}`);
@@ -78,7 +78,7 @@ class RIEStatefulBase extends RIEBase {
 
   keyUp = () => {
     debug("keyUp");
-    this.resizeInput(this.refs.input);
+    this.resizeInput(this.input.current);
   };
 
   resizeInput (input) {
@@ -100,7 +100,7 @@ class RIEStatefulBase extends RIEBase {
 
   componentDidUpdate (prevProps, prevState) {
     debug(`componentDidUpdate(${prevProps}, ${prevState})`);
-    const inputElem = ReactDOM.findDOMNode(this.refs.input);
+    const inputElem = this.input.current;
     debug(inputElem);
     if (this.state.editing && !prevState.editing) {
       debug("entering edit mode");
@@ -128,7 +128,7 @@ class RIEStatefulBase extends RIEBase {
         defaultValue={value}
         onInput={this.textChanged}
         onBlur={this.elementBlur}
-        ref="input"
+        ref={this.input}
         onKeyDown={this.keyDown}
         onKeyUp={this.keyUp}
         {...editProps}
