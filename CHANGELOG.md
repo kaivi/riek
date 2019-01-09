@@ -1,3 +1,26 @@
+2.0.1 / 2018-04-06
+=================
+- `package.json` update
+
+2.0.0 / 2018-04-06
+=================
+- Minor bug fixes [#71](https://github.com/kaivi/riek/pull/71) (addresses [#33](https://github.com/kaivi/riek/issues/33) & [#67](https://github.com/kaivi/riek/issues/67)) and [#59](https://github.com/kaivi/riek/pull/59/)
+- Add: wrap-element support [#72](https://github.com/kaivi/riek/pull/72)
+- Fix: Add validate to tags control [#45](https://github.com/kaivi/riek/pull/45)
+- Fix: RIEInput is deselected when rerender occur [#46](https://github.com/kaivi/riek/issues/46)
+- Add: Implement set `editing` state programmatically [#50](https://github.com/kaivi/riek/pull/50)
+- Add: `selectAll` boolean flag to alter focus and select behavior [#57](https://github.com/kaivi/riek/pull/57/)
+- Change: display whitespaces accordingly in normal(non-editing) mode [#60](https://github.com/kaivi/riek/pull/60)
+- Add: Dynamically grow/shrink dimensions of RIEInput during editing [#65](https://github.com/kaivi/riek/pull/65)
+- Change: Support react 16 [#69](https://github.com/kaivi/riek/pull/69)
+- Add: `shouldStartEditOnDoubleClick` option to edit on double click [#70](https://github.com/kaivi/riek/pull/70)
+- Fix: TextArea default value bug [#b301a84](https://github.com/attently/riek/commit/b301a84ab045eccfb55a11cb6228e7fbb2f8febc)
+- Fix: Tags default value bug [#2a58731](https://github.com/attently/riek/commit/2a5873197b9427c50a9312d01cf2e9a838015d71)
+- Fix: Minor Style settings [#69f691f](https://github.com/attently/riek/commit/69f691fa23e9cccfb68a3140f81f9348498da3c4) & [#2395f4d](https://github.com/attently/riek/commit/2395f4da61029370f197b59ee6bb7f6f11e03a9e)
+- Change: `getValue()` returns `defaultValue` only if the `oldValue` is false-ish [#66a1e27](https://github.com/attently/riek/commit/66a1e27d7077c177431b1555f6e0396aecc92948)
+- Change: Using default in case the text is missing [#67add1d](https://github.com/attently/riek/commit/67add1dd439a3581c5f229a314c3e318a0362ba1)
+- Change: Tag now prevents duplicates [#335d7a0](https://github.com/attently/riek/commit/335d7a04082a3769ec23ca569462bc9f11dcb455)
+
 1.1.0 / 2017-06-03
 =================
 - Fixed issue [#41](https://github.com/kaivi/riek/issues/41)

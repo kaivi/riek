@@ -1,42 +1,78 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import RIEStatefulBase from './RIEStatefulBase';
 
-export default class RIETextArea extends RIEStatefulBase {
-    keyDown = (event) => {
-        if (event.keyCode === 27) { this.cancelEditing() }     // Escape
-    };
+import React from "react";
+import RIEBase from './RIEBase';
+import RIEStatefulBase from "./RIEStatefulBase";
 
-    renderEditingComponent = () => {
-        return <textarea
-            rows={this.props.rows}
-            cols={this.props.cols}
-            disabled={this.state.loading}
-            className={this.makeClassString()}
-            defaultValue={this.props.value}
-            onInput={this.textChanged}
-            onBlur={this.finishEditing}
-            ref="input"
-            onKeyDown={this.keyDown}
-            {...this.props.editProps} />;
-    };
+const debug = require("debug")("RIETextArea");
 
-    renderNormalComponent = () => {
-        const value = this.state.newValue || this.props.value
-        const spans_and_brs = []
-        let i = 0
-        value.split("\n").map(line => {
-          spans_and_brs.push(<span key={i}>{line}</span>)
-          spans_and_brs.push(<br key={i+1} />)
-          i += 2
-        })
-        spans_and_brs.pop() // remove last br tag
+class RIETextArea extends RIEStatefulBase {
+  keyDown = event => {
+    if (event.keyCode === RIEBase.KEY_ESCAPE) {
+      this.cancelEditing();
+    }
+  };
 
-        return <span
-            tabIndex="0"
-            className={this.makeClassString()}
-            onFocus={this.startEditing}
-            onClick={this.startEditing}
-            {...this.props.defaultProps}>{spans_and_brs}</span>;
-    };
+  renderEditingComponent () {
+    debug("renderEditingComponent()");
+    const {
+      rows, cols, value, editProps,
+    } = this.props;
+    return (
+      <textarea
+        rows={rows}
+        cols={cols}
+        disabled={this.isDisabled()}
+        className={this.makeClassString()}
+        defaultValue={value}
+        onInput={this.textChanged}
+        onBlur={this.finishEditing}
+        ref="input"
+        onKeyDown={this.keyDown}
+        {...editProps}
+      />
+    );
+  }
+
+  transformNewlineToBr () {
+    const value = this.formatValue();
+    const contents = [];
+
+    const lines = value.split("\n");
+    lines.map((line, index) => {
+      contents.push(line);
+
+      if (index < lines.length - 1) {
+        contents.push(<br key={index} />);
+      }
+    });
+
+    return contents;
+  }
+
+  renderNormalComponent () {
+    debug("renderNormalComponent()");
+    const { defaultProps } = this.props;
+    const editingHandlers = !this.props.shouldStartEditOnDoubleClick
+      ? {
+          onFocus: this.startEditing,
+          onClick: this.startEditing,
+        }
+      : {
+          onDoubleClick: this.startEditing,
+        };
+
+    return (
+      <span
+        tabIndex="0"
+        className={this.makeClassString()}
+        {...editingHandlers}
+        {...defaultProps}
+      >
+        {this.transformNewlineToBr()}
+      </span>
+    );
+  }
 }
+
+export default RIETextArea;
+

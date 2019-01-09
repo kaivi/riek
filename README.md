@@ -4,11 +4,11 @@ An assortment of common HTML form elements, editable in-line the React way.
 Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 
 # Installation
-`npm install riek --save-dev`
+`npm install @attently/riek --save-dev`
 
 *or*
 
-`yarn add riek --dev`
+`yarn add @attently/riek --dev`
 
 *Use `--save-dev` because you don't want to build and pack JS/CSS in production*
 
@@ -16,7 +16,7 @@ Try out [the demo](http://kaivi.github.io/riek/) and see what it looks like.
 Import the library:
 
 ```javascript
-import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from '@attently/riek'
 import _ from 'lodash'
 ```
 
@@ -76,9 +76,11 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **change**: function which will receive a plain object with a single key, provided in _propName_
 
 ### Optional
+* **editing**: editing state, to change editing state programmatically
 * **validate**: validator function, returning a boolean
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
 * **shouldRemainWhileInvalid**: remain in editing mode if validation fails
+* **shouldStartEditOnDoubleClick**: start editing mode on click if `false` or on double click if `true`, default : `false`
 * **defaultProps**: Additional props for idle component.
 
 #### Customization
@@ -87,6 +89,7 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **classInvalid**: CSS class name to apply when _validate_ returned false
 * **className**: CSS base class
 * **editProps**: Additional props for the editing component. This allows you to, for example, specify a maxLength attribute to control the maximum number of characters in the textarea, or add `style`.
+* **selectAll**: Default true. When editing, select all the input's contents if true, otherwise simply `focus()`
 
 #### Hooks
 * **beforeStart**: Fires before editing starts
