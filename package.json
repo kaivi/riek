@@ -61,8 +61,6 @@
     "install": "^0.10.2",
     "npm": "^5.6.0",
     "path": "^0.12.7",
-    "react": "^16.2.*",
-    "react-dom": "16.2.*",
     "uglifyjs-webpack-plugin": "^1.1.4"
   },
   "jest": {
