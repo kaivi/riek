@@ -76,7 +76,7 @@ Components come unstyled, so take a look at [demo.jsx](https://github.com/kaivi/
 * **change**: function which will receive a plain object with a single key, provided in _propName_
 
 ### Optional
-* **validate**: validator function, returning a boolean
+* **validate**: validator function, returning a [boolean](https://www.scaler.com/topics/boolean-in-javascript/)
 * **shouldBlockWhileLoading**: disables editing until a new value is confirmed by parent
 * **shouldRemainWhileInvalid**: remain in editing mode if validation fails
 * **defaultProps**: Additional props for idle component.
